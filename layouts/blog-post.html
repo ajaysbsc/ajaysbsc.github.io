@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Ajay Godara</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Blog post specific styles */
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        .blog-content ul li {
+            list-style-type: disc;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-content ol li {
+            list-style-type: decimal;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-content blockquote {
+            border-left: 4px solid #4a5568;
+            padding-left: 1rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold text-glacier-600">Ajay Godara</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#about" class="text-gray-600 hover:text-glacier-600">About</a>
+                    <a href="research.html" class="text-gray-600 hover:text-glacier-600">Research</a>
+                    <a href="blog.html" class="text-gray-600 hover:text-glacier-600">Blog</a>
+                    <a href="gallery.html" class="text-gray-600 hover:text-glacier-600">Gallery</a>
+                </div>
+                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="py-2 space-y-2">
+                    <a href="index.html#about" class="block text-gray-600 hover:text-glacier-600">About</a>
+                    <a href="research.html" class="block text-gray-600 hover:text-glacier-600">Research</a>
+                    <a href="blog.html" class="block text-gray-600 hover:text-glacier-600">Blog</a>
+                    <a href="gallery.html" class="block text-gray-600 hover:text-glacier-600">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <main class="pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <article class="max-w-4xl mx-auto">
+                <!-- Blog Header -->
+                <header class="mb-10">
+                    <h1 class="text-4xl font-bold mb-4">{{ title }}</h1>
+                    <div class="flex items-center text-gray-600 mb-6">
+                        <span class="mr-4"><i class="far fa-calendar-alt mr-2"></i>{{ date }}</span>
+                        <span><i class="fas fa-tag mr-2"></i>{{ category }}</span>
+                    </div>
+                    <img src="{{ featuredImage }}" alt="{{ title }}" class="w-full h-auto object-cover rounded-lg shadow-lg">
+                </header>
+                
+                <!-- Blog Content -->
+                <div class="blog-content prose lg:prose-xl max-w-none">
+                    {{ content }}
+                </div>
+                
+                <!-- Author Bio -->
+                <div class="mt-12 border-t border-gray-200 pt-8">
+                    <div class="flex items-center">
+                        <img src="images/ajay-profile.jpg" alt="Ajay Godara" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold text-lg">Ajay Godara</h3>
+                            <p class="text-gray-600">Glacier Researcher & Explorer</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Ajay Godara. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html> 

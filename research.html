@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Ajay Godara</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add lightbox for gallery -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Add Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        .section-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Typography and Base Styles */
+        .shadow-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation Styles */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Wave Footer */
+        .wave-top {
+            position: relative;
+            height: 80px;
+            background-color: white;
+        }
+
+        .wave-top::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-repeat: repeat-x;
+            height: 80px;
+            background-size: 100px 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 v 28 h -120 z' fill='%231f2937'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-montserrat overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-end items-center h-20">
+                <div class="hidden md:flex space-x-12">
+                    <a href="index.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Home</a>
+                    <a href="index.html#about" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">About Me</a>
+                    <a href="education.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Education</a>
+                    <a href="research.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Research</a>
+                    <a href="blog.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Blog</a>
+                    <a href="gallery.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Gallery</a>
+                </div>
+                <button class="md:hidden text-blue-500 text-2xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="py-3 space-y-4">
+                    <a href="index.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Home</a>
+                    <a href="index.html#about" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">About Me</a>
+                    <a href="education.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Education</a>
+                    <a href="research.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Research</a>
+                    <a href="blog.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Blog</a>
+                    <a href="gallery.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </nav>    <!-- Research Header -->
+    <section class="relative py-24 pt-32">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="images/banner.jpg" alt="Research Background" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-white/40 backdrop-blur-md"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-4 font-playfair shadow-text">Research</h1>
+            <p class="text-xl text-gray-700 text-center max-w-3xl mx-auto font-medium shadow-text">
+                Exploring glacier dynamics through innovative research methods
+            </p>
+        </div>
+    </section>
+
+    <!-- Diagonal Divider -->
+    <div class="diagonal-divider bg-white"></div>
+
+    <!-- Research Overview -->
+    <section class="py-16 bg-white section-fade">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6 font-playfair">Research Focus</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                    My research focuses on understanding glacier dynamics in the Himalayan region, with a particular emphasis on:
+                </p>
+                <ul class="space-y-4 text-lg text-gray-600 mb-6">
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">●</span>
+                        <span>Glacier mass balance estimation using UAV technology and remote sensing</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">●</span>
+                        <span>Development of frameworks for assessing debris cover thickness on glaciers</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">●</span>
+                        <span>Environmental monitoring in high-altitude regions using satellite imagery</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">●</span>
+                        <span>Field validation techniques for remote sensing data in challenging terrain</span>
+                    </li>
+                </ul>
+                <p class="text-lg text-gray-600">
+                    Through this work, I aim to contribute to our understanding of climate change impacts on cryospheric environments and develop improved methodologies for monitoring glacier health.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Projects -->
+    <section class="py-16 bg-gray-50 section-fade">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Ongoing <span class="text-blue-500">Projects</span></h2>
+            
+            <div class="space-y-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 relative">
+                            <img src="images/spotlight01.jpg" alt="UAV Glacier Study" class="h-full w-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-8">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-2xl font-bold mb-4">UAV-Based Glacier Mass Balance Study</h3>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Active</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">
+                                Utilizing UAV technology for high-resolution glacier mass balance analysis and debris thickness studies at various glaciers in the Himalayan region. This project aims to provide accurate measurements of glacier mass changes over time, contributing to our understanding of climate change impacts.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <span class="flex items-center">
+                                    <img src="images/logos/iitb_logo.png" alt="IIT Bombay Logo" class="h-10">
+                                </span>
+                                <span class="flex items-center">
+                                    <img src="images/logos/hrsa_logo.jpg" alt="HRSA Logo" class="h-10">
+                                </span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">UAV Mapping</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">Photogrammetry</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">Mass Balance</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">IIT Bombay</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Completed Projects -->
+    <section class="py-16 bg-white section-fade">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Completed <span class="text-blue-500">Projects</span></h2>
+            
+            <div class="space-y-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 relative">
+                            <img src="images/spotlight01.jpg" alt="Supraglacial Debris Cover Thickness" class="h-full w-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-8">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-2xl font-bold mb-4">Modeling and Mapping of Supraglacial Debris Cover Thickness using Satellite Remote Sensing Data in selected Glacier(s) of Western Himalayas</h3>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Completed</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">
+                                This project developed novel methodologies for accurate estimation and mapping of supraglacial debris cover thickness in Western Himalayan glaciers. By integrating satellite remote sensing data, thermal models, and field validation, the research improved our understanding of glacier melt dynamics in debris-covered areas and contributed to more accurate glacier mass balance assessments.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <span class="flex items-center">
+                                    <span class="text-sm text-gray-500 mr-2">Funded by:</span>
+                                    <img src="images/logos/isro_logo.png" alt="ISRO Logo" class="h-10">
+                                </span>
+                                <span class="flex items-center">
+                                    <span class="text-sm text-gray-500 mr-2">at</span>
+                                    <img src="images/logos/hrsa_logo.jpg" alt="HRSA Logo" class="h-10">
+                                </span>
+                                <span class="flex items-center">
+                                    <img src="images/logos/iitb_logo.png" alt="IIT Bombay Logo" class="h-10">
+                                </span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">Debris Cover</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">Remote Sensing</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">Thermal Modeling</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">ISRO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 relative">
+                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC06242.jpg" alt="Antarctica Expedition Team" class="h-full w-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-8">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-2xl font-bold mb-4">Unmanned Aerial vehicle-based Monitoring of Polar Ice Sheet near Schirmacher Oasis, Central Droning Maud land, East Antarctica</h3>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Completed</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">
+                                Successfully deployed UAV technology for monitoring polar ice sheets in Antarctica, using the Sensefly ebeex drone to collect high-resolution data. Participated in two Antarctic expeditions (43rd and 44th ISEA), focusing on ice sheet dynamics, crevasse detection, and surface feature mapping in the challenging polar environment of Schirmacher Oasis in East Antarctica.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <span class="flex items-center">
+                                    <span class="text-sm text-gray-500 mr-2">Funded by:</span>
+                                    <img src="images/logos/ncpor_logo.jpg" alt="NCPOR Logo" class="h-10">
+                                </span>
+                                <span class="flex items-center">
+                                    <img src="images/logos/iitb_logo.png" alt="IIT Bombay Logo" class="h-10">
+                                </span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">Antarctica</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">UAV Mapping</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">Polar Ice</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">43rd ISEA</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded text-xs">44th ISEA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="py-16 bg-white section-fade">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Publications <span class="text-blue-500">Section</span></h2>
+            
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+                        <div class="md:w-3/4">
+                            <h3 class="text-xl font-bold mb-2">Remote sensing the evolution of debris-covered Panchi Nala-A glacier, India (1971-2021) from satellites and Unmanned Aerial Vehicles</h3>
+                            <p class="text-sm text-gray-500 mb-3">Regional Environmental Change (2023), Volume 23, article number 103</p>
+                            <p class="text-gray-600 mb-4">
+                                This study investigates the morpho-dynamic evolution of the debris-covered Panchi Nala-A glacier in the Bhaga basin, Western Himalaya, using hybrid remote sensing data from declassified Corona, Landsat, Planetscope, and UAV-based optical images over a 50-year period (1971-2021). Results show glacier shrinkage, terminal retreat, and increasing debris extent, with evidence of glacier thinning in the lower ablation zone.
+                            </p>
+                            <div class="flex gap-2 items-center">
+                                <span class="text-sm text-gray-500 mr-2">Authors:</span>
+                                <span class="text-sm text-gray-700">Garg, S., Navinkumar, P.J., Godara, A., Sahu, R., Singh, D.K., Ramsankaran, R.</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/4 flex justify-end">
+                            <a href="https://link.springer.com/article/10.1007/s10113-023-02096-1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow transition-colors">
+                                <span class="mr-2">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </span>
+                                View Paper
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                    View All Publications on Google Scholar <span class="ml-2">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborations -->
+    <section class="py-16 bg-gray-50 section-fade">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Collaborations</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">ICIMOD</h3>
+                    </div>
+                    <p class="text-gray-600">Collaborative research on glacier monitoring in the Hindu Kush Himalayan region.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">IIT Bombay</h3>
+                    </div>
+                    <p class="text-gray-600">Research under HRSA (Hydro Remote Sensing Applications) Group.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Kathmandu University</h3>
+                    </div>
+                    <p class="text-gray-600">Joint research initiatives on high-altitude glacier studies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Footer -->
+    <div class="wave-top"></div>
+    <footer class="bg-gray-800 text-white py-16 relative">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col items-center">
+                <h3 class="text-2xl font-bold mb-6 font-playfair">Ajay Godara</h3>
+                <div class="flex space-x-6 mb-8">
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="text-gray-400">&copy; 2025 Ajay Godara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Section fade in animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionFades = document.querySelectorAll('.section-fade');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sectionFades.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <style>
+        /* Add the same diagonal divider styles from index.html */
+        .diagonal-divider {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .diagonal-divider::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: skewY(-4deg);
+            transform-origin: top right;
+        }
+
+        .diagonal-divider-reverse {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .diagonal-divider-reverse::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transform: skewY(4deg);
+            transform-origin: top left;
+        }
+    </style>
+</body>
+</html> 
