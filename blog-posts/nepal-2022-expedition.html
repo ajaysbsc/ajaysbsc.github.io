@@ -6,13 +6,47 @@
     <title>Nepal Expedition December 2022: Langtang Valley Research - Ajay Godara</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --ice-blue: #E6F3FF;
+            --glacier-blue: #B3D9FF;
+            --arctic-blue: #4A90E2;
+            --deep-blue: #2C5282;
+            --navy-blue: #1A365D;
+            --sea-blue: #006994;
+            --sky-blue: #87CEEB;
+            --ocean-blue: #0077BE;
+            --iceberg-blue: #A0D8EF;
+            --teal-blue: #008B8B;
+        }
+
+        .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        .font-serif { font-family: 'Crimson Text', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+
+        /* Blue Gradient Backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+        }
+
+        .text-primary-custom { color: var(--sea-blue); }
+
         /* Blog post specific styles */
         .blog-content img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
             margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0, 105, 148, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-content img:hover {
+            transform: scale(1.02);
         }
         
         .blog-content h2 {
@@ -20,7 +54,8 @@
             margin-top: 2rem;
             margin-bottom: 1rem;
             font-weight: 600;
-            color: #2d3748;
+            color: var(--deep-blue);
+            font-family: 'Space Grotesk', sans-serif;
         }
         
         .blog-content h3 {
@@ -28,12 +63,15 @@
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
             font-weight: 600;
-            color: #2d3748;
+            color: var(--deep-blue);
+            font-family: 'Space Grotesk', sans-serif;
         }
         
         .blog-content p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            color: #4A5568;
+            font-family: 'Inter', sans-serif;
         }
         
         .blog-content ul, .blog-content ol {
@@ -44,52 +82,68 @@
         .blog-content ul li {
             list-style-type: disc;
             margin-bottom: 0.5rem;
+            color: #4A5568;
         }
         
         .blog-content ol li {
             list-style-type: decimal;
             margin-bottom: 0.5rem;
+            color: #4A5568;
         }
         
         .blog-content blockquote {
-            border-left: 4px solid #4a5568;
+            border-left: 4px solid var(--arctic-blue);
             padding-left: 1rem;
             font-style: italic;
             margin: 1.5rem 0;
-            color: #4a5568;
+            color: var(--deep-blue);
+            background: var(--ice-blue);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .blog-meta {
+            background: linear-gradient(135deg, var(--ice-blue), var(--glacier-blue));
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--arctic-blue);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-slate-900 font-body overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <a href="../index.html" class="text-2xl font-bold text-glacier-600">Ajay Godara</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="../index.html#about" class="text-gray-600 hover:text-glacier-600">About</a>
-                    <a href="../research.html" class="text-gray-600 hover:text-glacier-600">Research</a>
-                    <a href="../blog.html" class="text-gray-600 hover:text-glacier-600">Blog</a>
-                    <a href="../gallery.html" class="text-gray-600 hover:text-glacier-600">Gallery</a>
+    <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="text-2xl font-bold text-primary-custom font-heading">Ajay Godara</a>
+                <div class="hidden md:flex space-x-10">
+                    <a href="../index.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Home</a>
+                    <a href="../index.html#about" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">About Me</a>
+                    <a href="../education.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Education</a>
+                    <a href="../research.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Research</a>
+                    <a href="../blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Blog</a>
+                    <a href="../gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Gallery</a>
                 </div>
-                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="py-2 space-y-2">
-                    <a href="../index.html#about" class="block text-gray-600 hover:text-glacier-600">About</a>
-                    <a href="../research.html" class="block text-gray-600 hover:text-glacier-600">Research</a>
-                    <a href="../blog.html" class="block text-gray-600 hover:text-glacier-600">Blog</a>
-                    <a href="../gallery.html" class="block text-gray-600 hover:text-glacier-600">Gallery</a>
+                <div class="py-4 space-y-4 border-t border-blue-100">
+                    <a href="../index.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Home</a>
+                    <a href="../index.html#about" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">About Me</a>
+                    <a href="../education.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Education</a>
+                    <a href="../research.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Research</a>
+                    <a href="../blog.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Blog</a>
+                    <a href="../gallery.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Gallery</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Blog Post Content -->
-    <main class="pt-24 pb-12">
+    <main class="pt-28 pb-12">
         <div class="container mx-auto px-4">
             <article class="max-w-4xl mx-auto">
                 <!-- Blog Header -->
@@ -119,8 +173,8 @@
                     <p>The timing of our expedition in December also allowed us to observe early winter conditions and snow accumulation patterns, providing insights into the seasonal transition that is often missed in summer-focused research campaigns.</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-                        <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221206_074208.jpg" alt="Research team in early morning Langtang Valley" class="rounded-lg shadow-md">
                         <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221206_102905.jpg" alt="Setting up measurement equipment near glacier" class="rounded-lg shadow-md">
+                        <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221206_160804.jpg" alt="Collaborative team meeting with Nepalese researchers" class="rounded-lg shadow-md">
                     </div>
                     
                     <h2>Journey to Langtang</h2>
@@ -129,29 +183,22 @@
                     <p>The trek into Langtang Valley provided a sobering reminder of the 2015 earthquake's devastating impact. The village of Langtang, which was completely destroyed by an avalanche triggered by the earthquake, has been partially rebuilt, but evidence of the disaster remains visible throughout the landscape. Local guides shared their experiences from that day, emphasizing the ongoing environmental hazards that communities in this region face—hazards that may be exacerbated by climate-induced changes in glacier stability.</p>
                     
                     <blockquote>
-                        <p>The resilience of these communities in the face of such catastrophic events is remarkable. Their knowledge of landscape changes over decades provides an invaluable complement to our instrumental data.</p>
+                        The resilience of these communities in the face of such catastrophic events is remarkable. Their knowledge of landscape changes over decades provides an invaluable complement to our instrumental data.
                     </blockquote>
                     
-                    <p>As we moved higher into the valley, the December temperatures dropped significantly, with nighttime readings often below -15°C. This cold snap presented challenges for our equipment but offered excellent conditions for observing winter processes in the glacial environment.</p>
+                    <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221207_070408.jpg" alt="Langtang Valley winter landscape" class="w-full my-8 rounded-lg shadow-lg">
                     
                     <h2>Field Methods and Data Collection</h2>
                     <p>Our research in Langtang Valley focused on the Lirung Glacier, a relatively accessible debris-covered glacier that has been the subject of previous scientific investigations. This existing research baseline allowed us to place our measurements in a historical context and contribute to long-term monitoring efforts.</p>
                     
-                    <p>The field campaign employed several complementary methods:</p>
+                    <p>The field campaign employed several complementary methods to characterize glacier behavior and its response to climate forcing. Using our UAV-based imaging system, we conducted detailed photogrammetric surveys of portions of Lirung Glacier. The early winter conditions, with light snow cover highlighting surface features, proved ideal for capturing surface topography.</p>
                     
-                    <h3>Structure-from-Motion Photogrammetry</h3>
-                    <p>Using our UAV-based imaging system, we conducted detailed photogrammetric surveys of portions of Lirung Glacier. The early winter conditions, with light snow cover highlighting surface features, proved ideal for capturing surface topography. These surveys will allow us to create high-resolution digital elevation models for comparison with both our previous work in India and with historical data from Lirung.</p>
+                    <p>We also deployed thermal imaging cameras to map surface temperature variations across the debris-covered portions of the glacier. The winter conditions provided an excellent opportunity to observe how different debris thicknesses affect the thermal regime of the ice below—a critical factor in understanding differential melt patterns.</p>
                     
-                    <h3>Surface Temperature Mapping</h3>
-                    <p>We deployed thermal imaging cameras to map surface temperature variations across the debris-covered portions of the glacier. The winter conditions provided an excellent opportunity to observe how different debris thicknesses affect the thermal regime of the ice below—a critical factor in understanding differential melt patterns.</p>
-                    
-                    <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221211_111634.jpg" alt="Thermal imaging of glacier surface" class="w-full my-8 rounded-lg shadow-lg">
-                    
-                    <h3>Meltwater Hydrochemistry</h3>
-                    <p>Although winter is typically a low-flow period for glacier-fed streams, we collected water samples from the proglacial stream system for analysis of dissolved solutes and environmental DNA. These samples will help characterize the winter baseline conditions and contribute to our understanding of year-round hydrological processes.</p>
-                    
-                    <h3>Community Knowledge Integration</h3>
-                    <p>Throughout our time in Langtang, we conducted informal interviews with local residents to document their observations of environmental change. These conversations revealed consistent reports of decreasing winter snowfall, changes in meltwater availability, and shifting patterns of vegetation growth at higher elevations—all indicators of climate-driven changes that complement our instrumental measurements.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221208_122357.jpg" alt="Glacier surface analysis" class="rounded-lg shadow-md">
+                        <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221211_111634.jpg" alt="Thermal imaging of glacier surface" class="rounded-lg shadow-md">
+                    </div>
                     
                     <h2>Comparative Insights: Nepal vs. Indian Himalaya</h2>
                     <p>One of the most valuable aspects of this expedition was the opportunity to make direct comparisons between our Langtang observations and our previous work in the Indian Himalaya. Several key differences emerged that highlight the importance of regional studies in glaciology:</p>
@@ -159,18 +206,12 @@
                     <h3>Debris Characteristics</h3>
                     <p>The debris cover on Lirung Glacier differs notably from what we've observed on Panchinala and other Indian Himalayan glaciers. In Langtang, the debris layer tends to be thinner on average and contains a higher proportion of fine-grained material. These differences significantly affect melt dynamics and likely contribute to different rates of glacier evolution between the regions.</p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-                        <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221207_070408.jpg" alt="Debris composition analysis" class="rounded-lg shadow-md">
-                        <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221213_110055.jpg" alt="Close-up of glacier debris" class="rounded-lg shadow-md">
-                    </div>
-                    
                     <h3>Ice Cliff Morphology</h3>
                     <p>Ice cliffs—steep exposed ice faces within debris-covered glaciers—play a crucial role in overall ablation dynamics. Our observations at Lirung revealed a different distribution pattern of these features compared to our Indian study sites. The Langtang cliffs tend to be more numerous but smaller in size, potentially leading to different spatial patterns of mass loss.</p>
                     
-                    <h3>Human Interaction with Glacier Systems</h3>
-                    <p>The patterns of human-glacier interaction also differ significantly between regions. The Langtang Valley, with its established trekking routes and recovering tourism economy, experiences different types of human impact than the more remote Indian sites. These differences in human presence and activity affect both the physical environment and the available infrastructure for long-term monitoring.</p>
+                    <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221213_110055.jpg" alt="Winter conditions on Lirung Glacier" class="w-full my-8 rounded-lg shadow-lg">
                     
-                    <h2>Technological Adaptations for Winter Research</h2>
+                    <h2>Winter Observations and Adaptations</h2>
                     <p>Conducting research in winter conditions required several adaptations to our standard field methods. The extreme cold affected battery performance in most of our electronic equipment, necessitating careful power management and insulation strategies. We developed several innovative approaches to address these challenges:</p>
                     
                     <ul>
@@ -187,31 +228,14 @@
                     
                     <p>This collaboration has already led to plans for a more extensive joint expedition in 2023, which will expand our research to additional glacier systems in the Langtang region and incorporate complementary expertise from our Nepalese colleagues in areas such as social hydrology and climate adaptation strategies.</p>
                     
-                    <img src="../images/gallery/fulls/Nepal Dec 2022/IMG_20221206_160804.jpg" alt="Collaborative team meeting with Nepalese researchers" class="w-full my-8 rounded-lg shadow-lg">
+                    <h2>Key Findings and Implications</h2>
+                    <p>Our observations in Langtang Valley revealed several important insights about winter glacier behavior and regional variations in Himalayan glaciology. The winter accumulation patterns we observed suggest that winter snowfall in the region has been declining in recent years, as reported by local residents and evidenced by the limited snow cover we observed even at higher elevations in December.</p>
                     
-                    <h2>Preliminary Findings and Future Directions</h2>
-                    <p>Although detailed analysis of our field data is ongoing, several preliminary findings have emerged from the December 2022 expedition that will guide our future research:</p>
+                    <p>The characteristics of supraglacial debris appear to be evolving over time, with increasing proportions of fine material being deposited on glacier surfaces. This change may be linked to increased freeze-thaw weathering of surrounding slopes as permafrost thaws in the warming climate.</p>
                     
-                    <h3>Winter Accumulation Patterns</h3>
-                    <p>Our observations suggest that winter snowfall in the region has been declining in recent years, as reported by local residents and evidenced by the limited snow cover we observed even at higher elevations in December. This trend has significant implications for annual mass balance and water resources, as reduced winter accumulation amplifies the effects of summer melt.</p>
-                    
-                    <h3>Debris Evolution</h3>
-                    <p>The characteristics of supraglacial debris appear to be evolving over time, with increasing proportions of fine material being deposited on glacier surfaces. This change may be linked to increased freeze-thaw weathering of surrounding slopes as permafrost thaws in the warming climate. The changing debris composition has direct implications for melt rates beneath the debris layer.</p>
-                    
-                    <h3>Regional Data Gaps</h3>
                     <p>Our comparative work has highlighted significant regional variations in glacier behavior that are not fully captured in large-scale remote sensing studies. This underscores the importance of maintaining a network of field-validated sites across the Himalayan region rather than relying on extrapolation from limited areas.</p>
                     
-                    <h2>Next Steps</h2>
-                    <p>Building on the success of this expedition, we have developed plans for several follow-up activities:</p>
-                    
-                    <ul>
-                        <li>A comprehensive comparative analysis of debris characteristics between our Nepal and India study sites, including detailed material composition, thermal properties, and thickness distributions</li>
-                        <li>Integration of our field measurements with remote sensing data to validate satellite-derived estimates of winter snow accumulation</li>
-                        <li>Development of shared protocols for citizen science initiatives that can help maintain observational continuity between research expeditions</li>
-                        <li>Expansion of our winter campaign approach to additional regions, including plans for winter observations in Bhutan in 2023-2024</li>
-                    </ul>
-                    
-                    <h2>Conclusion: The Value of Winter Observations</h2>
+                    <h2>Conclusion</h2>
                     <p>The December 2022 expedition to Langtang Valley has highlighted the critical importance of winter observations in mountain cryosphere research. While most field campaigns focus on summer ablation periods, understanding the winter accumulation phase and cold-season processes is equally essential for a complete picture of glacier health and evolution.</p>
                     
                     <p>By expanding our research temporally (into the winter season) and spatially (across national boundaries), we are developing a more comprehensive understanding of how Himalayan glacier systems are responding to climate change. This broader perspective is essential for predicting future changes in water resources and developing appropriate adaptation strategies for mountain communities.</p>
@@ -222,43 +246,50 @@
                 <!-- Author Bio -->
                 <div class="mt-12 border-t border-gray-200 pt-8">
                     <div class="flex items-center">
-                        <img src="../images/ajay-profile.jpg" alt="Ajay Godara" class="w-16 h-16 rounded-full mr-4">
+                        <img src="../images/spotlight01.jpg" alt="Ajay Godara" class="w-16 h-16 rounded-full mr-4">
                         <div>
                             <h3 class="font-bold text-lg">Ajay Godara</h3>
-                            <p class="text-gray-600">Glacier Researcher & Explorer</p>
+                            <p class="text-gray-600">Glaciologist & Antarctic Researcher</p>
                         </div>
                     </div>
                 </div>
             </article>
         </div>
     </main>
-
+    
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://twitter.com/" class="text-gray-300 hover:text-white">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://github.com/" class="text-gray-300 hover:text-white">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/" class="text-gray-300 hover:text-white">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:contact@example.com" class="text-gray-300 hover:text-white">
-                    <i class="fas fa-envelope"></i>
-                </a>
+    <footer class="gradient-primary text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-15">
+            <div class="absolute top-5 left-5 w-20 h-20 bg-white rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-16 h-16 bg-teal-300 rounded-full opacity-25 animate-pulse delay-1000"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="flex flex-col items-center">
+                <h3 class="text-2xl font-bold mb-6 font-heading text-white">Ajay Godara</h3>
+                <div class="flex space-x-6 mb-8">
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="w-16 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent mb-4"></div>
+                <p class="text-teal-100 font-medium">&copy; 2025 Ajay Godara. All rights reserved.</p>
             </div>
-            <p class="text-gray-400">© 2023 Ajay Godara. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Scripts -->
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
         });
     </script>
 </body>
-</html> 
+</html>

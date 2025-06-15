@@ -7,38 +7,36 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Add lightbox for gallery -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-    <!-- Add Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">    <!-- Add Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-800 font-montserrat overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+<body class="bg-gray-50 text-slate-900 font-inter overflow-x-hidden">    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
         <div class="container mx-auto px-6">
             <div class="flex justify-end items-center h-20">
-                <div class="hidden md:flex space-x-12">
-                    <a href="index.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Home</a>
-                    <a href="#about" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">About Me</a>
-                    <a href="education.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Education</a>
-                    <a href="research.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Research</a>
-                    <a href="blog.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Blog</a>
-                    <a href="gallery.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Gallery</a>
+                <div class="hidden md:flex space-x-10">
+                    <a href="index.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Home</a>
+                    <a href="#about" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">About Me</a>
+                    <a href="education.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Education</a>
+                    <a href="research.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Research</a>
+                    <a href="blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Blog</a>
+                    <a href="gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Gallery</a>
                 </div>
-                <button class="md:hidden text-blue-500 text-2xl" id="mobile-menu-button">
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="py-3 space-y-4">
-                    <a href="index.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Home</a>
-                    <a href="#about" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">About Me</a>
-                    <a href="education.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Education</a>
-                    <a href="research.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Research</a>
-                    <a href="blog.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Blog</a>
-                    <a href="gallery.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Gallery</a>
+                <div class="py-4 space-y-4 border-t border-blue-100">
+                    <a href="index.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Home</a>
+                    <a href="#about" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">About Me</a>
+                    <a href="education.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Education</a>
+                    <a href="research.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Research</a>
+                    <a href="blog.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Blog</a>
+                    <a href="gallery.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Gallery</a>
                 </div>
             </div>
         </div>
@@ -53,11 +51,10 @@
         <div class="absolute top-0 left-0 w-full h-full flex items-center z-10">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-12">
-                    <div class="col-span-12 md:col-span-7 lg:col-span-6 xl:col-span-5 text-left pt-36 md:pt-0 px-4 md:px-0 animate-fade-in">
-                        <h1 class="text-5xl md:text-7xl font-bold mb-3 text-white hero-text font-playfair tracking-wide">Ajay Godara</h1>
-                        <p class="text-xl md:text-2xl text-white/90 font-light tracking-widest uppercase hero-subtitle">Glaciologist | Researcher | Explorer</p>
+                    <div class="col-span-12 md:col-span-7 lg:col-span-6 xl:col-span-5 text-left pt-36 md:pt-0 px-4 md:px-0 animate-fade-in">                        <h1 class="text-5xl md:text-7xl font-bold mb-3 text-white hero-text font-crimson tracking-wide">Ajay Godara</h1>
+                        <p class="text-xl md:text-2xl text-white/90 font-light tracking-widest uppercase hero-subtitle font-space">Glaciologist | Researcher | Explorer</p>
                         <div class="mt-10">
-                            <a href="#about" class="px-8 py-3 bg-blue-500/90 hover:bg-blue-600 text-white rounded-full inline-flex items-center backdrop-blur-sm transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <a href="#about" class="px-8 py-3 btn-primary text-white rounded-full inline-flex items-center backdrop-blur-sm transition-all duration-300 shadow-lg hover:shadow-xl font-medium">
                                 Discover My Work <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -65,63 +62,58 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Floating Shapes -->
-        <div class="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-blue-500/10 backdrop-blur-md animate-float-slow"></div>
+          <!-- Floating Shapes -->
+        <div class="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-sky-500/10 backdrop-blur-md animate-float-slow"></div>
         <div class="absolute bottom-40 right-40 w-16 h-16 rounded-full bg-white/10 backdrop-blur-md animate-float-medium"></div>
         <div class="absolute top-40 right-20 w-24 h-24 rounded-full bg-blue-300/10 backdrop-blur-md animate-float-fast"></div>
     </section>
 
     <!-- Diagonal Divider -->
-    <div class="diagonal-divider bg-white"></div>
-
-    <!-- Featured Blog Post -->
+    <div class="diagonal-divider bg-white"></div>    <!-- Featured Blog Post -->
     <section class="py-20 bg-white relative">
         <div class="absolute left-0 top-40 -ml-20 w-40 h-40 rounded-full bg-blue-100 opacity-70 z-0"></div>
         <div class="absolute right-0 bottom-20 -mr-20 w-60 h-60 rounded-full bg-blue-50 opacity-70 z-0"></div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-4xl font-bold mb-16 font-playfair text-left md:text-center">Featured <span class="text-blue-500">Expedition</span></h2>
-            <article class="bg-white rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.01] transition-all duration-300 relative">
+            <h2 class="text-4xl font-bold mb-16 font-crimson text-left md:text-center">Featured <span class="text-primary-custom">Expedition</span></h2>
+            <article class="modern-card rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.01] transition-all duration-300 relative">
                 <div class="md:flex">
                     <div class="md:w-1/2 relative">
                         <img src="images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg" alt="Antarctica 44th Expedition" class="w-full h-full object-cover">
                         <div class="absolute top-4 left-4">
-                            <span class="px-4 py-1 bg-blue-500 text-white rounded-full text-sm font-medium shadow-lg">Featured</span>
+                            <span class="px-4 py-1 gradient-primary text-white rounded-full text-sm font-medium shadow-lg">Featured</span>
                         </div>
                     </div>
                     <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                         <div class="mb-4 flex items-center">
                             <span class="text-sm text-gray-500">February 25, 2024</span>
                             <span class="mx-2 text-gray-300">•</span>
-                            <span class="text-sm text-blue-500">Antarctica</span>
+                            <span class="text-sm text-primary-custom">Antarctica</span>
                         </div>
-                        <h2 class="text-3xl font-bold mb-6 text-gray-900">Antarctica Scientific Expedition: 44th Indian Antarctic Expedition</h2>
+                        <h2 class="text-3xl font-bold mb-6 text-gray-900 font-crimson">Antarctica Scientific Expedition: 44th Indian Antarctic Expedition</h2>
                         <p class="text-gray-600 mb-8 leading-relaxed">
                             During the 44th Indian Scientific Expedition to Antarctica, we deployed advanced UAV systems for high-resolution mapping of glacial features. Our team conducted comprehensive surveys integrating RTK GPS for centimeter-level accuracy, enabling detailed analysis of ice dynamics and crevasse detection in this critical region of Earth's cryosphere.
                         </p>
-                        <a href="blog.html" class="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow transition-colors">
+                        <a href="blog.html" class="inline-flex items-center px-6 py-3 btn-primary text-white rounded-lg shadow transition-all duration-300 font-medium">
                             Read Full Story <span class="ml-2">→</span>
                         </a>
                     </div>
                 </div>
             </article>
         </div>
-    </section>
-
-    <!-- About Section with Overlapping Elements -->
+    </section>    <!-- About Section with Overlapping Elements -->
     <section id="about" class="py-32 bg-gradient-to-br from-white to-blue-50 relative">
-        <div class="absolute right-0 top-0 w-1/3 h-full bg-blue-500/5 clip-path-slant z-0"></div>
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-sky-500/5 clip-path-slant z-0"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-12 gap-16 items-center">
                 <div class="md:col-span-5 space-y-6 order-2 md:order-1">
-                    <h2 class="text-4xl font-bold mb-6 font-playfair text-gray-800">About Me</h2>
+                    <h2 class="text-4xl font-bold mb-6 font-crimson text-gray-800">About Me</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">PhD candidate at IIT Bombay, specializing in glacier research and remote sensing. My work focuses on understanding glacier dynamics in the context of climate change.</p>
                     <p class="text-lg text-gray-600 leading-relaxed">Currently working on UAV-based glacier mass balance analysis and debris thickness studies in the Himalayas.</p>
                     <div class="flex flex-wrap gap-4 mt-8">
-                        <a href="#contact" class="bg-blue-500 text-white px-7 py-3 rounded-full hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">Contact Me</a>
-                        <a href="research.html" class="border border-blue-500 text-blue-500 px-7 py-3 rounded-full hover:bg-blue-50 transition-all duration-300">View Research</a>
+                        <a href="#contact" class="btn-primary text-white px-7 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg font-medium">Contact Me</a>
+                        <a href="research.html" class="border-2 border-sea-blue text-primary-custom px-7 py-3 rounded-full hover:bg-blue-50 transition-all duration-300 font-medium">View Research</a>
                     </div>
                 </div>
                 <div class="md:col-span-7 relative order-1 md:order-2">
@@ -134,59 +126,55 @@
     </section>
 
     <!-- Diagonal Divider -->
-    <div class="diagonal-divider-reverse"></div>
-
-    <!-- Gallery Section with Staggered Grid -->
+    <div class="diagonal-divider-reverse"></div>    <!-- Gallery Section with Staggered Grid -->
     <section id="gallery" class="py-32 bg-white relative">
         <div class="absolute left-0 top-0 w-full h-64 bg-gradient-to-b from-blue-50 to-white"></div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-4xl font-bold mb-16 font-playfair text-center">Field <span class="text-blue-500">Gallery</span></h2>
+            <h2 class="text-4xl font-bold mb-16 font-crimson text-center">Field <span class="text-primary-custom">Gallery</span></h2>
             
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" data-lightbox="gallery" class="gallery-item">
-                    <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" alt="Antarctica Ship Journey" class="w-full h-60 object-cover">
-                    <div class="gallery-overlay">
+                <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" data-lightbox="gallery" class="gallery-item relative">
+                    <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" alt="Antarctica Ship Journey" class="w-full h-60 object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
                         <span>Antarctica Ship Journey</span>
                     </div>
                 </a>
-                <a href="images/gallery/fulls/Anatarctica 44th 2024/DSCF3110.jpg" data-lightbox="gallery" class="gallery-item">
-                    <img src="images/gallery/fulls/Anatarctica 44th 2024/DSCF3110.jpg" alt="Antarctica UAV Deployment" class="w-full h-60 object-cover">
-                    <div class="gallery-overlay">
+                <a href="images/gallery/fulls/Anatarctica 44th 2024/DSCF3110.jpg" data-lightbox="gallery" class="gallery-item relative">
+                    <img src="images/gallery/fulls/Anatarctica 44th 2024/DSCF3110.jpg" alt="Antarctica UAV Deployment" class="w-full h-60 object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
                         <span>UAV Deployment</span>
                     </div>
                 </a>
-                <a href="images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg" data-lightbox="gallery" class="gallery-item">
-                    <img src="images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg" alt="Antarctica 44th Expedition" class="w-full h-60 object-cover">
-                    <div class="gallery-overlay">
+                <a href="images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg" data-lightbox="gallery" class="gallery-item relative">
+                    <img src="images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg" alt="Antarctica 44th Expedition" class="w-full h-60 object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
                         <span>Antarctica Expedition</span>
                     </div>
                 </a>
-                <a href="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" data-lightbox="gallery" class="gallery-item">
-                    <img src="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" alt="Panchinala Glacier Research" class="w-full h-60 object-cover">
-                    <div class="gallery-overlay">
+                <a href="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" data-lightbox="gallery" class="gallery-item relative">
+                    <img src="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" alt="Panchinala Glacier Research" class="w-full h-60 object-cover rounded-xl">
+                    <div class="gallery-overlay rounded-xl">
                         <span>Panchinala Glacier</span>
                     </div>
                 </a>
             </div>
             
             <div class="text-center mt-16">
-                <a href="gallery.html" class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 inline-block shadow-md hover:shadow-lg transition-all duration-300">
+                <a href="gallery.html" class="btn-primary text-white px-8 py-3 rounded-full inline-block shadow-md hover:shadow-lg transition-all duration-300 font-medium">
                     View Full Gallery <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
+    </section>    <!-- Contact Section -->
     <section id="contact" class="py-24 bg-gradient-to-br from-gray-50 to-blue-100 relative">
         <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-4xl font-bold mb-16 font-playfair text-center">Contact <span class="text-blue-500">Me</span></h2>
+            <h2 class="text-4xl font-bold mb-16 font-crimson text-center">Contact <span class="text-primary-custom">Me</span></h2>
             
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+            <div class="max-w-4xl mx-auto modern-card rounded-xl shadow-xl overflow-hidden">
                 <div class="md:flex">
-                    <div class="md:w-1/3 bg-blue-600 text-white p-8">
-                        <h3 class="text-2xl font-bold mb-4">Get In Touch</h3>
+                    <div class="md:w-1/3 gradient-primary text-white p-8">
+                        <h3 class="text-2xl font-bold mb-4 font-crimson">Get In Touch</h3>
                         <p class="mb-6 text-blue-100">Feel free to reach out for collaborations, research opportunities, or just to say hello!</p>
                         
                         <div class="space-y-4">
@@ -202,7 +190,7 @@
                             
                             <div class="flex items-start space-x-4">
                                 <i class="fas fa-phone mt-1 text-blue-300"></i>
-                                <span>+91 XXXXXXXXXX</span>
+                                <span>+91 9555069396</span>
                             </div>
                         </div>
                         
@@ -230,13 +218,12 @@
                                 <label for="subject" class="block text-gray-700 mb-2">Subject</label>
                                 <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Subject">
                             </div>
-                            
-                            <div>
-                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                              <div>
+                                <label for="message" class="block text-gray-700 mb-2 font-medium">Message</label>
                                 <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Your Message"></textarea>
                             </div>
                             
-                            <button type="submit" class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors shadow-md hover:shadow-lg">
+                            <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium">
                                 Send Message <i class="fas fa-paper-plane ml-2"></i>
                             </button>
                         </form>
@@ -244,21 +231,28 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer with Creative Wave -->
-    <div class="wave-top"></div>
-    <footer class="bg-gray-800 text-white py-16 relative">
-        <div class="container mx-auto px-6 text-center">
+    </section>    <!-- Footer with Creative Wave -->
+    <div class="wave-top"></div>    <footer class="gradient-primary text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-15">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-24 h-24 bg-teal-300 rounded-full opacity-25 animate-pulse delay-1000"></div>
+            <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-sky-200 rounded-full opacity-20 animate-pulse delay-500"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
             <div class="flex flex-col items-center">
-                <h3 class="text-2xl font-bold mb-6 font-playfair">Ajay Godara</h3>
-                <div class="flex space-x-6 mb-8">
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-github"></i></a>
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fas fa-envelope"></i></a>
+                <h3 class="text-3xl font-bold mb-8 font-crimson text-white">Ajay Godara</h3>
+                <p class="text-lg text-teal-100 mb-8 max-w-2xl mx-auto font-medium">
+                    Exploring glacial landscapes through research, photography, and storytelling
+                </p>
+                <div class="flex space-x-8 mb-10">
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fas fa-envelope"></i></a>
                 </div>
-                <p class="text-gray-400">&copy; 2025 Ajay Godara. All rights reserved.</p>
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent mb-6"></div>
+                <p class="text-teal-100 font-medium">&copy; 2025 Ajay Godara. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -276,199 +270,212 @@
     </script>
 
 <style>
-/* Typography and Base Styles */
-.shadow-text {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
+        /* Enhanced Typography and Base Styles with Blue Theme */
+        :root {
+            --iceberg-blue: #87CEEB;
+            --sea-blue: #006994;
+            --navy-blue: #1e3a8a;
+            --sky-blue: #0ea5e9;
+            --ocean-blue: #0369a1;
+            --frost-blue: #dbeafe;
+            --deep-blue: #1e40af;
+            --arctic-blue: #bfdbfe;
+            --polar-blue: #3b82f6;
+            --glacier-blue: #60a5fa;
+            --text-primary: #0f172a;
+            --text-secondary: #1e3a8a;
+            --text-muted: #64748b;
+            --background-primary: #ffffff;
+            --background-secondary: #f8fafc;
+            --background-accent: #f0f9ff;
+        }
 
-.font-montserrat {
-    font-family: 'Montserrat', sans-serif;
-}
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
 
-.font-playfair {
-    font-family: 'Playfair Display', serif;
-}
+        .font-crimson {
+            font-family: 'Crimson Text', serif;
+        }
 
-/* Navigation Styles */
-.nav-link {
-    position: relative;
-}
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #3b82f6;
-    transition: width 0.3s ease;
-}
+        /* Enhanced Navigation Styles */
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+        }
 
-.nav-link:hover::after {
-    width: 100%;
-}
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -6px;
+            left: 0;
+            background: linear-gradient(90deg, var(--sea-blue), var(--iceberg-blue));
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
 
-/* Hero Section Styles */
-.hero-text {
-    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
-}
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-.hero-subtitle {
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
-    letter-spacing: 0.15em;
-}
+        /* Blue Gradient Backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+        }
 
-/* Diagonal Dividers */
-.diagonal-divider {
-    position: relative;
-    height: 150px;
-    overflow: hidden;
-}
+        .gradient-secondary {
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--iceberg-blue) 100%);
+        }
 
-.diagonal-divider::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    transform: skewY(-4deg);
-    transform-origin: top right;
-}
+        .gradient-accent {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--polar-blue) 100%);
+        }
 
-.diagonal-divider-reverse {
-    position: relative;
-    height: 150px;
-    overflow: hidden;
-}
+        .gradient-frost {
+            background: linear-gradient(135deg, var(--frost-blue) 0%, var(--arctic-blue) 100%);
+        }
 
-.diagonal-divider-reverse::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: white;
-    transform: skewY(4deg);
-    transform-origin: top left;
-}
+        /* Enhanced Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
+        }
 
-/* Floating Animations */
-@keyframes floatSlow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 105, 148, 0.4);
+        }
 
-@keyframes floatMedium {
-    0%, 100% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-15px) translateX(10px); }
-}
+        .text-primary-custom { color: var(--sea-blue); }
+        .text-secondary-custom { color: var(--ocean-blue); }
+        .bg-primary-custom { background-color: var(--sea-blue); }
 
-@keyframes floatFast {
-    0%, 100% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-10px) translateX(-10px); }
-}
+        /* Hero animations */
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
 
-.animate-float-slow {
-    animation: floatSlow 8s ease-in-out infinite;
-}
+        .animate-float-slow {
+            animation: float 6s ease-in-out infinite;
+        }
 
-.animate-float-medium {
-    animation: floatMedium 6s ease-in-out infinite;
-}
+        .animate-float-medium {
+            animation: float 4s ease-in-out infinite;
+        }
 
-.animate-float-fast {
-    animation: floatFast 4s ease-in-out infinite;
-}
+        .animate-float-fast {
+            animation: float 3s ease-in-out infinite;
+        }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.animate-fade-in {
-    animation: fadeIn 1.2s ease-out forwards;
-}
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
 
-/* Clip Path for Slant */
-.clip-path-slant {
-    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
+        /* Diagonal Dividers */
+        .diagonal-divider {
+            position: relative;
+            height: 120px;
+            overflow: hidden;
+        }
 
-/* Gallery Staggered Grid */
-.gallery-staggered {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 250px;
-    gap: 20px;
-}
+        .diagonal-divider::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--background-primary) 0%, var(--background-accent) 100%);
+            transform: skewY(-3deg);
+            transform-origin: top right;
+        }
 
-@media (min-width: 768px) {
-    .gallery-staggered {
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 300px;
-    }
-    
-    .gallery-staggered .gallery-item:nth-child(1) {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-    
-    .gallery-staggered .gallery-item:nth-child(4) {
-        grid-column: span 2;
-        grid-row: span 1;
-    }
-}
+        .diagonal-divider-reverse {
+            position: relative;
+            height: 120px;
+            overflow: hidden;
+        }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
+        .diagonal-divider-reverse::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--background-accent) 0%, var(--background-primary) 100%);
+            transform: skewY(3deg);
+            transform-origin: top left;
+        }
 
-.gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
+        /* Gallery hover effects */
+        .gallery-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 105, 148, 0.1);
+        }
 
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-    color: white;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 105, 148, 0.2);
+        }
 
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 105, 148, 0.8) 0%, rgba(30, 58, 138, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
 
-/* Wave Footer */
-.wave-top {
-    position: relative;
-    height: 80px;
-    background-color: white;
-}
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
 
-.wave-top::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-repeat: repeat-x;
-    height: 80px;
-    background-size: 100px 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 v 28 h -120 z' fill='%231f2937'/%3E%3C/svg%3E");
-}
-</style>
+        /* Modern card styling */
+        .modern-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 105, 148, 0.1);
+        }
+
+        /* Wave Footer Enhancement */
+        .wave-top {
+            position: relative;
+            height: 100px;
+            background: linear-gradient(135deg, var(--background-primary) 0%, var(--background-accent) 100%);
+        }
+
+        .wave-top::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-repeat: repeat-x;
+            height: 100px;
+            background-size: 120px 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 v 28 h -120 z' fill='%230f172a'/%3E%3C/svg%3E");
+        }
+    </style>
 </body>
-</html> 
+</html>

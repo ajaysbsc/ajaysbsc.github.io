@@ -7,49 +7,127 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Add lightbox for gallery -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-    <!-- Add Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">    <!-- Add Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Typography and Base Styles */
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">    <style>        /* Enhanced Typography and Base Styles with Blue Theme */
+        :root {
+            --iceberg-blue: #87CEEB;
+            --sea-blue: #006994;
+            --navy-blue: #1e3a8a;
+            --sky-blue: #0ea5e9;
+            --ocean-blue: #0369a1;
+            --frost-blue: #dbeafe;
+            --deep-blue: #1e40af;
+            --arctic-blue: #bfdbfe;
+            --polar-blue: #3b82f6;
+            --glacier-blue: #60a5fa;
+            --text-primary: #0f172a;
+            --text-secondary: #1e3a8a;
+            --text-muted: #64748b;
+            --background-primary: #ffffff;
+            --background-secondary: #f8fafc;
+            --background-accent: #f0f9ff;
+        }
+
         .shadow-text {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
+        .font-inter {
+            font-family: 'Inter', sans-serif;
         }
 
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
+        .font-crimson {
+            font-family: 'Crimson Text', serif;
         }
 
-        /* Navigation Styles */
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Enhanced Navigation Styles */
         .nav-link {
             position: relative;
-        }
-
-        .nav-link::after {
+            font-weight: 500;
+            letter-spacing: 0.025em;
+        }        .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
-            bottom: -4px;
+            height: 3px;
+            bottom: -6px;
             left: 0;
-            background-color: #3b82f6;
+            background: linear-gradient(90deg, var(--sea-blue), var(--iceberg-blue));
+            border-radius: 2px;
             transition: width 0.3s ease;
         }
 
         .nav-link:hover::after {
             width: 100%;
+        }        /* Enhanced Color Schemes with Blue Theme */
+        .bg-primary { background-color: var(--sea-blue); }
+        .bg-primary-light { background-color: var(--sky-blue); }
+        .bg-secondary { background-color: var(--iceberg-blue); }
+        .bg-secondary-light { background-color: var(--arctic-blue); }
+        .text-primary-custom { color: var(--sea-blue); }
+        .text-secondary-custom { color: var(--ocean-blue); }
+
+        /* Blue Gradient Backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+        }
+
+        .gradient-secondary {
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--iceberg-blue) 100%);
+        }
+
+        .gradient-accent {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--polar-blue) 100%);
+        }
+
+        .gradient-frost {
+            background: linear-gradient(135deg, var(--frost-blue) 0%, var(--arctic-blue) 100%);
+        }        /* Enhanced Button Styles with Blue Theme */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 105, 148, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--iceberg-blue) 100%);
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(135, 206, 235, 0.4);
+        }
+
+        /* Enhanced Gallery Item Styles */
+        .gallery-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+        }        .gallery-overlay {
+            background: linear-gradient(135deg, rgba(0, 105, 148, 0.9) 0%, rgba(30, 58, 138, 0.9) 100%);
         }
 
         /* Diagonal Dividers */
         .diagonal-divider {
             position: relative;
-            height: 150px;
+            height: 120px;
             overflow: hidden;
         }
 
@@ -58,14 +136,14 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: #fff;
-            transform: skewY(-4deg);
+            background: linear-gradient(135deg, var(--background-primary) 0%, var(--background-accent) 100%);
+            transform: skewY(-3deg);
             transform-origin: top right;
         }
 
         .diagonal-divider-reverse {
             position: relative;
-            height: 150px;
+            height: 120px;
             overflow: hidden;
         }
 
@@ -74,16 +152,16 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: white;
-            transform: skewY(4deg);
+            background: linear-gradient(135deg, var(--background-accent) 0%, var(--background-primary) 100%);
+            transform: skewY(3deg);
             transform-origin: top left;
         }
 
-        /* Wave Footer */
+        /* Wave Footer Enhancement */
         .wave-top {
             position: relative;
-            height: 80px;
-            background-color: white;
+            height: 100px;
+            background: linear-gradient(135deg, var(--background-primary) 0%, var(--background-accent) 100%);
         }
 
         .wave-top::before {
@@ -93,321 +171,322 @@
             bottom: 0;
             right: 0;
             background-repeat: repeat-x;
-            height: 80px;
-            background-size: 100px 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 v 28 h -120 z' fill='%231f2937'/%3E%3C/svg%3E");
+            height: 100px;
+            background-size: 120px 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 v 28 h -120 z' fill='%230f172a'/%3E%3C/svg%3E");
+        }
+
+        /* Enhanced Category Filter Buttons */
+        .filter-btn {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }        .filter-btn.active {
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
+        }
+
+        .filter-btn:not(.active) {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            border-color: rgba(0, 105, 148, 0.2);
+        }
+
+        .filter-btn:not(.active):hover {
+            background: var(--background-accent);
+            border-color: var(--sky-blue);
+            transform: translateY(-2px);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-montserrat overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+<body class="bg-gray-50 text-slate-900 font-inter overflow-x-hidden">    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
         <div class="container mx-auto px-6">
             <div class="flex justify-end items-center h-20">
-                <div class="hidden md:flex space-x-12">
-                    <a href="index.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Home</a>
-                    <a href="index.html#about" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">About Me</a>
-                    <a href="education.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Education</a>
-                    <a href="research.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Research</a>
-                    <a href="blog.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Blog</a>
-                    <a href="gallery.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Gallery</a>
+                <div class="hidden md:flex space-x-10">
+                    <a href="index.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Home</a>
+                    <a href="index.html#about" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">About Me</a>
+                    <a href="education.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Education</a>
+                    <a href="research.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Research</a>
+                    <a href="blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Blog</a>
+                    <a href="gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Gallery</a>
                 </div>
-                <button class="md:hidden text-blue-500 text-2xl" id="mobile-menu-button">
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="py-3 space-y-4">
-                    <a href="index.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Home</a>
-                    <a href="index.html#about" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">About Me</a>
-                    <a href="education.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Education</a>
-                    <a href="research.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Research</a>
-                    <a href="blog.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Blog</a>
-                    <a href="gallery.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Gallery</a>
+                <div class="py-4 space-y-4 border-t border-blue-100">
+                    <a href="index.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Home</a>
+                    <a href="index.html#about" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">About Me</a>
+                    <a href="education.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Education</a>
+                    <a href="research.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Research</a>
+                    <a href="blog.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Blog</a>
+                    <a href="gallery.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Gallery</a>
                 </div>
             </div>
         </div>
     </nav>    <!-- Gallery Header -->
-    <section class="relative py-24 pt-32">
+    <section class="relative py-28 pt-36 gradient-primary">
         <div class="absolute inset-0 overflow-hidden">
-            <img src="images/banner.jpg" alt="Gallery Background" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-white/40 backdrop-blur-md"></div>
+            <img src="images/banner.jpg" alt="Gallery Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-sky-700/40 to-blue-600/30"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-4 font-playfair shadow-text">Field Gallery</h1>
-            <p class="text-xl text-gray-700 text-center max-w-3xl mx-auto font-medium shadow-text">
-                Capturing the beauty and challenges of glacier research
+            <h1 class="text-5xl md:text-6xl font-bold text-white text-center mb-6 font-crimson shadow-text">Expedition Gallery</h1>
+            <p class="text-xl md:text-2xl text-blue-100 text-center max-w-4xl mx-auto font-medium leading-relaxed">
+                Journey through the world's most remote glacial landscapes - from the towering peaks of the Himalayas to the pristine wilderness of Antarctica
             </p>
         </div>
     </section>
 
     <!-- Diagonal Divider -->
-    <div class="diagonal-divider bg-white"></div>
-
-    <!-- Gallery Categories -->
-    <section class="py-12 bg-white">
+    <div class="diagonal-divider bg-white"></div>    <!-- Gallery Categories -->
+    <section class="py-16 bg-gradient-to-br from-white to-blue-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 font-playfair">Photo <span class="text-blue-500">Categories</span></h2>
+            <h2 class="text-4xl font-bold text-center mb-4 font-crimson text-slate-800">Expedition <span class="text-primary-custom">Categories</span></h2>
+            <p class="text-lg text-slate-600 text-center mb-12 max-w-2xl mx-auto">Explore our research expeditions across different regions and time periods</p>
             <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <button class="px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-medium shadow-sm hover:bg-blue-700 transition-colors" id="filter-all">All</button>
-                <button class="px-6 py-2 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-himalayas">Himalayas</button>
-                <button class="px-6 py-2 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-antarctica">Antarctica</button>
-                <button class="px-6 py-2 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-equipment">Equipment</button>
-                <button class="px-6 py-2 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-fieldwork">Fieldwork</button>
+                <button class="filter-btn active px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300" id="filter-all">All Expeditions</button>
+                <button class="filter-btn px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300" id="filter-antarctica-43">Antarctica 43rd (2023-24)</button>
+                <button class="filter-btn px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300" id="filter-antarctica-44">Antarctica 44th (2024-25)</button>
+                <button class="filter-btn px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300" id="filter-nepal-expedition">Nepal Expedition (2022)</button>
+                <button class="filter-btn px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300" id="filter-panchinala-2021">Panchinala Expedition (2021)</button>
+                <button class="filter-btn px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300" id="filter-panchinala-2023">Panchinala Expedition (2023)</button>
             </div>
         </div>
-    </section>
-
-    <!-- Gallery Grid -->
-    <section class="py-8 bg-white">
+    </section>    <!-- Gallery Grid -->
+    <section class="py-12 bg-gradient-to-br from-white to-blue-50">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item himalayas">
-                    <a href="images/gallery/fulls/01.jpg" data-lightbox="gallery" data-title="Ponkar Glacier - Himalayan expedition capturing the majestic ice formations and crevasses.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/thumbs/01.jpg" alt="Ponkar Glacier" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Nepal Expedition 2022 -->
+                <div class="gallery-item nepal-expedition">
+                    <a href="images/gallery/fulls/Nepal Dec 2022/IMG_20221206_074208.jpg" data-lightbox="gallery" data-title="Nepal Expedition 2022 - Dawn view of the Himalayan peaks during our glacier research expedition.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Nepal Dec 2022/IMG_20221206_074208.jpg" alt="Nepal Himalayan Dawn" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Ponkar Glacier</h3>
-                                    <p class="text-sm opacity-90">Himalayan expedition, 2022</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Himalayan Dawn</h3>
+                                    <p class="text-sm opacity-90 font-inter">Nepal Expedition, December 2022</p>
                                 </div>
+                            </div>                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-500 to-sky-400 text-white rounded-full text-xs font-medium shadow-lg">Nepal 2022</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item himalayas">
-                    <a href="images/gallery/fulls/02.jpg" data-lightbox="gallery" data-title="Lake Mirror - A pristine glacial lake in the Manaslu Range reflecting the surrounding peaks.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/thumbs/02.jpg" alt="Lake Mirror" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Nepal Expedition - Mountain Village -->
+                <div class="gallery-item nepal-expedition">
+                    <a href="images/gallery/fulls/Nepal Dec 2022/IMG_20221206_102905.jpg" data-lightbox="gallery" data-title="Nepal Expedition 2022 - Traditional mountain village nestled in the valley during our research journey.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Nepal Dec 2022/IMG_20221206_102905.jpg" alt="Mountain Village Nepal" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Lake Mirror</h3>
-                                    <p class="text-sm opacity-90">Manaslu Range, Nepal</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Mountain Village</h3>
+                                    <p class="text-sm opacity-90 font-inter">Nepal Expedition, December 2022</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-500 to-sky-400 text-white rounded-full text-xs font-medium shadow-lg">Nepal 2022</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item fieldwork">
-                    <a href="images/gallery/fulls/03.jpg" data-lightbox="gallery" data-title="Panchinala Glacier - Field study and data collection at one of the key research sites.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/thumbs/03.jpg" alt="Panchinala Glacier" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Nepal Expedition - Trekking Path -->
+                <div class="gallery-item nepal-expedition">
+                    <a href="images/gallery/fulls/Nepal Dec 2022/IMG_20221208_122357.jpg" data-lightbox="gallery" data-title="Nepal Expedition 2022 - Trekking through challenging terrain to reach glacier research sites.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Nepal Dec 2022/IMG_20221208_122357.jpg" alt="Nepal Trek Path" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Panchinala Glacier</h3>
-                                    <p class="text-sm opacity-90">2021 Field Study</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Trekking Path</h3>
+                                    <p class="text-sm opacity-90 font-inter">Nepal Expedition, December 2022</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-500 to-sky-400 text-white rounded-full text-xs font-medium shadow-lg">Nepal 2022</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item antarctica">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC08759.jpg" data-lightbox="gallery" data-title="Maitri Station - Indian research base during the 43rd Indian Scientific Expedition to Antarctica in Schirmacher Oasis, Queen Maud Land, East Antarctica.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC08759.jpg" alt="Maitri Station Antarctica" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Antarctica 43rd Expedition - Maitri Station -->
+                <div class="gallery-item antarctica-43">
+                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC08759.jpg" data-lightbox="gallery" data-title="Antarctica 43rd Expedition 2023-24 - Maitri Research Station in the pristine Antarctic landscape of Schirmacher Oasis.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC08759.jpg" alt="Maitri Station Antarctica" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Maitri Station</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Maitri Research Station</h3>
+                                    <p class="text-sm opacity-90 font-inter">43rd Antarctic Expedition, 2023-24</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-700 to-cyan-500 text-white rounded-full text-xs font-medium shadow-lg">Antarctica 43rd</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 5 - Antarctica Landscape -->
-                <div class="gallery-item antarctica">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00573.jpg" data-lightbox="gallery" data-title="Antarctic Landscape - The pristine ice formations and dramatic landscapes of Antarctica during the 43rd expedition.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00573.jpg" alt="Antarctic Landscape" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Antarctica 43rd - Landscape -->
+                <div class="gallery-item antarctica-43">
+                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00573.jpg" data-lightbox="gallery" data-title="Antarctica 43rd Expedition 2023-24 - The dramatic and pristine Antarctic landscape showcasing nature's raw beauty.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00573.jpg" alt="Antarctic Landscape" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Antarctic Landscape</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Antarctic Wilderness</h3>
+                                    <p class="text-sm opacity-90 font-inter">43rd Antarctic Expedition, 2023-24</p>
                                 </div>
+                            </div>                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-700 to-cyan-500 text-white rounded-full text-xs font-medium shadow-lg">Antarctica 43rd</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 6 - Antarctic Research Team -->
-                <div class="gallery-item antarctica fieldwork">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00518.jpg" data-lightbox="gallery" data-title="UAV Research in Antarctica - Setting up UAV equipment for ice sheet mapping during the 43rd Indian Scientific Expedition.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00518.jpg" alt="UAV Research in Antarctica" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Antarctica 43rd - UAV Research -->
+                <div class="gallery-item antarctica-43">
+                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00518.jpg" data-lightbox="gallery" data-title="Antarctica 43rd Expedition 2023-24 - Setting up UAV equipment for precision ice sheet mapping in extreme conditions.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00518.jpg" alt="UAV Research Antarctica" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">UAV Research in Antarctica</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">UAV Research Setup</h3>
+                                    <p class="text-sm opacity-90 font-inter">43rd Antarctic Expedition, 2023-24</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-700 to-cyan-500 text-white rounded-full text-xs font-medium shadow-lg">Antarctica 43rd</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 7 - Antarctic Equipment -->
-                <div class="gallery-item antarctica equipment">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" data-lightbox="gallery" data-title="Research Equipment in Antarctica - Specialized gear for conducting UAV-based ice sheet mass balance studies.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" alt="Antarctic Research Equipment" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Antarctica 44th Expedition - Enhanced Landscape -->
+                <div class="gallery-item antarctica-44">
+                    <a href="images/gallery/fulls/Anatarctica 44th 2024/DSCF3796-Enhanced-NR.jpg" data-lightbox="gallery" data-title="Antarctica 44th Expedition 2024-25 - Breathtaking Antarctic landscape captured with enhanced imaging techniques.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Anatarctica 44th 2024/DSCF3796-Enhanced-NR.jpg" alt="Enhanced Antarctic Landscape" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Antarctic Research Equipment</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Enhanced Antarctic Vista</h3>
+                                    <p class="text-sm opacity-90 font-inter">44th Antarctic Expedition, 2024-25</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-full text-xs font-medium shadow-lg">Antarctica 44th</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 8 - Ship Journey -->
-                <div class="gallery-item antarctica">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC00054.jpg" data-lightbox="gallery" data-title="Ship Journey to Antarctica - The voyage across the Southern Ocean aboard the polar research vessel during the 43rd Indian Scientific Expedition.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00054.jpg" alt="Ship Journey to Antarctica" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Antarctica 44th - Ice Formation -->
+                <div class="gallery-item antarctica-44">
+                    <a href="images/gallery/fulls/Anatarctica 44th 2024/_DSC6570.jpg" data-lightbox="gallery" data-title="Antarctica 44th Expedition 2024-25 - Spectacular ice formations and glacial structures unique to the Antarctic continent.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Anatarctica 44th 2024/_DSC6570.jpg" alt="Antarctic Ice Formation" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Ship Journey to Antarctica</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Ice Formations</h3>
+                                    <p class="text-sm opacity-90 font-inter">44th Antarctic Expedition, 2024-25</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-full text-xs font-medium shadow-lg">Antarctica 44th</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 9 - Field Research -->
-                <div class="gallery-item antarctica fieldwork">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC07691.jpg" data-lightbox="gallery" data-title="Field Research in Antarctica - Collecting data in one of Earth's most extreme environments during the 43rd Indian Scientific Expedition.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC07691.jpg" alt="Field Research in Antarctica" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Panchinala 2021 Expedition -->
+                <div class="gallery-item panchinala-2021">
+                    <a href="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" data-lightbox="gallery" data-title="Panchinala Expedition 2021 - Field research at Panchinala Glacier in the Indian Himalayas, studying glacier dynamics and mass balance.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" alt="Panchinala Glacier 2021" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Field Research in Antarctica</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Panchinala Glacier</h3>
+                                    <p class="text-sm opacity-90 font-inter">Panchinala Expedition, 2021</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-600 to-teal-500 text-white rounded-full text-xs font-medium shadow-lg">Panchinala 2021</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 10 - Data Collection -->
-                <div class="gallery-item antarctica fieldwork">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC06242.jpg" data-lightbox="gallery" data-title="Data Collection in Antarctica - Precise measurements for ice sheet mass balance and crevasse mapping studies during the 43rd Indian Scientific Expedition.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC06242.jpg" alt="Data Collection in Antarctica" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <!-- Panchinala 2023 Expedition -->
+                <div class="gallery-item panchinala-2023">
+                    <a href="images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG" data-lightbox="gallery" data-title="Panchinala Expedition 2023 - Advanced fieldwork and data collection during our latest Panchinala glacier research campaign.">
+                        <div class="relative overflow-hidden rounded-xl shadow-xl group">
+                            <img src="images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG" alt="Panchinala 2023 Research" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                                 <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Data Collection in Antarctica</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
+                                    <h3 class="text-xl font-bold mb-2 font-space">Panchinala Research</h3>
+                                    <p class="text-sm opacity-90 font-inter">Panchinala Expedition, 2023</p>
                                 </div>
+                            </div>
+                            <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <span class="px-3 py-1 bg-gradient-to-r from-blue-600 to-teal-500 text-white rounded-full text-xs font-medium shadow-lg">Panchinala 2023</span>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <!-- Gallery Item 11 - Maitri Station Close-up -->
-                <div class="gallery-item antarctica">
-                    <a href="images/gallery/fulls/Anatarctica 43rd 2023/DSC07918.jpg" data-lightbox="gallery" data-title="Maitri Station Close-up - India's second permanent research base in Antarctica established in 1989, during the 43rd Indian Scientific Expedition.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC07918.jpg" alt="Maitri Station Close-up" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                                <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Maitri Station Close-up</h3>
-                                    <p class="text-sm opacity-90">43rd Indian Scientific Expedition, 2023-24</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Keep the original equipment and fieldwork items -->
-                <div class="gallery-item equipment">
-                    <a href="images/gallery/fulls/09.jpg" data-lightbox="gallery" data-title="UAV Deployment - Setting up drone equipment for glacier mapping in high altitude.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/thumbs/09.jpg" alt="UAV Deployment" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                                <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">UAV Deployment</h3>
-                                    <p class="text-sm opacity-90">Glacier Mapping Equipment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Gallery Item 6 -->
-                <div class="gallery-item fieldwork">
-                    <a href="images/gallery/fulls/11.jpg" data-lightbox="gallery" data-title="Field Measurements - Collecting data using specialized glaciological equipment.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/thumbs/11.jpg" alt="Field Measurements" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                                <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Field Measurements</h3>
-                                    <p class="text-sm opacity-90">Glacier Research Techniques</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Gallery Item 7 -->
-                <div class="gallery-item equipment">
-                    <a href="images/gallery/fulls/12.jpg" data-lightbox="gallery" data-title="Research Equipment - Essential tools for glacier fieldwork in extreme environments.">
-                        <div class="relative overflow-hidden rounded-lg shadow-lg group">
-                            <img src="images/gallery/thumbs/12.jpg" alt="Research Equipment" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                                <div class="p-6 text-white">
-                                    <h3 class="text-xl font-bold mb-1">Research Equipment</h3>
-                                    <p class="text-sm opacity-90">Glacier Fieldwork Gear</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <!-- Add more gallery items following the same pattern... -->
+                
             </div>
         </div>
-    </section>
-
-    <!-- Field Video -->
-    <section class="py-16 bg-gray-50">
+    </section>    <!-- Field Video -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Field <span class="text-blue-500">Video</span> Highlights</h2>
+            <h2 class="text-4xl font-bold text-center mb-4 font-crimson text-slate-800">Expedition <span class="text-primary-custom">Highlights</span></h2>
+            <p class="text-lg text-slate-600 text-center mb-12 max-w-2xl mx-auto">Watch our field documentation and research highlights from various expeditions</p>
             <div class="max-w-4xl mx-auto">
-                <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
+                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl">
                     <!-- Replace with actual video embed code -->
-                    <div class="w-full h-full bg-gray-900 flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-slate-800 to-blue-900 flex items-center justify-center">
                         <div class="text-center text-white p-8">
-                            <i class="fas fa-play-circle text-6xl mb-4 text-blue-500"></i>
-                            <h3 class="text-2xl font-bold mb-2">Glacier Fieldwork Documentary</h3>
-                            <p class="text-gray-400">A short documentary of our 2022 Himalayan glacier research expedition</p>
+                            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 font-crimson">Expedition Documentary</h3>
+                            <p class="text-blue-200 text-lg">Experience our glacier research expeditions through immersive field documentation</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Wave Footer -->
-    <div class="wave-top"></div>
-    <footer class="bg-gray-800 text-white py-16 relative">
-        <div class="container mx-auto px-6 text-center">
+    </section>    <!-- Wave Footer -->
+    <div class="wave-top"></div>    <footer class="gradient-primary text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-15">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-24 h-24 bg-teal-300 rounded-full opacity-25 animate-pulse delay-1000"></div>
+            <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-sky-200 rounded-full opacity-20 animate-pulse delay-500"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
             <div class="flex flex-col items-center">
-                <h3 class="text-2xl font-bold mb-6 font-playfair">Ajay Godara</h3>
-                <div class="flex space-x-6 mb-8">
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-github"></i></a>
-                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fas fa-envelope"></i></a>
+                <h3 class="text-3xl font-bold mb-8 font-crimson text-white">Ajay Godara</h3>
+                <p class="text-lg text-teal-100 mb-8 max-w-2xl mx-auto font-medium">
+                    Exploring glacial landscapes through research, photography, and storytelling
+                </p>
+                <div class="flex space-x-8 mb-10">
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fas fa-envelope"></i></a>
                 </div>
-                <p class="text-gray-400">&copy; 2025 Ajay Godara. All rights reserved.</p>
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent mb-6"></div>
+                <p class="text-teal-100 font-medium">&copy; 2025 Ajay Godara. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -421,9 +500,7 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-        });
-
-        // Gallery filtering
+        });        // Gallery filtering with new expedition categories
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('[id^="filter-"]');
             const galleryItems = document.querySelectorAll('.gallery-item');
@@ -432,28 +509,45 @@
                 button.addEventListener('click', function() {
                     // Update active button
                     filterButtons.forEach(btn => {
-                        btn.classList.remove('bg-blue-600', 'text-white');
-                        btn.classList.add('bg-white', 'text-gray-700');
+                        btn.classList.remove('active');
                     });
-                    this.classList.remove('bg-white', 'text-gray-700');
-                    this.classList.add('bg-blue-600', 'text-white');
+                    this.classList.add('active');
                     
                     // Get the filter value
                     const filterValue = this.id.replace('filter-', '');
                     
-                    // Filter gallery items
+                    // Filter gallery items with smooth animation
                     galleryItems.forEach(item => {
                         if (filterValue === 'all') {
                             item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100);
                         } else {
                             if (item.classList.contains(filterValue)) {
                                 item.style.display = 'block';
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'translateY(0)';
+                                }, 100);
                             } else {
-                                item.style.display = 'none';
+                                item.style.opacity = '0';
+                                item.style.transform = 'translateY(20px)';
+                                setTimeout(() => {
+                                    item.style.display = 'none';
+                                }, 300);
                             }
                         }
                     });
                 });
+            });
+            
+            // Initialize gallery items with animation properties
+            galleryItems.forEach(item => {
+                item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
             });
         });
 

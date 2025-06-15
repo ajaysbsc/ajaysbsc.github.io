@@ -6,13 +6,46 @@
     <title>Antarctica 43rd Expedition: A First-Time Experience - Ajay Godara</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+        :root {
+            --ice-blue: #E6F3FF;
+            --glacier-blue: #B3D9FF;
+            --arctic-blue: #4A90E2;
+            --deep-blue: #2C5282;
+            --navy-blue: #1A365D;
+            --sea-blue: #006994;
+            --sky-blue: #87CEEB;
+            --ocean-blue: #0077BE;
+            --iceberg-blue: #A0D8EF;
+            --teal-blue: #008B8B;
+        }
+
+        .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        .font-serif { font-family: 'Crimson Text', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+
+        /* Blue Gradient Backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+        }
+
+        .text-primary-custom { color: var(--sea-blue); }
+
         /* Blog post specific styles */
         .blog-content img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
             margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0, 105, 148, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-content img:hover {
+            transform: scale(1.02);
         }
         
         .blog-content h2 {
@@ -20,7 +53,8 @@
             margin-top: 2rem;
             margin-bottom: 1rem;
             font-weight: 600;
-            color: #2d3748;
+            color: var(--deep-blue);
+            font-family: 'Space Grotesk', sans-serif;
         }
         
         .blog-content h3 {
@@ -28,12 +62,15 @@
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
             font-weight: 600;
-            color: #2d3748;
+            color: var(--deep-blue);
+            font-family: 'Space Grotesk', sans-serif;
         }
         
         .blog-content p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            color: #4A5568;
+            font-family: 'Inter', sans-serif;
         }
         
         .blog-content ul, .blog-content ol {
@@ -44,52 +81,67 @@
         .blog-content ul li {
             list-style-type: disc;
             margin-bottom: 0.5rem;
+            color: #4A5568;
         }
         
         .blog-content ol li {
             list-style-type: decimal;
             margin-bottom: 0.5rem;
+            color: #4A5568;
         }
         
         .blog-content blockquote {
-            border-left: 4px solid #4a5568;
+            border-left: 4px solid var(--arctic-blue);
             padding-left: 1rem;
             font-style: italic;
             margin: 1.5rem 0;
-            color: #4a5568;
+            color: var(--deep-blue);
+            background: var(--ice-blue);
+            padding: 1rem;
+            border-radius: 8px;
         }
-    </style>
+
+        .blog-meta {
+            background: linear-gradient(135deg, var(--ice-blue), var(--glacier-blue));
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--arctic-blue);
+        }    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-slate-900 font-body overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <a href="../index.html" class="text-2xl font-bold text-glacier-600">Ajay Godara</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="../index.html#about" class="text-gray-600 hover:text-glacier-600">About</a>
-                    <a href="../research.html" class="text-gray-600 hover:text-glacier-600">Research</a>
-                    <a href="../blog.html" class="text-gray-600 hover:text-glacier-600">Blog</a>
-                    <a href="../gallery.html" class="text-gray-600 hover:text-glacier-600">Gallery</a>
+    <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="text-2xl font-bold text-primary-custom font-heading">Ajay Godara</a>
+                <div class="hidden md:flex space-x-10">
+                    <a href="../index.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Home</a>
+                    <a href="../index.html#about" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">About Me</a>
+                    <a href="../education.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Education</a>
+                    <a href="../research.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Research</a>
+                    <a href="../blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Blog</a>
+                    <a href="../gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Gallery</a>
                 </div>
-                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="py-2 space-y-2">
-                    <a href="../index.html#about" class="block text-gray-600 hover:text-glacier-600">About</a>
-                    <a href="../research.html" class="block text-gray-600 hover:text-glacier-600">Research</a>
-                    <a href="../blog.html" class="block text-gray-600 hover:text-glacier-600">Blog</a>
-                    <a href="../gallery.html" class="block text-gray-600 hover:text-glacier-600">Gallery</a>
+                <div class="py-4 space-y-4 border-t border-blue-100">
+                    <a href="../index.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Home</a>
+                    <a href="../index.html#about" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">About Me</a>
+                    <a href="../education.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Education</a>
+                    <a href="../research.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Research</a>
+                    <a href="../blog.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Blog</a>
+                    <a href="../gallery.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Gallery</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Blog Post Content -->
-    <main class="pt-24 pb-12">
+    <main class="pt-28 pb-12">
         <div class="container mx-auto px-4">
             <article class="max-w-4xl mx-auto">
                 <!-- Blog Header -->
@@ -158,25 +210,37 @@
                     
                     <p>As I prepare for the 44th expedition next year, I carry with me not just the data we collected, but a deeper understanding of why this research matters. Antarctica's ice sheets hold the key to understanding our planet's climate future, and I am privileged to contribute to this crucial field of study.</p>
                 </div>
-                
-                <!-- Author Bio -->
+                  <!-- Author Bio -->
                 <div class="mt-12 border-t border-gray-200 pt-8">
                     <div class="flex items-center">
-                        <img src="../images/ajay-profile.jpg" alt="Ajay Godara" class="w-16 h-16 rounded-full mr-4">
+                        <img src="../images/spotlight01.jpg" alt="Ajay Godara" class="w-16 h-16 rounded-full mr-4">
                         <div>
                             <h3 class="font-bold text-lg">Ajay Godara</h3>
-                            <p class="text-gray-600">Glacier Researcher & Explorer</p>
+                            <p class="text-gray-600">Glaciologist & Antarctic Researcher</p>
                         </div>
                     </div>
                 </div>
             </article>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Ajay Godara. All rights reserved.</p>
+    </main>    <!-- Footer -->
+    <footer class="gradient-primary text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-15">
+            <div class="absolute top-5 left-5 w-20 h-20 bg-white rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-16 h-16 bg-teal-300 rounded-full opacity-25 animate-pulse delay-1000"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="flex flex-col items-center">
+                <h3 class="text-2xl font-bold mb-6 font-heading text-white">Ajay Godara</h3>
+                <div class="flex space-x-6 mb-8">
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="w-16 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent mb-4"></div>
+                <p class="text-teal-100 font-medium">&copy; 2025 Ajay Godara. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
