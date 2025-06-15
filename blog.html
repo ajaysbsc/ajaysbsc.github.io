@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ajay Godara</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Typography and Base Styles */
+        .shadow-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation Styles */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Diagonal Dividers */
+        .diagonal-divider {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .diagonal-divider::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: skewY(-4deg);
+            transform-origin: top right;
+        }
+
+        .diagonal-divider-reverse {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .diagonal-divider-reverse::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transform: skewY(4deg);
+            transform-origin: top left;
+        }
+
+        /* Wave Footer */
+        .wave-top {
+            position: relative;
+            height: 80px;
+            background-color: white;
+        }
+
+        .wave-top::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-repeat: repeat-x;
+            height: 80px;
+            background-size: 100px 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 v 28 h -120 z' fill='%231f2937'/%3E%3C/svg%3E");
+        }
+
+        /* Define the modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.75);
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 0;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .modal-header {
+            padding: 24px 30px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 5;
+        }
+
+        .modal-header h2 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            color: #1f2937;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-body p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #374151;
+        }
+
+        .modal-body ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            margin-bottom: 24px;
+            border-radius: 8px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 24px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #e5e7eb;
+            color: #4b5563;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Blog styles */
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .blog-description {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .sort-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .sort-label {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        #sort-select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .blog-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 24px;
+        }
+
+        .blog-content h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .post-date {
+            color: #6b7280;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        .post-excerpt {
+            color: #4b5563;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .read-more-btn:hover {
+            background-color: #2563eb;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-image {
+                height: 220px;
+            }
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #333;
+                padding: 20px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Rotating image styles */
+        .rotate-img-90 {
+            transform: rotate(90deg);
+        }
+
+        .rotate-img-180 {
+            transform: rotate(180deg);
+        }
+
+        .rotate-img-270 {
+            transform: rotate(270deg);
+        }
+
+        /* Floating Animations */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes floatMedium {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-15px) translateX(10px); }
+        }
+
+        .animate-float-slow {
+            animation: floatSlow 8s ease-in-out infinite;
+        }
+
+        .animate-float-medium {
+            animation: floatMedium 6s ease-in-out infinite;
+        }
+
+        /* Hover effects for blog cards */
+        .blog-card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .blog-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Gradient overlay for blog header */
+        .blog-header-gradient {
+            background: linear-gradient(120deg, #3b82f6 0%, #1e40af 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-montserrat overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-end items-center h-20">
+                <div class="hidden md:flex space-x-12">
+                    <a href="index.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Home</a>
+                    <a href="index.html#about" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">About Me</a>
+                    <a href="education.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Education</a>
+                    <a href="research.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Research</a>
+                    <a href="blog.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Blog</a>
+                    <a href="gallery.html" class="text-blue-500 hover:text-blue-700 text-lg font-medium tracking-wide nav-link">Gallery</a>
+                </div>
+                <button class="md:hidden text-blue-500 text-2xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="py-3 space-y-4">
+                    <a href="index.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Home</a>
+                    <a href="index.html#about" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">About Me</a>
+                    <a href="education.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Education</a>
+                    <a href="research.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Research</a>
+                    <a href="blog.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Blog</a>
+                    <a href="gallery.html" class="block text-blue-500 hover:text-blue-700 text-lg font-medium">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="relative py-32">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="images/banner.jpg" alt="Blog Background" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-white/40 backdrop-blur-md"></div>
+        </div>
+        <!-- Floating Shapes -->
+        <div class="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-blue-500/10 backdrop-blur-md animate-float-slow"></div>
+        <div class="absolute bottom-40 right-40 w-16 h-16 rounded-full bg-white/10 backdrop-blur-md animate-float-medium"></div>
+        <div class="absolute top-40 right-20 w-24 h-24 rounded-full bg-blue-300/10 backdrop-blur-md animate-float-slow"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-4 font-playfair shadow-text">Field <span class="text-blue-600">Blog</span></h1>
+            <p class="text-xl text-gray-700 text-center max-w-3xl mx-auto font-light tracking-wide font-medium shadow-text">
+                Stories and insights from glacier expeditions and field research
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Blog Post -->
+    <section class="py-16 bg-white relative">
+        <div class="absolute left-0 top-40 -ml-20 w-40 h-40 rounded-full bg-blue-100 opacity-70 z-0"></div>
+        <div class="absolute right-0 bottom-20 -mr-20 w-60 h-60 rounded-full bg-blue-50 opacity-70 z-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold mb-16 font-playfair text-left md:text-center">Featured <span class="text-blue-500">Expedition</span></h2>
+            <article class="bg-white rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.01] transition-all duration-300 relative">
+                <div class="md:flex">
+                    <div class="md:w-1/2 relative">
+                        <img src="images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg" alt="Antarctica 44th Expedition" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="px-4 py-1 bg-blue-500 text-white rounded-full text-sm font-medium shadow-lg">Featured</span>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="mb-4 flex items-center">
+                            <span class="text-sm text-gray-500">February 15, 2024</span>
+                            <span class="mx-2 text-gray-300">•</span>
+                            <span class="text-sm text-blue-500">Antarctica</span>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-6 text-gray-900">Antarctica 44th: Antarctic Ice Sheet Mapping</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            In my second Antarctic expedition, I focused on mapping the ice sheet dynamics near Schirmacher Oasis using advanced UAV technology, building upon our previous research and exploring new methodologies for polar ice monitoring.
+                        </p>
+                        <a href="blog-posts/antarctica-44th-expedition-2024-detailed.html" class="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow transition-colors">
+                            Read Full Story <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8 font-playfair">Blog <span class="text-blue-500">Categories</span></h2>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-medium shadow-sm hover:bg-blue-700 transition-colors" id="filter-all">All Expeditions</button>
+                <button class="px-6 py-3 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-antarctica">Antarctica</button>
+                <button class="px-6 py-3 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-himalayas">Himalayas</button>
+                <button class="px-6 py-3 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-nepal">Nepal</button>
+            </div>
+            
+            <div class="flex justify-end items-center mb-6">
+                <label for="sort-select" class="mr-3 text-gray-700">Sort by:</label>
+                <select id="sort-select" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+                <!-- Blog Post 1 - Antarctica 44th -->
+                <div class="blog-post blog-card-hover" data-date="2024-02-15" data-category="antarctica">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                        <div class="relative">
+                            <img src="images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg" alt="Antarctica 44th Expedition" class="w-full h-64 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <span class="px-3 py-1 bg-blue-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Antarctica</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Antarctica 44th: Antarctic Ice Sheet Mapping</h3>
+                            <div class="text-sm text-gray-500 mb-3">February 15, 2024</div>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                In my second Antarctic expedition, I focused on mapping the ice sheet dynamics near Schirmacher Oasis using advanced UAV technology.
+                            </p>
+                            <a href="blog-posts/antarctica-44th-expedition-2024-detailed.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 - Antarctica 43rd -->
+                <div class="blog-post blog-card-hover" data-date="2024-01-12" data-category="antarctica">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                        <div class="relative">
+                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" alt="Antarctica 43rd Expedition" class="w-full h-64 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <span class="px-3 py-1 bg-blue-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Antarctica</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">My Antarctica Experience: 43rd Scientific Expedition</h3>
+                            <div class="text-sm text-gray-500 mb-3">January 12, 2024</div>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Participating in the 43rd Indian Scientific Expedition to Antarctica was a transformative experience. From Bharati to Maitri stations.
+                            </p>
+                            <a href="blog-posts/antarctica-43rd-expedition-2023.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 - Panchinala 2023 -->
+                <div class="blog-post blog-card-hover" data-date="2023-08-20" data-category="himalayas">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                        <div class="relative">
+                            <img src="images/gallery/fulls/Panchinala 2023/IMG_20230704_152837.jpg" alt="Panchinala 2023 Expedition" class="w-full h-64 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <span class="px-3 py-1 bg-green-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Himalayas</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Panchinala Glacier: A 3-Year Monitoring Study</h3>
+                            <div class="text-sm text-gray-500 mb-3">August 20, 2023</div>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Our 2023 expedition to Panchinala Glacier marked the third consecutive year of our monitoring program, allowing us to compile a valuable multi-year dataset.
+                            </p>
+                            <a href="blog-posts/panchinala-2023-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 - Panchinala 2022 -->
+                <div class="blog-post blog-card-hover" data-date="2022-08-15" data-category="himalayas">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                        <div class="relative">
+                            <img src="images/gallery/fulls/Panchinala 2022/_MG_3916.jpg" alt="Panchinala 2022 Expedition" class="w-full h-64 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <span class="px-3 py-1 bg-green-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Himalayas</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Panchinala Glacier UAV Mapping Expedition</h3>
+                            <div class="text-sm text-gray-500 mb-3">August 15, 2022</div>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Our expedition to the Panchinala Glacier in the Indian Himalayas yielded critical data for understanding debris-covered glacier dynamics.
+                            </p>
+                            <a href="blog-posts/panchinala-2021-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 5 - Panchinala 2021 -->
+                <div class="blog-post blog-card-hover" data-date="2021-09-10" data-category="himalayas">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                        <div class="relative">
+                            <img src="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" alt="Panchinala 2021 Expedition" class="w-full h-64 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <span class="px-3 py-1 bg-green-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Himalayas</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Baseline Glacier Mapping: Panchinala 2021</h3>
+                            <div class="text-sm text-gray-500 mb-3">September 10, 2021</div>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Our first comprehensive field campaign at Panchinala Glacier established baseline measurements for long-term monitoring of this critical Himalayan glacier.
+                            </p>
+                            <a href="blog-posts/panchinala-2021-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 6 - Nepal 2022 -->
+                <div class="blog-post blog-card-hover" data-date="2022-05-20" data-category="nepal">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
+                        <div class="relative">
+                            <img src="images/gallery/fulls/Nepal Dec 2022/IMG_20221208_122357.jpg" alt="Nepal 2022 Expedition" class="w-full h-64 object-cover">
+                            <div class="absolute top-3 right-3">
+                                <span class="px-3 py-1 bg-indigo-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Nepal</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Nepal Glacier Research: Manaslu Range Expedition</h3>
+                            <div class="text-sm text-gray-500 mb-3">May 20, 2022</div>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                A collaborative expedition to the Manaslu Range in Nepal to study glacial lake outburst flood (GLOF) risks and high-altitude glacier dynamics.
+                            </p>
+                            <a href="blog-posts/nepal-2022-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <h2 class="sr-only font-playfair">Pagination</h2>
+                <div class="inline-flex rounded-md shadow-sm">
+                    <a href="#" aria-current="page" class="px-4 py-2 text-sm font-medium text-blue-700 bg-white border border-blue-300 rounded-l-lg hover:bg-blue-50">1</a>
+                    <a href="#" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-r border-gray-300 hover:bg-gray-100">2</a>
+                    <a href="#" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-r border-gray-300 rounded-r-lg hover:bg-gray-100">Next</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 bg-gradient-to-r from-blue-800 to-blue-600 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-16 bg-white" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);"></div>
+        <div class="absolute bottom-0 right-0 w-full h-16 bg-white" style="clip-path: polygon(100% 100%, 0 100%, 100% 0);"></div>
+        
+        <div class="absolute inset-0 bg-blue-500 opacity-10">
+            <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full opacity-10 animate-float-slow"></div>
+            <div class="absolute bottom-20 right-20 w-32 h-32 bg-white rounded-full opacity-10 animate-float-medium"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 font-playfair">Subscribe to <span class="text-blue-200">Glacier Updates</span></h2>
+            <p class="text-lg text-white/90 mb-10 max-w-2xl mx-auto font-light">
+                Stay informed about my latest research, field expeditions, and insights in glaciology and remote sensing.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input type="email" placeholder="Your email address" class="px-5 py-3 rounded-lg flex-grow">
+                <button type="submit" class="px-8 py-3 bg-white text-blue-700 font-semibold rounded-lg hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Wave Footer -->
+    <div class="wave-top"></div>
+    <footer class="bg-gray-800 text-white py-16 relative">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col items-center">
+                <h3 class="text-2xl font-bold mb-6 font-playfair">Ajay Godara</h3>
+                <div class="flex space-x-6 mb-8">
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-white/80 hover:text-blue-400 transition-colors text-xl"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="text-gray-400">&copy; 2025 Ajay Godara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Blog post sorting functionality
+            const sortSelect = document.getElementById('sort-select');
+            const blogGrid = document.getElementById('blog-grid');
+            const blogPosts = Array.from(document.querySelectorAll('.blog-post'));
+            
+            // Initial sort (newest first)
+            sortBlogPosts('newest');
+            
+            // Sort when dropdown changes
+            sortSelect.addEventListener('change', function() {
+                sortBlogPosts(this.value);
+            });
+            
+            function sortBlogPosts(order) {
+                // Sort the blog posts based on their date attribute
+                blogPosts.sort((a, b) => {
+                    const dateA = new Date(a.getAttribute('data-date'));
+                    const dateB = new Date(b.getAttribute('data-date'));
+                    
+                    if (order === 'newest') {
+                        return dateB - dateA; // Newest first
+                    } else {
+                        return dateA - dateB; // Oldest first
+                    }
+                });
+                
+                // Remove all current posts from the grid
+                blogPosts.forEach(post => {
+                    post.remove();
+                });
+                
+                // Add them back in the sorted order
+                blogPosts.forEach(post => {
+                    blogGrid.appendChild(post);
+                });
+            }
+
+            // Blog post filtering functionality
+            const filterButtons = document.querySelectorAll('[id^="filter-"]');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-white', 'text-gray-700');
+                    });
+                    this.classList.remove('bg-white', 'text-gray-700');
+                    this.classList.add('bg-blue-600', 'text-white');
+                    
+                    // Get the filter value
+                    const filterValue = this.id.replace('filter-', '');
+                    
+                    // Filter blog posts
+                    blogPosts.forEach(post => {
+                        if (filterValue === 'all') {
+                            post.style.display = 'block';
+                        } else {
+                            if (post.getAttribute('data-category') === filterValue) {
+                                post.style.display = 'block';
+                            } else {
+                                post.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
