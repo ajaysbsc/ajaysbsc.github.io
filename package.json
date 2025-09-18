@@ -1,0 +1,14 @@
+{
+  "name": "ajaygodara-github-io",
+  "version": "1.0.0",
+  "description": "Personal site blog sorting utilities and tests",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^22.1.0"
+  }
+}

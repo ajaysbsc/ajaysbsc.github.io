@@ -562,11 +562,11 @@
                     </div>
                     <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                         <div class="mb-4 flex items-center">
-                            <span class="text-sm text-gray-500">February 15, 2024</span>
+                            <span class="text-sm text-gray-500">February 15, 2025</span>
                             <span class="mx-2 text-gray-300">•</span>
                             <span class="text-sm text-blue-500">Antarctica</span>
                         </div>
-                        <h2 class="text-3xl font-bold mb-6 text-gray-900">Antarctica 44th: Antarctic Ice Sheet Mapping</h2>
+                        <h2 class="text-3xl font-bold mb-6 text-gray-900">Antarctica Scientific Expedition: 44th Indian Antarctic Expedition</h2>
                         <p class="text-gray-600 mb-8 leading-relaxed">
                             In my second Antarctic expedition, I focused on mapping the ice sheet dynamics near Schirmacher Oasis using advanced UAV technology, building upon our previous research and exploring new methodologies for polar ice monitoring.
                         </p>
@@ -801,79 +801,55 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
+    <script type="module">
+        import { sortBlogPosts } from './js/blog.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-            
-            // Blog post sorting functionality
+
             const sortSelect = document.getElementById('sort-select');
             const blogGrid = document.getElementById('blog-grid');
-            const blogPosts = Array.from(document.querySelectorAll('.blog-post'));
-            
-            // Initial sort (newest first)
-            sortBlogPosts('newest');
-            
-            // Sort when dropdown changes
-            sortSelect.addEventListener('change', function() {
-                sortBlogPosts(this.value);
-            });
-            
-            function sortBlogPosts(order) {
-                // Sort the blog posts based on their date attribute
-                blogPosts.sort((a, b) => {
-                    const dateA = new Date(a.getAttribute('data-date'));
-                    const dateB = new Date(b.getAttribute('data-date'));
-                    
-                    if (order === 'newest') {
-                        return dateB - dateA; // Newest first
-                    } else {
-                        return dateA - dateB; // Oldest first
-                    }
-                });
-                
-                // Remove all current posts from the grid
-                blogPosts.forEach(post => {
-                    post.remove();
-                });
-                
-                // Add them back in the sorted order
+            let blogPosts = Array.from(document.querySelectorAll('.blog-post'));
+
+            const applySort = (order) => {
+                blogPosts = sortBlogPosts(blogPosts, order);
                 blogPosts.forEach(post => {
                     blogGrid.appendChild(post);
                 });
-            }
+            };
 
-            // Blog post filtering functionality
+            applySort('newest');
+
+            sortSelect.addEventListener('change', function() {
+                applySort(this.value);
+            });
+
             const filterButtons = document.querySelectorAll('[id^="filter-"]');
-            
+
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Update active button
                     filterButtons.forEach(btn => {
                         btn.classList.remove('bg-blue-600', 'text-white');
                         btn.classList.add('bg-white', 'text-gray-700');
                     });
+
                     this.classList.remove('bg-white', 'text-gray-700');
                     this.classList.add('bg-blue-600', 'text-white');
-                    
-                    // Get the filter value
+
                     const filterValue = this.id.replace('filter-', '');
-                    
-                    // Filter blog posts
+
                     blogPosts.forEach(post => {
                         if (filterValue === 'all') {
                             post.style.display = 'block';
+                        } else if (post.getAttribute('data-category') === filterValue) {
+                            post.style.display = 'block';
                         } else {
-                            if (post.getAttribute('data-category') === filterValue) {
-                                post.style.display = 'block';
-                            } else {
-                                post.style.display = 'none';
-                            }
+                            post.style.display = 'none';
                         }
                     });
                 });

@@ -21,7 +21,6 @@
                     <a href="#about" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">About Me</a>
                     <a href="education.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Education</a>
                     <a href="research.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Research</a>
-                    <a href="blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Blog</a>
                     <a href="gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Gallery</a>
                 </div>
                 <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
@@ -35,7 +34,6 @@
                     <a href="#about" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">About Me</a>
                     <a href="education.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Education</a>
                     <a href="research.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Research</a>
-                    <a href="blog.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Blog</a>
                     <a href="gallery.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Gallery</a>
                 </div>
             </div>
@@ -69,7 +67,7 @@
     </section>
 
     <!-- Diagonal Divider -->
-    <div class="diagonal-divider bg-white"></div>    <!-- Featured Blog Post -->
+    <div class="diagonal-divider bg-white"></div>    <!-- Featured Expedition Highlight -->
     <section class="py-20 bg-white relative">
         <div class="absolute left-0 top-40 -ml-20 w-40 h-40 rounded-full bg-blue-100 opacity-70 z-0"></div>
         <div class="absolute right-0 bottom-20 -mr-20 w-60 h-60 rounded-full bg-blue-50 opacity-70 z-0"></div>
@@ -94,8 +92,8 @@
                         <p class="text-gray-600 mb-8 leading-relaxed">
                             During the 44th Indian Scientific Expedition to Antarctica, we deployed advanced UAV systems for high-resolution mapping of glacial features. Our team conducted comprehensive surveys integrating RTK GPS for centimeter-level accuracy, enabling detailed analysis of ice dynamics and crevasse detection in this critical region of Earth's cryosphere.
                         </p>
-                        <a href="blog.html" class="inline-flex items-center px-6 py-3 btn-primary text-white rounded-lg shadow transition-all duration-300 font-medium">
-                            Read Full Story <span class="ml-2">→</span>
+                        <a href="research.html" class="inline-flex items-center px-6 py-3 btn-primary text-white rounded-lg shadow transition-all duration-300 font-medium">
+                            Explore Research Insights <span class="ml-2">→</span>
                         </a>
                     </div>
                 </div>
@@ -211,18 +209,18 @@
                                 <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfODTpc8Hd-LZgKQ6JOnqEjpmnj9HNepSovj6IbXnx0aLKwzg/formResponse" method="POST" target="hidden_iframe" class="space-y-4">
                                     <div>
                                         <label for="email" class="block text-gray-700 mb-2 font-medium text-sm">Email <span class="text-red-500">*</span></label>
-                                        <input type="email" id="email" name="entry.1045781291" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm" placeholder="your.email@example.com" required>
+                                        <input type="email" id="email" name="emailAddress" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm" placeholder="your.email@example.com" required>
                                         <div id="email-error" class="hidden mt-1 text-red-500 text-xs">Please enter a valid email address</div>
                                     </div>
                                     
                                     <div>  
                                         <label for="name" class="block text-gray-700 mb-2 font-medium text-sm">Name</label>
-                                        <input type="text" id="name" name="entry.2005620554" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm" placeholder="Your full name">
+                                        <input type="text" id="name" name="entry.1064951444" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm" placeholder="Your full name">
                                     </div>
                                     
                                     <div>
                                         <label for="message" class="block text-gray-700 mb-2 font-medium text-sm">Message</label>
-                                        <textarea id="message" name="entry.1166974658" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm" placeholder="Tell me about your research interests, collaboration ideas, or just say hello..."></textarea>
+                                        <textarea id="message" name="entry.1238428363" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm" placeholder="Tell me about your research interests, collaboration ideas, or just say hello..."></textarea>
                                     </div>
                                     
                                     <button type="submit" id="submit-btn" class="btn-primary text-white px-6 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed">
@@ -274,6 +272,7 @@
                     const emailInput = document.getElementById('email');
                     const emailError = document.getElementById('email-error');
                     let isSubmitting = false;
+                    let submissionTimeoutId = null;
 
                     // Email validation
                     function validateEmail(email) {
@@ -311,6 +310,10 @@
 
                     // Show success message
                     function showSuccess() {
+                        if (submissionTimeoutId) {
+                            clearTimeout(submissionTimeoutId);
+                            submissionTimeoutId = null;
+                        }
                         hideLoading();
                         successMessage.classList.remove('hidden');
                         form.reset();
@@ -320,6 +323,10 @@
 
                     // Show error message
                     function showError() {
+                        if (submissionTimeoutId) {
+                            clearTimeout(submissionTimeoutId);
+                            submissionTimeoutId = null;
+                        }
                         hideLoading();
                         errorMessage.classList.remove('hidden');
                         // Scroll to error message
@@ -378,21 +385,28 @@
                         tempForm.submit();
                         document.body.removeChild(tempForm);
 
-                        // Set timeout to show success message
-                        setTimeout(showSuccess, 2000);
+                        submissionTimeoutId = setTimeout(() => {
+                            if (isSubmitting) {
+                                showError();
+                            }
+                        }, 8000);
                     });
 
                     // Handle iframe load (backup success detection)
                     document.getElementById('hidden_iframe').addEventListener('load', function() {
-                        if (isSubmitting) {
-                            setTimeout(showSuccess, 500);
+                        if (!isSubmitting) return;
+                        if (submissionTimeoutId) {
+                            clearTimeout(submissionTimeoutId);
+                            submissionTimeoutId = null;
                         }
+                        setTimeout(showSuccess, 400);
                     });
 
                     // Reset form when clicking on input after success
                     form.addEventListener('click', function() {
                         if (!successMessage.classList.contains('hidden')) {
-                            hideMessages();                        }
+                            hideMessages();
+                        }
                     });
                 });
             </script>
