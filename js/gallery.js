@@ -12,6 +12,30 @@ const state = {
     filterButtons: []
 };
 
+function parseYearFromValue(value) {
+    if (value == null) {
+        return null;
+    }
+
+    if (typeof value === 'number' && Number.isFinite(value)) {
+        return value;
+    }
+
+    const match = String(value).match(/(19|20)\d{2}/);
+    return match ? Number.parseInt(match[0], 10) : null;
+}
+
+function compareGalleriesByYearDesc(a, b) {
+    const yearA = parseYearFromValue(a?.year ?? a?.name) ?? 0;
+    const yearB = parseYearFromValue(b?.year ?? b?.name) ?? 0;
+
+    if (yearA !== yearB) {
+        return yearB - yearA;
+    }
+
+    return (a?.name ?? '').localeCompare(b?.name ?? '');
+}
+
 function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>"']/g, (char) => htmlEscapeMap[char] ?? char);
 }
@@ -114,7 +138,7 @@ function renderFilterButtons() {
 
     state.galleries
         .slice()
-        .sort((a, b) => a.name.localeCompare(b.name))
+        .sort(compareGalleriesByYearDesc)
         .forEach((gallery) => {
             addButton(`${gallery.name} (${gallery.count ?? gallery.images?.length ?? 0})`, gallery.slug);
         });
@@ -229,7 +253,9 @@ async function runGalleryPage() {
     setupMobileMenu();
 
     const { galleries } = await fetchGalleryData();
-    state.galleries = galleries.filter((gallery) => Array.isArray(gallery.images) && gallery.images.length);
+    state.galleries = galleries
+        .filter((gallery) => Array.isArray(gallery.images) && gallery.images.length)
+        .sort(compareGalleriesByYearDesc);
     state.filter = 'all';
 
     renderFilterButtons();

@@ -1,50 +1,11 @@
 {
   "galleries": [
     {
-      "name": "Anatarctica 43rd 2023",
-      "slug": "anatarctica-43rd-2023",
-      "count": 8,
-      "coverImage": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00054.jpg",
-      "images": [
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00054.jpg",
-          "filename": "DSC00054.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg",
-          "filename": "DSC00105.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00518.jpg",
-          "filename": "DSC00518.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00573.jpg",
-          "filename": "DSC00573.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC06242.jpg",
-          "filename": "DSC06242.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC07691.jpg",
-          "filename": "DSC07691.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC07918.jpg",
-          "filename": "DSC07918.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC08759.jpg",
-          "filename": "DSC08759.jpg"
-        }
-      ]
-    },
-    {
       "name": "Anatarctica 44th 2024",
       "slug": "anatarctica-44th-2024",
       "count": 14,
       "coverImage": "images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg",
+      "year": 2024,
       "images": [
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg",
@@ -105,10 +66,85 @@
       ]
     },
     {
+      "name": "Anatarctica 43rd 2023",
+      "slug": "anatarctica-43rd-2023",
+      "count": 8,
+      "coverImage": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00054.jpg",
+      "year": 2023,
+      "images": [
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00054.jpg",
+          "filename": "DSC00054.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg",
+          "filename": "DSC00105.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00518.jpg",
+          "filename": "DSC00518.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00573.jpg",
+          "filename": "DSC00573.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC06242.jpg",
+          "filename": "DSC06242.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC07691.jpg",
+          "filename": "DSC07691.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC07918.jpg",
+          "filename": "DSC07918.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC08759.jpg",
+          "filename": "DSC08759.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Panchinala 2023",
+      "slug": "panchinala-2023",
+      "count": 6,
+      "coverImage": "images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG",
+      "year": 2023,
+      "images": [
+        {
+          "src": "images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG",
+          "filename": "20230709130240__MG_7085~2.JPG"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2023/20230709131512__MG_7133~2.JPG",
+          "filename": "20230709131512__MG_7133~2.JPG"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2023/20230709131517__MG_7134~2.JPG",
+          "filename": "20230709131517__MG_7134~2.JPG"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2023/IMG_20230704_152837.jpg",
+          "filename": "IMG_20230704_152837.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2023/IMG_20230710_193245~2.jpg",
+          "filename": "IMG_20230710_193245~2.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2023/IMG_20230711_170211.jpg",
+          "filename": "IMG_20230711_170211.jpg"
+        }
+      ]
+    },
+    {
       "name": "Nepal Dec 2022",
       "slug": "nepal-dec-2022",
       "count": 7,
       "coverImage": "images/gallery/fulls/Nepal Dec 2022/IMG_20221206_074208.jpg",
+      "year": 2022,
       "images": [
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221206_074208.jpg",
@@ -141,10 +177,36 @@
       ]
     },
     {
+      "name": "Panchinala 2022",
+      "slug": "panchinala-2022",
+      "count": 4,
+      "coverImage": "images/gallery/fulls/Panchinala 2022/IMG_2539.jpg",
+      "year": 2022,
+      "images": [
+        {
+          "src": "images/gallery/fulls/Panchinala 2022/IMG_2539.jpg",
+          "filename": "IMG_2539.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2022/IMG_3258.jpg",
+          "filename": "IMG_3258.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2022/_MG_3916.jpg",
+          "filename": "_MG_3916.jpg"
+        },
+        {
+          "src": "images/gallery/fulls/Panchinala 2022/_MG_4331.jpg",
+          "filename": "_MG_4331.jpg"
+        }
+      ]
+    },
+    {
       "name": "Panchinala 2021",
       "slug": "panchinala-2021",
       "count": 7,
       "coverImage": "images/gallery/fulls/Panchinala 2021/IMG_1228.JPG",
+      "year": 2021,
       "images": [
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_1228.JPG",
@@ -173,62 +235,6 @@
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_3232_1.jpg",
           "filename": "IMG_3232_1.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Panchinala 2022",
-      "slug": "panchinala-2022",
-      "count": 4,
-      "coverImage": "images/gallery/fulls/Panchinala 2022/IMG_2539.jpg",
-      "images": [
-        {
-          "src": "images/gallery/fulls/Panchinala 2022/IMG_2539.jpg",
-          "filename": "IMG_2539.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2022/IMG_3258.jpg",
-          "filename": "IMG_3258.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2022/_MG_3916.jpg",
-          "filename": "_MG_3916.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2022/_MG_4331.jpg",
-          "filename": "_MG_4331.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Panchinala 2023",
-      "slug": "panchinala-2023",
-      "count": 6,
-      "coverImage": "images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG",
-      "images": [
-        {
-          "src": "images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG",
-          "filename": "20230709130240__MG_7085~2.JPG"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2023/20230709131512__MG_7133~2.JPG",
-          "filename": "20230709131512__MG_7133~2.JPG"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2023/20230709131517__MG_7134~2.JPG",
-          "filename": "20230709131517__MG_7134~2.JPG"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2023/IMG_20230704_152837.jpg",
-          "filename": "IMG_20230704_152837.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2023/IMG_20230710_193245~2.jpg",
-          "filename": "IMG_20230710_193245~2.jpg"
-        },
-        {
-          "src": "images/gallery/fulls/Panchinala 2023/IMG_20230711_170211.jpg",
-          "filename": "IMG_20230711_170211.jpg"
         }
       ]
     }

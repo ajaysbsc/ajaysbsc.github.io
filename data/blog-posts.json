@@ -1,6 +1,22 @@
 {
   "posts": [
     {
+      "slug": "panchinala-glacier-2023-retrospective",
+      "url": "blog-posts/panchinala-glacier-2023-retrospective.html",
+      "title": "Panchinala Glacier 2023 Retrospective",
+      "date": "2025-09-19",
+      "category": "himalayas",
+      "excerpt": "Field notes from the 2023 Panchinala Glacier monitoring campaign.",
+      "heroImage": "images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG",
+      "featured": false,
+      "published": true,
+      "tags": [
+        "himalayas",
+        "glacier",
+        "monitoring"
+      ]
+    },
+    {
       "slug": "antarctica-44th-expedition-2024-detailed",
       "url": "blog-posts/antarctica-44th-expedition-2024-detailed.html",
       "title": "Antarctica Scientific Expedition: 44th Indian Antarctic Expedition",
