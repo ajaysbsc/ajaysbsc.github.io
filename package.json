@@ -4,7 +4,8 @@
   "description": "Personal site blog sorting utilities and tests",
   "type": "module",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "generate-content": "node scripts/generateContentManifest.js"
   },
   "devDependencies": {
     "jest": "^29.7.0",

@@ -545,37 +545,14 @@
     <!-- Diagonal Divider -->
     <div class="diagonal-divider bg-white"></div>
 
-    <!-- Featured Blog Post -->
-    <section class="py-16 bg-white relative">
+        <!-- Featured Blog Post -->
+    <section id="featured-section" class="py-16 bg-white relative hidden">
         <div class="absolute left-0 top-40 -ml-20 w-40 h-40 rounded-full bg-blue-100 opacity-70 z-0"></div>
         <div class="absolute right-0 bottom-20 -mr-20 w-60 h-60 rounded-full bg-blue-50 opacity-70 z-0"></div>
-        
+
         <div class="container mx-auto px-6 relative z-10">
             <h2 class="text-4xl font-bold mb-16 font-playfair text-left md:text-center">Featured <span class="text-blue-500">Expedition</span></h2>
-            <article class="bg-white rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.01] transition-all duration-300 relative">
-                <div class="md:flex">
-                    <div class="md:w-1/2 relative">
-                        <img src="images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg" alt="Antarctica 44th Expedition" class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="px-4 py-1 bg-blue-500 text-white rounded-full text-sm font-medium shadow-lg">Featured</span>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                        <div class="mb-4 flex items-center">
-                            <span class="text-sm text-gray-500">February 15, 2025</span>
-                            <span class="mx-2 text-gray-300">•</span>
-                            <span class="text-sm text-blue-500">Antarctica</span>
-                        </div>
-                        <h2 class="text-3xl font-bold mb-6 text-gray-900">Antarctica Scientific Expedition: 44th Indian Antarctic Expedition</h2>
-                        <p class="text-gray-600 mb-8 leading-relaxed">
-                            In my second Antarctic expedition, I focused on mapping the ice sheet dynamics near Schirmacher Oasis using advanced UAV technology, building upon our previous research and exploring new methodologies for polar ice monitoring.
-                        </p>
-                        <a href="blog-posts/antarctica-44th-expedition-2024-detailed.html" class="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow transition-colors">
-                            Read Full Story <span class="ml-2">→</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
+            <div id="featured-content"></div>
         </div>
     </section>
 
@@ -583,19 +560,15 @@
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-8 font-playfair">Blog <span class="text-blue-500">Categories</span></h2>
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <button class="px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-medium shadow-sm hover:bg-blue-700 transition-colors" id="filter-all">All Expeditions</button>
-                <button class="px-6 py-3 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-antarctica">Antarctica</button>
-                <button class="px-6 py-3 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-himalayas">Himalayas</button>
-                <button class="px-6 py-3 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm hover:bg-gray-100 transition-colors" id="filter-nepal">Nepal</button>
-            </div>
-            
-            <div class="flex justify-end items-center mb-6">
-                <label for="sort-select" class="mr-3 text-gray-700">Sort by:</label>
-                <select id="sort-select" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                </select>
+            <div id="blog-controls" class="space-y-6 hidden">
+                <div id="category-buttons" class="flex flex-wrap justify-center gap-4"></div>
+                <div id="sort-container" class="flex justify-end items-center gap-3">
+                    <label for="sort-select" class="text-gray-700">Sort by:</label>
+                    <select id="sort-select" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
             </div>
         </div>
     </section>
@@ -603,153 +576,15 @@
     <!-- Blog Posts Grid -->
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
-                <!-- Blog Post 1 - Antarctica 44th -->
-                <div class="blog-post blog-card-hover" data-date="2024-02-15" data-category="antarctica">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                        <div class="relative">
-                            <img src="images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg" alt="Antarctica 44th Expedition" class="w-full h-64 object-cover">
-                            <div class="absolute top-3 right-3">
-                                <span class="px-3 py-1 bg-blue-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Antarctica</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Antarctica 44th: Antarctic Ice Sheet Mapping</h3>
-                            <div class="text-sm text-gray-500 mb-3">February 15, 2024</div>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                In my second Antarctic expedition, I focused on mapping the ice sheet dynamics near Schirmacher Oasis using advanced UAV technology.
-                            </p>
-                            <a href="blog-posts/antarctica-44th-expedition-2024-detailed.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
-                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog Post 2 - Antarctica 43rd -->
-                <div class="blog-post blog-card-hover" data-date="2024-01-12" data-category="antarctica">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                        <div class="relative">
-                            <img src="images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg" alt="Antarctica 43rd Expedition" class="w-full h-64 object-cover">
-                            <div class="absolute top-3 right-3">
-                                <span class="px-3 py-1 bg-blue-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Antarctica</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">My Antarctica Experience: 43rd Scientific Expedition</h3>
-                            <div class="text-sm text-gray-500 mb-3">January 12, 2024</div>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                Participating in the 43rd Indian Scientific Expedition to Antarctica was a transformative experience. From Bharati to Maitri stations.
-                            </p>
-                            <a href="blog-posts/antarctica-43rd-expedition-2023.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
-                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog Post 3 - Panchinala 2023 -->
-                <div class="blog-post blog-card-hover" data-date="2023-08-20" data-category="himalayas">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                        <div class="relative">
-                            <img src="images/gallery/fulls/Panchinala 2023/IMG_20230704_152837.jpg" alt="Panchinala 2023 Expedition" class="w-full h-64 object-cover">
-                            <div class="absolute top-3 right-3">
-                                <span class="px-3 py-1 bg-green-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Himalayas</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Panchinala Glacier: A 3-Year Monitoring Study</h3>
-                            <div class="text-sm text-gray-500 mb-3">August 20, 2023</div>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                Our 2023 expedition to Panchinala Glacier marked the third consecutive year of our monitoring program, allowing us to compile a valuable multi-year dataset.
-                            </p>
-                            <a href="blog-posts/panchinala-2023-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
-                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog Post 4 - Panchinala 2022 -->
-                <div class="blog-post blog-card-hover" data-date="2022-08-15" data-category="himalayas">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                        <div class="relative">
-                            <img src="images/gallery/fulls/Panchinala 2022/_MG_3916.jpg" alt="Panchinala 2022 Expedition" class="w-full h-64 object-cover">
-                            <div class="absolute top-3 right-3">
-                                <span class="px-3 py-1 bg-green-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Himalayas</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Panchinala Glacier UAV Mapping Expedition</h3>
-                            <div class="text-sm text-gray-500 mb-3">August 15, 2022</div>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                Our expedition to the Panchinala Glacier in the Indian Himalayas yielded critical data for understanding debris-covered glacier dynamics.
-                            </p>
-                            <a href="blog-posts/panchinala-2021-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
-                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog Post 5 - Panchinala 2021 -->
-                <div class="blog-post blog-card-hover" data-date="2021-09-10" data-category="himalayas">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                        <div class="relative">
-                            <img src="images/gallery/fulls/Panchinala 2021/IMG_3225.jpg" alt="Panchinala 2021 Expedition" class="w-full h-64 object-cover">
-                            <div class="absolute top-3 right-3">
-                                <span class="px-3 py-1 bg-green-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Himalayas</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Baseline Glacier Mapping: Panchinala 2021</h3>
-                            <div class="text-sm text-gray-500 mb-3">September 10, 2021</div>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                Our first comprehensive field campaign at Panchinala Glacier established baseline measurements for long-term monitoring of this critical Himalayan glacier.
-                            </p>
-                            <a href="blog-posts/panchinala-2021-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
-                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog Post 6 - Nepal 2022 -->
-                <div class="blog-post blog-card-hover" data-date="2022-05-20" data-category="nepal">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full">
-                        <div class="relative">
-                            <img src="images/gallery/fulls/Nepal Dec 2022/IMG_20221208_122357.jpg" alt="Nepal 2022 Expedition" class="w-full h-64 object-cover">
-                            <div class="absolute top-3 right-3">
-                                <span class="px-3 py-1 bg-indigo-500/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">Nepal</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col h-[calc(100%-16rem)]">
-                            <h3 class="text-xl font-bold mb-2 text-gray-900">Nepal Glacier Research: Manaslu Range Expedition</h3>
-                            <div class="text-sm text-gray-500 mb-3">May 20, 2022</div>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                A collaborative expedition to the Manaslu Range in Nepal to study glacial lake outburst flood (GLOF) risks and high-altitude glacier dynamics.
-                            </p>
-                            <a href="blog-posts/nepal-2022-expedition.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-auto">
-                                Read More <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div id="blog-empty-state" class="bg-white border border-blue-100 rounded-xl p-10 text-center shadow-sm hidden">
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">Blog stories coming soon</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">I'm refreshing the publishing workflow. As soon as new expeditions are ready, they'll appear here automatically.</p>
             </div>
-
-            <!-- Pagination -->
-            <div class="flex justify-center mt-12">
-                <h2 class="sr-only font-playfair">Pagination</h2>
-                <div class="inline-flex rounded-md shadow-sm">
-                    <a href="#" aria-current="page" class="px-4 py-2 text-sm font-medium text-blue-700 bg-white border border-blue-300 rounded-l-lg hover:bg-blue-50">1</a>
-                    <a href="#" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-r border-gray-300 hover:bg-gray-100">2</a>
-                    <a href="#" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-r border-gray-300 rounded-r-lg hover:bg-gray-100">Next</a>
-                </div>
-            </div>
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </div>
     </section>
 
-    <!-- Newsletter -->
+<!-- Newsletter -->
     <section class="py-20 bg-gradient-to-r from-blue-800 to-blue-600 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-16 bg-white" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);"></div>
         <div class="absolute bottom-0 right-0 w-full h-16 bg-white" style="clip-path: polygon(100% 100%, 0 100%, 100% 0);"></div>
@@ -800,61 +635,10 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+        <!-- Scripts -->
     <script type="module">
-        import { sortBlogPosts } from './js/blog.js';
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            const sortSelect = document.getElementById('sort-select');
-            const blogGrid = document.getElementById('blog-grid');
-            let blogPosts = Array.from(document.querySelectorAll('.blog-post'));
-
-            const applySort = (order) => {
-                blogPosts = sortBlogPosts(blogPosts, order);
-                blogPosts.forEach(post => {
-                    blogGrid.appendChild(post);
-                });
-            };
-
-            applySort('newest');
-
-            sortSelect.addEventListener('change', function() {
-                applySort(this.value);
-            });
-
-            const filterButtons = document.querySelectorAll('[id^="filter-"]');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    filterButtons.forEach(btn => {
-                        btn.classList.remove('bg-blue-600', 'text-white');
-                        btn.classList.add('bg-white', 'text-gray-700');
-                    });
-
-                    this.classList.remove('bg-white', 'text-gray-700');
-                    this.classList.add('bg-blue-600', 'text-white');
-
-                    const filterValue = this.id.replace('filter-', '');
-
-                    blogPosts.forEach(post => {
-                        if (filterValue === 'all') {
-                            post.style.display = 'block';
-                        } else if (post.getAttribute('data-category') === filterValue) {
-                            post.style.display = 'block';
-                        } else {
-                            post.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
+        import { initBlogPage } from './js/blog.js';
+        initBlogPage();
     </script>
 </body>
 </html> 

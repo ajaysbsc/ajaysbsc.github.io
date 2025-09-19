@@ -1,0 +1,80 @@
+{
+  "posts": [
+    {
+      "slug": "antarctica-44th-expedition-2024-detailed",
+      "url": "blog-posts/antarctica-44th-expedition-2024-detailed.html",
+      "title": "Antarctica Scientific Expedition: 44th Indian Antarctic Expedition",
+      "date": "2024-02-15",
+      "category": "antarctica",
+      "excerpt": "In my second Antarctic expedition, I focused on mapping the ice sheet dynamics near Schirmacher Oasis using advanced UAV technology.",
+      "heroImage": "images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg",
+      "featured": true,
+      "published": false,
+      "tags": [
+        "Antarctica",
+        "Expedition",
+        "Geospatial"
+      ]
+    },
+    {
+      "slug": "antarctica-43rd-expedition-2023",
+      "url": "blog-posts/antarctica-43rd-expedition-2023.html",
+      "title": "My Antarctica Experience: 43rd Scientific Expedition",
+      "date": "2024-01-12",
+      "category": "antarctica",
+      "excerpt": "Participating in the 43rd Indian Scientific Expedition to Antarctica was a transformative experience that connected Bharati and Maitri stations.",
+      "heroImage": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg",
+      "featured": false,
+      "published": false,
+      "tags": [
+        "Antarctica",
+        "Field Work"
+      ]
+    },
+    {
+      "slug": "panchinala-2023-expedition",
+      "url": "blog-posts/panchinala-2023-expedition.html",
+      "title": "Panchinala Glacier: A 3-Year Monitoring Study",
+      "date": "2023-08-20",
+      "category": "himalayas",
+      "excerpt": "Our 2023 expedition to Panchinala Glacier marked the third consecutive year of monitoring and produced a valuable multi-year dataset.",
+      "heroImage": "images/gallery/fulls/Panchinala 2023/IMG_20230704_152837.jpg",
+      "featured": false,
+      "published": false,
+      "tags": [
+        "Himalayas",
+        "Monitoring"
+      ]
+    },
+    {
+      "slug": "nepal-2022-expedition",
+      "url": "blog-posts/nepal-2022-expedition.html",
+      "title": "Nepal Glacier Research: Manaslu Range Expedition",
+      "date": "2022-05-20",
+      "category": "nepal",
+      "excerpt": "A collaborative expedition to the Manaslu Range in Nepal to study glacial lake outburst flood risks and high-altitude glacier dynamics.",
+      "heroImage": "images/gallery/fulls/Nepal Dec 2022/IMG_20221208_122357.jpg",
+      "featured": false,
+      "published": false,
+      "tags": [
+        "Nepal",
+        "GLOF"
+      ]
+    },
+    {
+      "slug": "panchinala-2021-expedition",
+      "url": "blog-posts/panchinala-2021-expedition.html",
+      "title": "Baseline Glacier Mapping: Panchinala 2021",
+      "date": "2021-09-10",
+      "category": "himalayas",
+      "excerpt": "Our first comprehensive field campaign at Panchinala Glacier established baseline measurements for long-term monitoring of the glacier.",
+      "heroImage": "images/gallery/fulls/Panchinala 2021/IMG_3225.jpg",
+      "featured": false,
+      "published": false,
+      "tags": [
+        "Himalayas",
+        "Baseline"
+      ]
+    }
+  ]
+}
