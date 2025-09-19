@@ -4,7 +4,7 @@
 Usage:
     python scripts/scaffold_blog_post.py "Antarctica Expedition" \
         --date 2025-03-10 --category antarctica --excerpt "Short summary" \
-        --hero images/gallery/fulls/Anatarctica\ 45th\ 2025/hero.jpg --published
+        --hero "images/gallery/fulls/Anatarctica 45th 2025/hero.jpg" --published
 
 The script generates blog-posts/<slug>.html using the existing layout structure
 so that the page is immediately viewable. Update the placeholder sections with
@@ -32,9 +32,88 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css\">
     <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
     <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">
+    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">
+
+    <style>
+        :root {{
+            --ice-blue: #E6F3FF;
+            --glacier-blue: #B3D9FF;
+            --arctic-blue: #4A90E2;
+            --deep-blue: #2C5282;
+            --navy-blue: #1A365D;
+            --sea-blue: #006994;
+            --sky-blue: #87CEEB;
+            --ocean-blue: #0077BE;
+            --iceberg-blue: #A0D8EF;
+            --teal-blue: #008B8B;
+        }}
+
+        .font-heading {{ font-family: 'Space Grotesk', sans-serif; }}
+        .font-serif {{ font-family: 'Crimson Text', serif; }}
+        .font-body {{ font-family: 'Inter', sans-serif; }}
+
+        .gradient-primary {{
+            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
+        }}
+
+        .text-primary-custom {{ color: var(--sea-blue); }}
+
+        .blog-content img {{
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0, 105, 148, 0.15);
+            transition: transform 0.3s ease;
+        }}
+
+        .blog-content img:hover {{
+            transform: scale(1.02);
+        }}
+
+        .blog-content h2 {{
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            font-family: 'Space Grotesk', sans-serif;
+        }}
+
+        .blog-content h3 {{
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            font-family: 'Space Grotesk', sans-serif;
+        }}
+
+        .blog-content p {{
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #4A5568;
+            font-family: 'Inter', sans-serif;
+        }}
+
+        .blog-content ul,
+        .blog-content ol {{
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }}
+
+        .blog-content blockquote {{
+            border-left: 4px solid var(--arctic-blue);
+            padding-left: 1rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+            color: var(--deep-blue);
+            background: var(--ice-blue);
+            border-radius: 8px;
+        }}
+    </style>
 </head>
-<body class=\"bg-gray-50 text-slate-900 font-inter overflow-x-hidden\">
+<body class=\"bg-gray-50 text-slate-900 font-body overflow-x-hidden\">
     <!-- Navigation -->
     <nav class=\"fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100\">
         <div class=\"container mx-auto px-6\">
@@ -66,46 +145,87 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
         </div>
     </nav>
 
-    <main class=\"pt-32 pb-20\">
-        <article class=\"container mx-auto px-4 max-w-4xl bg-white rounded-2xl shadow-xl border border-blue-100\">
-            <header class=\"pt-10 pb-6 text-center\">
-                <p class=\"text-sm uppercase tracking-widest text-blue-500 font-semibold mb-2\">{category}</p>
-                <h1 class=\"text-4xl font-bold text-gray-900 font-crimson mb-4\">{title}</h1>
-                <p class=\"text-sm text-gray-500\">{date}</p>
-            </header>
-            <figure class=\"px-6 pb-6\">
-                <img loading=\"lazy\" src=\"{hero_image}\" alt=\"{title}\" class=\"w-full h-auto rounded-xl shadow-lg\">
-                <figcaption class=\"mt-3 text-sm text-gray-500 text-center\">Describe the hero image here.</figcaption>
-            </figure>
-            <section class=\"prose prose-lg max-w-none px-6 pb-10 leading-relaxed text-gray-700\">
-                <p><strong>Summary:</strong> {excerpt}</p>
+    <!-- Blog Post Content -->
+    <main class=\"pt-28 pb-12\">
+        <div class=\"container mx-auto px-4\">
+            <article class=\"max-w-4xl mx-auto\">
+                <header class=\"mb-10\">
+                    <p class=\"text-sm uppercase tracking-widest text-blue-500 font-semibold mb-2\">{category_label}</p>
+                    <h1 class=\"text-4xl font-bold mb-4\">{title}</h1>
+                    <div class=\"flex items-center text-gray-600 mb-6\">
+                        <span class=\"mr-4\"><i class=\"far fa-calendar-alt mr-2\"></i>{display_date}</span>
+                        <span><i class=\"fas fa-tag mr-2\"></i>{category_label}</span>
+                    </div>
+                    <img loading=\"lazy\" src=\"{hero_article_src}\" alt=\"{title}\" class=\"w-full h-auto object-cover rounded-lg shadow-lg\">
+                </header>
 
-                <h2>Background</h2>
-                <p>Replace this section with the expedition background, objectives, and preparation details.</p>
+                <div class=\"blog-content prose lg:prose-xl max-w-none\">
+                    <p><strong>Summary:</strong> {excerpt}</p>
 
-                <h2>Field Highlights</h2>
-                <p>Share the most important findings, interesting stories, or technical insights.</p>
+                    <h2>Highlights</h2>
+                    <p>Capture headline findings or stories from the expedition. Mention weather windows, scientific wins, or logistical lessons.</p>
 
-                <h2>Next Steps</h2>
-                <p>Document follow-up work, data-processing plans, or how this expedition fits into the larger research agenda.</p>
-            </section>
-        </article>
+                    <h2>Field Workflow</h2>
+                    <p>Detail the instruments, survey plans, or data collection approaches you used. Note anything that deviated from past seasons.</p>
+
+                    <div class=\"grid grid-cols-1 md:grid-cols-2 gap-6 my-8\">
+                        <img loading=\"lazy\" src=\"{hero_article_src}\" alt=\"Add a descriptive caption\" class=\"rounded-lg shadow-md\">
+                        <img loading=\"lazy\" src=\"{hero_article_src}\" alt=\"Swap to a second expedition image\" class=\"rounded-lg shadow-md\">
+                    </div>
+
+                    <h2>Next Steps</h2>
+                    <p>Explain follow-up analysis, upcoming field visits, or how collaborators can access the datasets from this expedition.</p>
+
+                    <blockquote>
+                        <p>Replace this quote with a field note, a collaborator comment, or a reflection that adds personality to the write-up.</p>
+                    </blockquote>
+                </div>
+
+                <div class=\"mt-12 border-t border-gray-200 pt-8\">
+                    <div class=\"flex items-center\">
+                        <img loading=\"lazy\" src=\"../images/spotlight01.jpg\" alt=\"Ajay Godara\" class=\"w-16 h-16 rounded-full mr-4\">
+                        <div>
+                            <h3 class=\"font-bold text-lg\">Ajay Godara</h3>
+                            <p class=\"text-gray-600\">Glaciologist & Field Researcher</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
     </main>
 
-    <footer class=\"gradient-primary text-white py-10 mt-12\">
-        <div class=\"container mx-auto px-4 text-center\">
-            <p class=\"font-medium\">&copy; {year} Ajay Godara. All rights reserved.</p>
+    <footer class=\"gradient-primary text-white py-16 relative overflow-hidden\">
+        <div class=\"absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent\"></div>
+        <div class=\"absolute top-0 left-0 w-full h-full opacity-15\">
+            <div class=\"absolute top-5 left-5 w-20 h-20 bg-white rounded-full opacity-20 animate-pulse\"></div>
+            <div class=\"absolute bottom-10 right-10 w-16 h-16 bg-teal-300 rounded-full opacity-25 animate-pulse delay-1000\"></div>
+        </div>
+        <div class=\"container mx-auto px-6 text-center relative z-10\">
+            <div class=\"flex flex-col items-center\">
+                <h3 class=\"text-2xl font-bold mb-6 font-heading text-white\">Ajay Godara</h3>
+                <div class=\"flex space-x-6 mb-8\">
+                    <a href=\"https://x.com/AjayGodara_IITB\" target=\"_blank\" class=\"text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125\"><i class=\"fab fa-twitter\"></i></a>
+                    <a href=\"https://www.linkedin.com/in/ajay-godara-a76ab4aa/\" target=\"_blank\" class=\"text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125\"><i class=\"fab fa-linkedin\"></i></a>
+                    <a href=\"https://github.com/ajaysbsc\" target=\"_blank\" class=\"text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125\"><i class=\"fab fa-github\"></i></a>
+                    <a href=\"#\" class=\"text-teal-100 hover:text-white transition-all duration-300 text-xl transform hover:scale-125\"><i class=\"fas fa-envelope\"></i></a>
+                </div>
+                <div class=\"w-16 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent mb-4\"></div>
+                <p class=\"text-teal-100 font-medium\">&copy; {year} Ajay Godara. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {{
-            mobileMenuButton.addEventListener('click', () => {{
-                mobileMenu.classList.toggle('hidden');
-            }});
-        }}
+        document.addEventListener('DOMContentLoaded', function() {{
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {{
+                mobileMenuButton.addEventListener('click', () => {{
+                    mobileMenu.classList.toggle('hidden');
+                }});
+            }}
+        }});
     </script>
 </body>
 </html>
@@ -134,13 +254,26 @@ def create_post(args: argparse.Namespace) -> Path:
         raise SystemExit(f"Error: {output_path} already exists. Use --force to overwrite.")
 
     metadata = build_metadata(args)
+    category_label = args.category.replace("-", " ").title()
+    try:
+        parsed_date = dt.date.fromisoformat(args.date)
+        display_date = parsed_date.strftime("%B %d, %Y").replace(" 0", " ")
+    except ValueError:
+        display_date = args.date
+
+    hero_src = args.hero
+    if not hero_src.startswith(("http://", "https://", "../")):
+        hero_article_src = f"../{hero_src}"
+    else:
+        hero_article_src = hero_src
+
     html = BLOG_TEMPLATE.format(
         metadata=metadata,
         title=args.title,
-        category=args.category.title(),
-        date=args.date,
+        category_label=category_label,
+        display_date=display_date,
         excerpt=args.excerpt,
-        hero_image=args.hero,
+        hero_article_src=hero_article_src,
         year=dt.date.today().year,
     )
     output_path.write_text(html, encoding="utf-8")
