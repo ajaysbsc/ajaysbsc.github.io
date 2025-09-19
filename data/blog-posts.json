@@ -17,6 +17,22 @@
       ]
     },
     {
+      "slug": "siachen-glacier-survey-2024",
+      "url": "blog-posts/siachen-glacier-survey-2024.html",
+      "title": "Siachen Glacier Survey 2024",
+      "date": "2024-02-28",
+      "category": "antarctica",
+      "excerpt": "The 2024 field season pushed our UAV workflows higher up the Siachen glacier, capturing accumulation zones that were previously out of reach.",
+      "heroImage": "images/gallery/fulls/Anatarctica 44th 2024/DSC03792.jpg",
+      "featured": false,
+      "published": true,
+      "tags": [
+        "antarctica",
+        "survey",
+        "uav"
+      ]
+    },
+    {
       "slug": "antarctica-44th-expedition-2024-detailed",
       "url": "blog-posts/antarctica-44th-expedition-2024-detailed.html",
       "title": "Antarctica Scientific Expedition: 44th Indian Antarctic Expedition",

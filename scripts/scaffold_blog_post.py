@@ -16,6 +16,8 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import textwrap
+import html
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -160,25 +162,7 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
                 </header>
 
                 <div class=\"blog-content prose lg:prose-xl max-w-none\">
-                    <p><strong>Summary:</strong> {excerpt}</p>
-
-                    <h2>Highlights</h2>
-                    <p>Capture headline findings or stories from the expedition. Mention weather windows, scientific wins, or logistical lessons.</p>
-
-                    <h2>Field Workflow</h2>
-                    <p>Detail the instruments, survey plans, or data collection approaches you used. Note anything that deviated from past seasons.</p>
-
-                    <div class=\"grid grid-cols-1 md:grid-cols-2 gap-6 my-8\">
-                        <img loading=\"lazy\" src=\"{hero_article_src}\" alt=\"Add a descriptive caption\" class=\"rounded-lg shadow-md\">
-                        <img loading=\"lazy\" src=\"{hero_article_src}\" alt=\"Swap to a second expedition image\" class=\"rounded-lg shadow-md\">
-                    </div>
-
-                    <h2>Next Steps</h2>
-                    <p>Explain follow-up analysis, upcoming field visits, or how collaborators can access the datasets from this expedition.</p>
-
-                    <blockquote>
-                        <p>Replace this quote with a field note, a collaborator comment, or a reflection that adds personality to the write-up.</p>
-                    </blockquote>
+{body_html}
                 </div>
 
                 <div class=\"mt-12 border-t border-gray-200 pt-8\">
@@ -232,12 +216,202 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
 """
 
 
-def build_metadata(args: argparse.Namespace) -> str:
+def render_blog_html(
+    *,
+    metadata: str,
+    title: str,
+    category_label: str,
+    display_date: str,
+    hero_article_src: str,
+    body_html: str,
+    year: int,
+) -> str:
+    body_html = body_html.strip()
+    if not body_html:
+        body_html = "<p>Add your expedition story here.</p>"
+
+    body_html_formatted = textwrap.indent(body_html, " " * 20)
+
+    return BLOG_TEMPLATE.format(
+        metadata=metadata,
+        title=html.escape(title),
+        category_label=html.escape(category_label),
+        display_date=html.escape(display_date),
+        hero_article_src=html.escape(hero_article_src, quote=True),
+        body_html=body_html_formatted,
+        year=year,
+    )
+
+
+def build_default_body_html(excerpt: str, hero_article_src: str) -> str:
+    safe_excerpt = html.escape(excerpt) if excerpt else "Add a short summary of the expedition."
+    safe_image = html.escape(hero_article_src, quote=True)
+
+    return textwrap.dedent(
+        f"""
+        <p><strong>Summary:</strong> {safe_excerpt}</p>
+
+        <h2>Highlights</h2>
+        <p>Capture headline findings or stories from the expedition. Mention weather windows, scientific wins, or logistical lessons.</p>
+
+        <h2>Field Workflow</h2>
+        <p>Detail the instruments, survey plans, or data collection approaches you used. Note anything that deviated from past seasons.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+            <img loading="lazy" src="{safe_image}" alt="Expedition highlight image" class="rounded-lg shadow-md">
+            <img loading="lazy" src="{safe_image}" alt="Additional expedition image" class="rounded-lg shadow-md">
+        </div>
+
+        <h2>Next Steps</h2>
+        <p>Explain follow-up analysis, upcoming field visits, or how collaborators can access the datasets from this expedition.</p>
+
+        <blockquote>
+            <p>Replace this quote with a field note, a collaborator comment, or a reflection that adds personality to the write-up.</p>
+        </blockquote>
+        """
+    ).strip()
+
+
+def extract_excerpt_from_markdown(markdown_text: str) -> str | None:
+    heading_candidate: str | None = None
+    for line in markdown_text.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            continue
+        is_heading = False
+        if stripped.startswith('#'):
+            stripped = stripped.lstrip('#').strip()
+            if not stripped:
+                continue
+            is_heading = True
+        if stripped.startswith('>'):
+            stripped = stripped.lstrip('>').strip()
+        if stripped.startswith('- ') or stripped.startswith('* '):
+            stripped = stripped[2:].strip()
+        if stripped:
+            if is_heading and heading_candidate is None:
+                heading_candidate = stripped[:280]
+                continue
+            return stripped[:280]
+    return heading_candidate
+
+
+def simple_markdown_to_html(markdown_text: str) -> str:
+    lines = markdown_text.splitlines()
+    html_lines: list[str] = []
+    in_list = False
+    in_ordered_list = False
+    in_blockquote = False
+
+    def close_list():
+        nonlocal in_list
+        if in_list:
+            html_lines.append('</ul>')
+            in_list = False
+
+    def close_ordered_list():
+        nonlocal in_ordered_list
+        if in_ordered_list:
+            html_lines.append('</ol>')
+            in_ordered_list = False
+
+    def close_blockquote():
+        nonlocal in_blockquote
+        if in_blockquote:
+            html_lines.append('</blockquote>')
+            in_blockquote = False
+
+    for raw_line in lines:
+        line = raw_line.rstrip()
+        stripped = line.strip()
+
+        if not stripped:
+            close_list()
+            close_ordered_list()
+            close_blockquote()
+            continue
+
+        if stripped.startswith('#'):
+            close_list()
+            close_ordered_list()
+            close_blockquote()
+            level = len(stripped) - len(stripped.lstrip('#'))
+            level = max(1, min(level, 6))
+            content = stripped[level:].strip()
+            html_lines.append(f'<h{level}>{html.escape(content)}</h{level}>')
+            continue
+
+        if stripped.startswith('- ') or stripped.startswith('* '):
+            if not in_list:
+                html_lines.append('<ul>')
+                in_list = True
+            close_ordered_list()
+            content = stripped[2:].strip()
+            html_lines.append(f'  <li>{html.escape(content)}</li>')
+            continue
+
+        if stripped and stripped[0].isdigit():
+            parts = stripped.split('. ', 1)
+            if len(parts) != 2 or not parts[0].isdigit():
+                parts = stripped.split('.', 1)
+            if len(parts) == 2 and parts[0].isdigit():
+                if not in_ordered_list:
+                    html_lines.append('<ol>')
+                    in_ordered_list = True
+                close_list()
+                number_content = parts[1].strip()
+                html_lines.append(f'  <li>{html.escape(number_content)}</li>')
+                continue
+
+        if stripped.startswith('>'):
+            close_list()
+            close_ordered_list()
+            if not in_blockquote:
+                html_lines.append('<blockquote>')
+                in_blockquote = True
+            content = stripped.lstrip('> ').strip()
+            html_lines.append(f'  <p>{html.escape(content)}</p>')
+            continue
+
+        close_list()
+        close_ordered_list()
+        close_blockquote()
+        html_lines.append(f'<p>{html.escape(stripped)}</p>')
+
+    close_list()
+    close_ordered_list()
+    close_blockquote()
+    return '\n'.join(html_lines)
+
+
+def convert_markdown_to_html(markdown_text: str) -> str:
+    try:
+        import markdown  # type: ignore
+    except ImportError:
+        return simple_markdown_to_html(markdown_text)
+    return markdown.markdown(
+        markdown_text,
+        extensions=["extra", "sane_lists", "smarty"],
+        output_format="html5",
+    )
+
+
+def load_markdown_body(markdown_path: Path) -> tuple[str, str | None]:
+    if not markdown_path.exists():
+        raise SystemExit(f"Markdown file not found: {markdown_path}")
+
+    markdown_text = markdown_path.read_text(encoding="utf-8")
+    body_html = convert_markdown_to_html(markdown_text)
+    excerpt = extract_excerpt_from_markdown(markdown_text)
+    return body_html, excerpt
+
+
+def build_metadata(args: argparse.Namespace, *, excerpt: str | None = None) -> str:
     payload = {
         "title": args.title,
         "date": args.date,
         "category": args.category,
-        "excerpt": args.excerpt,
+        "excerpt": excerpt if excerpt is not None else args.excerpt,
         "heroImage": args.hero,
         "featured": args.featured,
         "published": args.published,
@@ -253,7 +427,6 @@ def create_post(args: argparse.Namespace) -> Path:
     if output_path.exists() and not args.force:
         raise SystemExit(f"Error: {output_path} already exists. Use --force to overwrite.")
 
-    metadata = build_metadata(args)
     category_label = args.category.replace("-", " ").title()
     try:
         parsed_date = dt.date.fromisoformat(args.date)
@@ -267,16 +440,33 @@ def create_post(args: argparse.Namespace) -> Path:
     else:
         hero_article_src = hero_src
 
-    html = BLOG_TEMPLATE.format(
+    excerpt_value = (args.excerpt or "").strip()
+    body_html = ""
+
+    if args.markdown:
+        markdown_path = Path(args.markdown).expanduser()
+        if not markdown_path.is_absolute():
+            markdown_path = (PROJECT_ROOT / markdown_path).resolve()
+        body_html, md_excerpt = load_markdown_body(markdown_path)
+        if not excerpt_value and md_excerpt:
+            excerpt_value = md_excerpt
+    metadata_excerpt = excerpt_value if excerpt_value else args.excerpt
+
+    if not args.markdown:
+        body_html = build_default_body_html(metadata_excerpt or "", hero_article_src)
+
+    metadata = build_metadata(args, excerpt=metadata_excerpt)
+    html_content = render_blog_html(
         metadata=metadata,
         title=args.title,
         category_label=category_label,
         display_date=display_date,
-        excerpt=args.excerpt,
         hero_article_src=hero_article_src,
+        body_html=body_html,
         year=dt.date.today().year,
     )
-    output_path.write_text(html, encoding="utf-8")
+
+    output_path.write_text(html_content, encoding="utf-8")
     return output_path
 
 
@@ -291,6 +481,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--featured", action="store_true", help="Mark the post as featured in the listing.")
     parser.add_argument("--published", action="store_true", help="Expose the post on the public listing.")
     parser.add_argument("--tags", nargs="*", default=[], help="Optional tag keywords.")
+    parser.add_argument("--markdown", help="Path to a Markdown file that contains the blog body content.")
     parser.add_argument("--force", action="store_true", help="Overwrite an existing file with the same slug.")
     return parser.parse_args()
 

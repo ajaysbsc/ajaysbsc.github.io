@@ -30,7 +30,19 @@ Static GitHub Pages site for Ajay Godara's field research, expeditions, and phot
    ```
 
    Update the placeholder sections inside the generated HTML file.
-3. Regenerate the JSON manifests so the new entry appears on `blog.html`:
+3. (Optional) if you draft in Markdown, drop a `.md` file into `blog-posts/markdown-blog/` and pass it with `--markdown`:
+
+   ```bash
+   python scripts/scaffold_blog_post.py "Siachen Glacier Survey 2024" \
+     --date 2024-02-28 \
+     --category antarctica \
+     --hero "images/gallery/fulls/Anatarctica 44th 2024/DSC03792.jpg" \
+     --markdown blog-posts/markdown-blog/siachen-2024-survey.md \
+     --published --tags antarctica survey uav
+   ```
+
+   The script converts the Markdown body into HTML, reusing the expedition layout and deriving an excerpt automatically.
+4. Regenerate the JSON manifests so the new entry appears on `blog.html`:
 
    ```bash
    python scripts/generate_content_manifest.py
