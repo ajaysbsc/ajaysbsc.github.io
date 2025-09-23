@@ -70,15 +70,26 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 border-b border-blue-100">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <a href="index.html" class="text-2xl font-bold text-glacier-600">Ajay Godara</a>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-gray-600 hover:text-glacier-600">Home</a>
                     <a href="index.html#about" class="text-gray-600 hover:text-glacier-600">About</a>
                     <a href="education.html" class="text-gray-600 hover:text-glacier-600">Education</a>
-                    <a href="research.html" class="text-gray-600 hover:text-glacier-600">Research</a>
+                    <div class="relative group nav-research">
+                        <a href="research-focus.html" class="text-gray-600 hover:text-glacier-600 inline-flex nav-research-trigger items-center gap-2">
+                            Research
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 top-full w-56 bg-white border border-blue-100 rounded-xl shadow-lg py-3 hidden group-hover:block group-focus-within:block nav-research-menu z-50">
+                            <a href="research-focus.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Research Focus</a>
+                            <a href="publications.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Publications &amp; Conferences</a>
+                            <a href="projects.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Projects</a>
+                            <a href="field-survey.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Field Survey</a>
+                        </div>
+                    </div>
                     <a href="blog.html" class="text-gray-600 hover:text-glacier-600">Blog</a>
                     <a href="gallery.html" class="text-gray-600 hover:text-glacier-600">Gallery</a>
                 </div>
@@ -86,13 +97,20 @@
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-            <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="py-2 space-y-2">
+                <div class="py-3 space-y-3 border-t border-blue-100">
                     <a href="index.html" class="block text-gray-600 hover:text-glacier-600">Home</a>
                     <a href="index.html#about" class="block text-gray-600 hover:text-glacier-600">About</a>
                     <a href="education.html" class="block text-gray-600 hover:text-glacier-600">Education</a>
-                    <a href="research.html" class="block text-gray-600 hover:text-glacier-600">Research</a>
+                    <div>
+                        <span class="block text-gray-600 font-medium">Research</span>
+                        <div class="mt-2 ml-4 space-y-2">
+                            <a href="research-focus.html" class="block text-gray-600 hover:text-glacier-600 text-sm">Research Focus</a>
+                            <a href="publications.html" class="block text-gray-600 hover:text-glacier-600 text-sm">Publications &amp; Conferences</a>
+                            <a href="projects.html" class="block text-gray-600 hover:text-glacier-600 text-sm">Projects</a>
+                            <a href="field-survey.html" class="block text-gray-600 hover:text-glacier-600 text-sm">Field Survey</a>
+                        </div>
+                    </div>
                     <a href="blog.html" class="block text-gray-600 hover:text-glacier-600">Blog</a>
                     <a href="gallery.html" class="block text-gray-600 hover:text-glacier-600">Gallery</a>
                 </div>
@@ -117,10 +135,71 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            const initResearchDropdown = () => {
+                const navs = document.querySelectorAll('.nav-research');
+
+                navs.forEach(nav => {
+                    const trigger = nav.querySelector('.nav-research-trigger');
+                    const menu = nav.querySelector('.nav-research-menu');
+
+                    if (!trigger || !menu) {
+                        return;
+                    }
+
+                    let openByClick = false;
+
+                    const openMenu = () => {
+                        menu.classList.remove('hidden');
+                        nav.classList.add('nav-open-click');
+                        openByClick = true;
+                    };
+
+                    const closeMenu = () => {
+                        menu.classList.add('hidden');
+                        nav.classList.remove('nav-open-click');
+                        openByClick = false;
+                    };
+
+                    trigger.addEventListener('click', (event) => {
+                        const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+                        const isSmallScreen = window.innerWidth < 1024;
+
+                        if (isCoarsePointer || isSmallScreen) {
+                            if (!openByClick) {
+                                event.preventDefault();
+                                openMenu();
+                            } else {
+                                closeMenu();
+                            }
+                        }
+                    });
+
+                    document.addEventListener('click', (event) => {
+                        if (!openByClick) {
+                            return;
+                        }
+
+                        if (!nav.contains(event.target)) {
+                            closeMenu();
+                        }
+                    });
+
+                    window.addEventListener('resize', () => {
+                        if (openByClick && window.innerWidth >= 1024 && !window.matchMedia('(pointer: coarse)').matches) {
+                            closeMenu();
+                        }
+                    });
+                });
+            };
+
+            initResearchDropdown();
+
             // Open modal buttons
             const modalOpenButtons = document.querySelectorAll('.open-modal');
             const closeButtons = document.querySelectorAll('.close-modal');

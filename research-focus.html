@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Hub - Ajay Godara</title>
+    <title>Research Focus - Ajay Godara</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
@@ -14,9 +14,20 @@
         :root {
             --iceberg-blue: #87CEEB;
             --sea-blue: #006994;
+            --navy-blue: #1e3a8a;
             --sky-blue: #0ea5e9;
             --ocean-blue: #0369a1;
             --frost-blue: #dbeafe;
+            --deep-blue: #1e40af;
+            --arctic-blue: #bfdbfe;
+            --polar-blue: #3b82f6;
+            --glacier-blue: #60a5fa;
+            --text-primary: #0f172a;
+            --text-secondary: #1e3a8a;
+            --text-muted: #64748b;
+            --background-primary: #ffffff;
+            --background-secondary: #f8fafc;
+            --background-accent: #f0f9ff;
         }
 
         .section-fade {
@@ -73,16 +84,7 @@
 
         .text-primary-custom { color: var(--sea-blue); }
         .text-secondary-custom { color: var(--ocean-blue); }
-
-        .card-hover {
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.15);
-        }
+        .text-glacier-600 { color: var(--polar-blue); }
 
         .wave-top {
             position: relative;
@@ -156,19 +158,11 @@
             <img loading="lazy" src="images/banner.jpg" alt="Research Background" class="w-full h-full object-cover opacity-20">
             <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-sky-700/40 to-blue-600/30"></div>
         </div>
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 font-crimson shadow-text">Research Hub</h1>
-            <p class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto font-medium leading-relaxed">
-                Explore the different dimensions of my cryosphere research, from core scientific questions to field campaigns and community collaborations.
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold text-white text-center mb-6 font-crimson shadow-text">Research Focus</h1>
+            <p class="text-xl md:text-2xl text-blue-100 text-center max-w-4xl mx-auto font-medium leading-relaxed">
+                Understanding Himalayan glacier systems through integrated remote sensing, UAV observations, and field validation
             </p>
-            <div class="mt-10 flex flex-wrap justify-center gap-4">
-                <a href="research-focus.html" class="inline-flex items-center px-6 py-3 btn-primary text-white rounded-full shadow-md hover:shadow-lg transition-all">
-                    Start with Research Focus
-                </a>
-                <a href="publications.html" class="inline-flex items-center px-6 py-3 border border-white/60 text-white rounded-full hover:bg-white/10 transition-all">
-                    Browse Publications
-                </a>
-            </div>
         </div>
     </section>
 
@@ -176,95 +170,69 @@
 
     <section class="py-16 bg-white section-fade">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center mb-12">
-                <h2 class="text-3xl font-bold font-playfair mb-4">Choose Your Path</h2>
-                <p class="text-gray-600 text-lg">Dive into focused pages that detail the scientific motivation, peer-reviewed outputs, funded projects, and immersive field expeditions that shape my research practice.</p>
-            </div>
-
-            <div class="grid gap-10 md:grid-cols-2">
-                <article class="bg-white rounded-2xl p-8 card-hover border border-blue-100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">Research Focus</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6">Understand the key scientific questions I address in glacier mass balance, debris-cover processes, and climate change impacts across the Himalaya and polar regions.</p>
-                    <a href="research-focus.html" class="inline-flex items-center text-primary-custom font-medium">
-                        Explore Research Focus
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </article>
-
-                <article class="bg-white rounded-2xl p-8 card-hover border border-blue-100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">Publications &amp; Conferences</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6">Browse peer-reviewed articles, conference proceedings, and invited talks highlighting collaborative research outputs and field-backed insights.</p>
-                    <a href="publications.html" class="inline-flex items-center text-primary-custom font-medium">
-                        View Publications &amp; Talks
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </article>
-
-                <article class="bg-white rounded-2xl p-8 card-hover border border-blue-100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">Projects Portfolio</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6">Discover ongoing and completed projects&mdash;from UAV-based glacier mass balance assessments to polar ice monitoring missions&mdash;and their key outcomes.</p>
-                    <a href="projects.html" class="inline-flex items-center text-primary-custom font-medium">
-                        Review Project Work
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </article>
-
-                <article class="bg-white rounded-2xl p-8 card-hover border border-blue-100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
-                            <i class="fas fa-hiking"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">Field Survey Notebook</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6">Go behind the scenes of Himalayan and Antarctic expeditions, featuring workflows, instrumentation, and lessons from challenging terrain.</p>
-                    <a href="field-survey.html" class="inline-flex items-center text-primary-custom font-medium">
-                        Visit Field Survey Page
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </article>
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6 font-playfair">Research Focus</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                    My research examines glacier dynamics across the Himalaya using a multi-sensor approach. By combining satellite imagery, UAV surveys, and process-based modelling, I investigate how debris cover, surface temperature, and climate variability shape glacier melt.
+                </p>
+                <ul class="space-y-4 text-lg text-gray-600 mb-6">
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">&bull;</span>
+                        <span>Glacier mass balance estimation using UAV technology and remote sensing</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">&bull;</span>
+                        <span>Development of frameworks for assessing debris cover thickness on glaciers</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">&bull;</span>
+                        <span>Environmental monitoring in high-altitude regions using satellite imagery</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-glacier-600 mr-2">&bull;</span>
+                        <span>Field validation techniques for remote sensing data in challenging terrain</span>
+                    </li>
+                </ul>
+                <p class="text-lg text-gray-600">
+                    These investigations provide decision-makers with improved understanding of cryospheric change, guiding adaptation efforts for downstream communities dependent on glacier-fed hydrological systems.
+                </p>
             </div>
         </div>
     </section>
 
     <section class="py-16 bg-gray-50 section-fade">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-3xl font-bold font-playfair mb-4">Latest Highlights</h2>
-                <p class="text-gray-600 text-lg">Recent milestones that connect the dots between analysis, publication, and field evidence.</p>
-            </div>
-            <div class="grid gap-8 md:grid-cols-3">
-                <div class="bg-white rounded-xl p-6 shadow-md">
-                    <span class="text-sm uppercase tracking-wide text-blue-500 font-semibold">2025</span>
-                    <h3 class="text-xl font-semibold mt-2 mb-3">Journal of Mountain Science</h3>
-                    <p class="text-gray-600 text-sm">Co-authored study on glacier and glacial lake dynamics in central Nepal, integrating satellite trends with hazard implications.</p>
-                    <a href="publications.html" class="mt-4 inline-flex items-center text-primary-custom text-sm font-medium">Read Publication <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Collaborations</h2>
+
+            <div class="grid gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">IIT Bombay</h3>
+                    </div>
+                    <p class="text-gray-600">Research under the Hydro Remote Sensing Applications (HRSA) group on glacier mass balance, debris-cover dynamics, and cryospheric modelling.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md">
-                    <span class="text-sm uppercase tracking-wide text-blue-500 font-semibold">2024</span>
-                    <h3 class="text-xl font-semibold mt-2 mb-3">AOGS &amp; AGM Presentations</h3>
-                    <p class="text-gray-600 text-sm">Shared debris thickness modelling advances and UAV mass balance results at international glaciology and geoscience forums.</p>
-                    <a href="publications.html#conferences" class="mt-4 inline-flex items-center text-primary-custom text-sm font-medium">View Talks <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Polar Research Community</h3>
+                    </div>
+                    <p class="text-gray-600">Collaboration with national Antarctic programme teams to advance UAV-based monitoring of polar ice sheets and coastal processes.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md">
-                    <span class="text-sm uppercase tracking-wide text-blue-500 font-semibold">2023-24</span>
-                    <h3 class="text-xl font-semibold mt-2 mb-3">Antarctic UAV Missions</h3>
-                    <p class="text-gray-600 text-sm">Executed RTK-enabled mapping flights over Schirmacher Oasis, providing high-resolution datasets for polar ice monitoring.</p>
-                    <a href="field-survey.html" class="mt-4 inline-flex items-center text-primary-custom text-sm font-medium">See Field Notes <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Regional Partnerships</h3>
+                    </div>
+                    <p class="text-gray-600">Working with Himalayan research institutes and agencies to share UAV best practices, co-design field campaigns, and deliver actionable glacier assessments.</p>
                 </div>
             </div>
         </div>
