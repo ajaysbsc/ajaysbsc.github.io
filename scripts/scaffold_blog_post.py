@@ -37,6 +37,24 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
     <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">
 
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-montserrat,
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-crimson,
+        .font-playfair {
+            font-family: 'Crimson Text', serif;
+        }
+
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
         :root {{
             --ice-blue: #E6F3FF;
             --glacier-blue: #B3D9FF;
