@@ -1,10 +1,10 @@
 ---
 layout: research-post
-title: "Antarctica Field Season 2024-25: UAV Ice Dynamics Mission"
+title: "Chasing the Antarctic Dream: From Proposal Panic to Potsdam Glacier"
 date: 2025-02-22
 tags: [antarctica, uav, mass-balance]
 categories: [expeditions, polar-research]
-summary: "High-resolution UAV surveys over Schirmacher Oasis and Larsemann Hills captured seasonal ice motion and meltwater routing."
+summary: "How a last-minute proposal, weeks of training, and a cargo marathon took our UAV team from IIT Bombay to Maitri Station."
 author:
   name: "Ajay Godara"
   role: "Glaciologist & Field Researcher"
@@ -13,8 +13,8 @@ author:
   url: "https://www.linkedin.com/in/ajay-godara-a76ab4aa/"
 cover_image:
   src: "images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg"
-  alt: "UAV launch near Schirmacher Oasis"
-  caption: "Sunrise UAV operations over the ice shelf north of Maitri Station."
+  alt: "UAV launch over Potsdam Glacier"
+  caption: "Sunrise UAV operations above Potsdam Glacier near Maitri Station."
   title: "Figure 0. Morning calibration flight"
 images:
   - src: "images/gallery/fulls/Anatarctica 44th 2024/DSCF3110.jpg"
