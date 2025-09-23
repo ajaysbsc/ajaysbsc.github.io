@@ -151,7 +151,7 @@ BLOG_TEMPLATE = """<!DOCTYPE html>
                     <a href=\"../education.html\" class=\"block text-primary-custom hover:text-sky-600 text-lg font-medium\">Education</a>
                     <div>
                         <span class=\"block text-primary-custom text-lg font-medium\">Research</span>
-                        <div class=\"mt-2 ml-4 space-y-2\">
+                        <div class=\"mt-2 ml-4 space-y-2\">\n                            <a href=\"../research.html\" class=\"block text-primary-custom hover:text-sky-600 text-base font-medium\">Research Hub</a>
                             <a href=\"../research-focus.html\" class=\"block text-primary-custom hover:text-sky-600 text-base font-medium\">Research Focus</a>
                             <a href=\"../publications.html\" class=\"block text-primary-custom hover:text-sky-600 text-base font-medium\">Publications &amp; Conferences</a>
                             <a href=\"../projects.html\" class=\"block text-primary-custom hover:text-sky-600 text-base font-medium\">Projects</a>
