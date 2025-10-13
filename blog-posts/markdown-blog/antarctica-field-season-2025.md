@@ -14,7 +14,7 @@ author:
   url: "https://www.linkedin.com/in/ajay-godara-a76ab4aa/"
 cover_image:
   src: "images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg"
-  alt: "UAV launch over Potsdam Glacier"
+  alt: "UAV launch over East Antarctica"
   caption: "Sunrise UAV operations near Maitri Station."
   title: "Figure 0. Morning calibration flight"
 images:
