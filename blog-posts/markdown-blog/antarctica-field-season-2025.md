@@ -1,6 +1,7 @@
 ---
 layout: research-post
-title: "Chasing the Antarctic Dream: From Proposal Panic to Potsdam Glacier"
+title: "Chasing the Antarctic Dream: From Proposal Panic to East Antarctica"
+description:
 date: 2025-02-22
 tags: [antarctica, uav, mass-balance]
 categories: [expeditions, polar-research]
@@ -14,7 +15,7 @@ author:
 cover_image:
   src: "images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg"
   alt: "UAV launch over Potsdam Glacier"
-  caption: "Sunrise UAV operations above Potsdam Glacier near Maitri Station."
+  caption: "Sunrise UAV operations near Maitri Station."
   title: "Figure 0. Morning calibration flight"
 images:
   - src: "images/gallery/fulls/Anatarctica 44th 2024/DSCF3110.jpg"
