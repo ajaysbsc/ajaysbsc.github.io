@@ -4,79 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Ajay Godara</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind CSS v3.x -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-montserrat,
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-crimson,
-        .font-playfair {
-            font-family: 'Crimson Text', serif;
-        }
-
-        .font-space {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* Blog post specific styles */
-        .blog-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .blog-content h2 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            color: #2d3748;
-        }
-        
-        .blog-content h3 {
-            font-size: 1.5rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-            color: #2d3748;
-        }
-        
-        .blog-content p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-        
-        .blog-content ul, .blog-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-        
-        .blog-content ul li {
-            list-style-type: disc;
-            margin-bottom: 0.5rem;
-        }
-        
-        .blog-content ol li {
-            list-style-type: decimal;
-            margin-bottom: 0.5rem;
-        }
-        
-        .blog-content blockquote {
-            border-left: 4px solid #4a5568;
-            padding-left: 1rem;
-            font-style: italic;
-            margin: 1.5rem 0;
-            color: #4a5568;
-        }
-    </style>
+    <!-- Lightbox for gallery -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS - Modern Architecture -->
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
@@ -104,7 +43,10 @@
                     <a href="blog.html" class="text-gray-600 hover:text-glacier-600">Blog</a>
                     <a href="gallery.html" class="text-gray-600 hover:text-glacier-600">Gallery</a>
                 </div>
-                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                                </div>
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button> text-gray-600" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>

@@ -2,18 +2,40 @@
 
 Static GitHub Pages site for Ajay Godara's field research, expeditions, and photography.
 
+## 🚀 Recent Updates
+
+### CSS Architecture Upgrade
+The website has been upgraded with a modern CSS architecture:
+- **Centralized CSS:** All styles now in `css/main.css` (no more embedded `<style>` blocks)
+- **Tailwind CSS 3.x:** Upgraded from 2.2.19
+- **Fluid Typography:** Responsive font sizing using `clamp()`
+- **Modern CSS Features:** Custom properties, animations, glassmorphism effects
+
+See [CSS_UPGRADE_SUMMARY.md](CSS_UPGRADE_SUMMARY.md) for complete details.
+
+### Enhanced Gallery (Coming Soon)
+The gallery will be modernized with professional photography portfolio features:
+- **Masonry Layout:** Pinterest-style responsive grid
+- **Progressive Loading:** Blur-up effect for perceived performance
+- **Zoom on Hover:** Smooth image scaling with rich overlays
+- **EXIF Metadata:** Camera, location, and altitude display
+- **Load More:** Pagination for better performance
+
+See [GALLERY_ENHANCEMENT_GUIDE.md](GALLERY_ENHANCEMENT_GUIDE.md) for details.
+
 ## Project Structure
 
 - `index.html`, `education.html`, `research.html`, `blog.html`, `gallery.html` —
   top-level pages that load shared navigation and pull dynamic data.
+- `css/main.css` — centralized CSS architecture with design system and all component styles.
+- `js/blog.js` — blog archive rendering; `gallery.js` builds photo grid using manifests.
 - `blog-posts/` — individual expedition write-ups. Each file includes a
   `<!-- BLOG_METADATA {...} -->` block consumed by the blog listing.
 - `images/gallery/fulls/` — folders of expedition photos that populate the
   gallery grid automatically.
 - `data/` — generated JSON manifest files (`blog-posts.json`, `gallery.json`).
-- `js/` — front-end behaviour. `blog.js` renders the blog archive; `gallery.js`
-  builds the photo grid using the generated manifests.
-- `scripts/` — helper scripts to keep content updates simple.
+- `scripts/` — helper scripts to keep content updates simple and CSS upgrade automation.
+- `tailwind.config.js` — Tailwind CSS v3 configuration with custom theme.
 
 ## Updating blog posts
 
@@ -64,3 +86,21 @@ Static GitHub Pages site for Ajay Godara's field research, expeditions, and phot
 - All `<img>` elements use native lazy loading (`loading="lazy"`).
 - Run tests with `npm test` (requires Node) to validate the blog sorting util.
 - Deploy by pushing to `main`; GitHub Pages serves the contents directly.
+
+## 🌐 Local Development
+
+**Important:** The blog and gallery use ES6 JavaScript modules and require a web server to function. Opening HTML files directly (`file://`) won't work.
+
+### Quick Start
+
+```bash
+# Start local server (requires Python 3)
+./serve.sh
+
+# Or manually:
+python3 -m http.server 8000
+```
+
+Then open: `http://localhost:8000`
+
+See [VIEWING_INSTRUCTIONS.md](VIEWING_INSTRUCTIONS.md) for more details and alternative server options.

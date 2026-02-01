@@ -4,87 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Ajay Godara</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind CSS v3.x -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-montserrat,
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-crimson,
-        .font-playfair {
-            font-family: 'Crimson Text', serif;
-        }
-
-        .font-space {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .modal.show {
-            display: block;
-            opacity: 1;
-        }
-        
-        .modal-content {
-            background-color: #fff;
-            margin: 5vh auto;
-            max-width: 900px;
-            width: 90%;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform: translateY(-20px);
-            transition: transform 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .modal.show .modal-content {
-            transform: translateY(0);
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            color: white;
-            z-index: 10;
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        body.modal-open {
-            overflow: hidden;
-        }
-    </style>
-    {{ extraStyles }}
+    <!-- Lightbox for gallery -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS - Modern Architecture -->
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
@@ -112,7 +43,10 @@
                     <a href="blog.html" class="text-gray-600 hover:text-glacier-600">Blog</a>
                     <a href="gallery.html" class="text-gray-600 hover:text-glacier-600">Gallery</a>
                 </div>
-                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                                </div>
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button> text-gray-600" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>

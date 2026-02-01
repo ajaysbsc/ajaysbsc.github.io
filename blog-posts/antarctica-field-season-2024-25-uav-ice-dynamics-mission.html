@@ -5,108 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chasing the Antarctic Dream: From Proposal Panic to East Antarctica - Ajay Godara</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind CSS v3.x -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Lightbox for gallery -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-montserrat,
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-crimson,
-        .font-playfair {
-            font-family: 'Crimson Text', serif;
-        }
-
-        .font-space {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        :root {
-            --ice-blue: #E6F3FF;
-            --glacier-blue: #B3D9FF;
-            --arctic-blue: #4A90E2;
-            --deep-blue: #2C5282;
-            --navy-blue: #1A365D;
-            --sea-blue: #006994;
-            --sky-blue: #87CEEB;
-            --ocean-blue: #0077BE;
-            --iceberg-blue: #A0D8EF;
-            --teal-blue: #008B8B;
-        }
-
-        .font-heading { font-family: 'Space Grotesk', sans-serif; }
-        .font-serif { font-family: 'Crimson Text', serif; }
-        .font-body { font-family: 'Inter', sans-serif; }
-
-        .gradient-primary {
-            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
-        }
-
-        .text-primary-custom { color: var(--sea-blue); }
-
-        .blog-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 8px 25px rgba(0, 105, 148, 0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .blog-content img:hover {
-            transform: scale(1.02);
-        }
-
-        .blog-content h2 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            color: var(--deep-blue);
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .blog-content h3 {
-            font-size: 1.5rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-            color: var(--deep-blue);
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .blog-content p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            color: #4A5568;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .blog-content ul,
-        .blog-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-
-        .blog-content blockquote {
-            border-left: 4px solid var(--arctic-blue);
-            padding-left: 1rem;
-            font-style: italic;
-            margin: 1.5rem 0;
-            color: var(--deep-blue);
-            background: var(--ice-blue);
-            border-radius: 8px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS - Modern Architecture -->
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body class="bg-gray-50 text-slate-900 font-body overflow-x-hidden">
     <!-- Navigation -->
@@ -134,7 +44,10 @@
                     <a href="../blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Blog</a>
                     <a href="../gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide">Gallery</a>
                 </div>
+                                </div>
                 <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button> text-primary-custom text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>

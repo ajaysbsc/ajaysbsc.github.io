@@ -4,137 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Hub - Ajay Godara</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind CSS v3.x -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Lightbox for gallery -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --iceberg-blue: #87CEEB;
-            --sea-blue: #006994;
-            --sky-blue: #0ea5e9;
-            --ocean-blue: #0369a1;
-            --frost-blue: #dbeafe;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-montserrat,
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-crimson,
-        .font-playfair {
-            font-family: 'Crimson Text', serif;
-        }
-
-        .font-space {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .link-out {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--sea-blue);
-            transition: color 0.2s ease;
-        }
-
-        .link-out:hover {
-            color: var(--sky-blue);
-        }
-
-        .section-fade {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .section-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .shadow-text {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-link {
-            position: relative;
-            font-weight: 500;
-            letter-spacing: 0.025em;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: -6px;
-            left: 0;
-            background: linear-gradient(90deg, var(--sea-blue), var(--iceberg-blue));
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .gradient-primary {
-            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sky-blue) 100%);
-            border: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 105, 148, 0.4);
-        }
-
-        .text-primary-custom { color: var(--sea-blue); }
-        .text-secondary-custom { color: var(--ocean-blue); }
-
-        .card-hover {
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.15);
-        }
-
-        .wave-top {
-            position: relative;
-            height: 80px;
-            background-color: white;
-        }
-
-        .wave-top::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-repeat: repeat-x;
-            height: 80px;
-            background-size: 100px 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 v 28 h -120 z' fill='%23006994'/%3E%3C/svg%3E");
-        }
-    </style>
+    <!-- Main CSS - Modern Architecture -->
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="bg-gray-50 text-gray-800 font-montserrat overflow-x-hidden">
         <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
@@ -160,7 +41,7 @@
                     <a href="blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Blog</a>
                     <a href="gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Gallery</a>
                 </div>
-                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
+                                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -413,22 +294,5 @@
         });
     </script>
 
-    <style>
-        .diagonal-divider {
-            position: relative;
-            height: 150px;
-            overflow: hidden;
-        }
-
-        .diagonal-divider::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            transform: skewY(-4deg);
-            transform-origin: top right;
-        }
-    </style>
 </body>
 </html>
