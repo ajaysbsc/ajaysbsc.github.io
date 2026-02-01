@@ -270,6 +270,7 @@ nav {
   box-shadow: 0 4px 12px var(--shadow-color);
   border: none;
   cursor: pointer;
+  will-change: transform, box-shadow;
 }
 
 .btn-primary:hover {
@@ -890,5 +891,118 @@ textarea:focus-visible {
   body {
     background: white;
     color: black;
+  }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* CSS Containment for better rendering performance */
+.modern-card {
+  contain: layout style paint;
+}
+
+.gallery-item,
+.gallery-item-enhanced {
+  contain: layout style paint;
+}
+
+article,
+section {
+  contain: layout style;
+}
+
+/* Will-change for animated elements */
+.nav-link::after {
+  will-change: width;
+}
+
+.modern-card,
+.gallery-card-container {
+  will-change: transform, box-shadow;
+}
+
+.gallery-image {
+  will-change: transform, opacity, filter;
+}
+
+.btn-secondary {
+  will-change: background-color, color, transform;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-display: swap;
+}
+
+/* GPU acceleration for transforms */
+.animate-float-slow,
+.animate-float-medium,
+.animate-float-fast,
+.animate-fade-in {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize images for lazy loading */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+/* Reduce repaints during scroll */
+.fixed,
+nav {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Content visibility for offscreen content */
+.blog-card,
+.gallery-item,
+.modern-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
+}
+
+/* Optimize gradients */
+.gradient-primary,
+.gradient-secondary,
+.gradient-accent {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Hardware acceleration for animations */
+@keyframes fadeIn,
+@keyframes float,
+@keyframes pulse,
+@keyframes slideInLeft,
+@keyframes slideInRight {
+  transform: translateZ(0);
+}
+
+/* Reduce layout thrashing */
+.container {
+  contain: layout style;
+}
+
+/* Optimize backdrop filters */
+nav,
+.modern-card {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transform: translateZ(0);
+}
+
+/* Critical rendering path optimization */
+.hero-section {
+  contain: layout;
+}
+
+/* Defer non-critical animations */
+@media (prefers-reduced-motion: no-preference) {
+  .section-fade {
+    content-visibility: auto;
   }
 }
