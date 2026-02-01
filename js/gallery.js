@@ -183,8 +183,14 @@ function createGalleryCard(image) {
 
     wrapper.innerHTML = `
         <a href="${escapeHtml(image.src)}" data-lightbox="${escapeHtml(lightboxGroup)}" data-title="${escapeHtml(description)}">
-            <div class="relative overflow-hidden rounded-xl shadow-xl group">
-                <img src="${escapeHtml(image.src)}" alt="${escapeHtml(subtitle)}" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <div class="relative overflow-hidden rounded-xl shadow-xl group" style="background: linear-gradient(135deg, #87CEEB 0%, #006994 100%);">
+                <img
+                    data-src="${escapeHtml(image.src)}"
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 320'%3E%3Crect fill='%2387CEEB' width='400' height='320'/%3E%3C/svg%3E"
+                    alt="${escapeHtml(subtitle)}"
+                    class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    style="opacity: 0; transition: opacity 0.3s;">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
                     <div class="p-6 text-white">
                         <h3 class="text-xl font-bold mb-2 font-space">${escapeHtml(title)}</h3>
@@ -230,6 +236,30 @@ function renderGallery() {
     });
 
     toggleEmptyState(images.length === 0);
+
+    // Progressive image loading with Intersection Observer
+    const lazyImages = grid.querySelectorAll('img[data-src]');
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.style.opacity = '1';
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: '50px' });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for older browsers
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.style.opacity = '1';
+        });
+    }
 
     if (typeof window !== 'undefined' && window.lightbox?.init) {
         window.lightbox.init();
