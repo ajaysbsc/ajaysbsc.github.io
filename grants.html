@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grants & Funding - Ajay Godara</title>
+    <!-- Tailwind CSS v3.x -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+      .grant-item {
+        position: relative;
+        padding: 1.25rem 1.5rem;
+        border-left: 3px solid var(--sea-blue);
+        background: linear-gradient(135deg, rgba(0,105,148,0.03) 0%, rgba(14,165,233,0.03) 100%);
+        border-radius: 0 0.5rem 0.5rem 0;
+        transition: background var(--transition-fast), box-shadow var(--transition-fast);
+      }
+      .grant-item:hover {
+        background: linear-gradient(135deg, rgba(0,105,148,0.06) 0%, rgba(14,165,233,0.06) 100%);
+        box-shadow: 0 2px 12px rgba(0,105,148,0.08);
+      }
+      .grant-item + .grant-item { margin-top: 0.75rem; }
+      .grant-content { display: flex; gap: 1.25rem; align-items: flex-start; }
+      .grant-year {
+        flex-shrink: 0;
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: var(--sea-blue);
+        background: rgba(0,105,148,0.08);
+        padding: 0.2rem 0.6rem;
+        border-radius: 0.25rem;
+        margin-top: 0.15rem;
+      }
+      .grant-body { flex: 1; min-width: 0; }
+      .grant-title {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.45;
+        margin-bottom: 0.25rem;
+      }
+      .grant-meta {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+      .grant-status {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 0.1rem 0.45rem;
+        border-radius: 0.2rem;
+        margin-left: 0.4rem;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+      }
+      .grant-status-active   { background: #dcfce7; color: #166534; }
+      .grant-status-completed { background: #e0f2fe; color: #0369a1; }
+      .grant-role {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: var(--sea-blue);
+        border: 1px solid rgba(0,105,148,0.2);
+        padding: 0.1rem 0.4rem;
+        border-radius: 0.2rem;
+        margin-left: 0.35rem;
+      }
+      .grant-section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+        margin-bottom: 1rem;
+      }
+      .grant-section + .grant-section { margin-top: 2rem; }
+      @media (max-width: 640px) {
+        .grant-content { flex-direction: column; gap: 0.5rem; }
+      }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-montserrat overflow-x-hidden">
+
+    <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-end items-center h-20">
+                <div class="hidden md:flex space-x-10">
+                    <a href="index.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Home</a>
+                    <a href="index.html#about" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">About Me</a>
+                    <a href="education.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Education</a>
+                    <div class="relative group nav-research">
+                        <a href="research-focus.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link nav-research-trigger inline-flex items-center gap-2">
+                            Research
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </a>
+                        <div class="absolute left-0 top-full z-50 w-64 bg-white border border-blue-100 rounded-xl shadow-xl py-3 hidden group-hover:block group-focus-within:block nav-research-menu">
+                            <a href="research-focus.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Research Focus</a>
+                            <a href="publications.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Publications &amp; Conferences</a>
+                            <a href="field-survey.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Field Survey</a>
+                            <a href="projects.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Projects</a>
+                            <a href="grants.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Grants</a>
+                        </div>
+                    </div>
+                    <a href="blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Blog</a>
+                    <a href="gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Gallery</a>
+                </div>
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="py-4 space-y-4 border-t border-blue-100">
+                    <a href="index.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Home</a>
+                    <a href="index.html#about" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">About Me</a>
+                    <a href="education.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Education</a>
+                    <div>
+                        <span class="block text-primary-custom text-lg font-medium">Research</span>
+                        <div class="mt-2 ml-4 space-y-2">
+                            <a href="research-focus.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Research Focus</a>
+                            <a href="publications.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Publications &amp; Conferences</a>
+                            <a href="field-survey.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Field Survey</a>
+                            <a href="projects.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Projects</a>
+                            <a href="grants.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Grants</a>
+                        </div>
+                    </div>
+                    <a href="blog.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Blog</a>
+                    <a href="gallery.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative py-28 pt-36 gradient-primary">
+        <div class="absolute inset-0 overflow-hidden">
+            <img loading="lazy" src="images/banner.jpg" alt="Research Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-sky-700/40 to-blue-600/30"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold text-white text-center mb-6 font-crimson shadow-text">Grants & Funding</h1>
+            <p class="text-xl md:text-2xl text-blue-100 text-center max-w-4xl mx-auto font-medium leading-relaxed">
+                Research grants, fellowships, and funded projects supporting cryosphere science
+            </p>
+        </div>
+    </section>
+
+    <div class="diagonal-divider bg-white"></div>
+
+    <!-- Grants Content -->
+    <section class="py-12 bg-white section-fade">
+        <div class="container mx-auto px-4 max-w-4xl">
+
+            <!-- Research Grants -->
+            <div class="grant-section">
+                <h2 class="grant-section-header">
+                    <i class="fas fa-flask text-sky-500 text-xs"></i>
+                    Research Grants
+                </h2>
+                <div class="grant-item">
+                    <div class="grant-content">
+                        <div class="grant-year">2024–25</div>
+                        <div class="grant-body">
+                            <div class="grant-title">
+                                UAV-Based High Resolution Monitoring of Seasonal Geodetic Mass Balance and Ice Cliff Dynamics Near Schirmacher Oasis, East Antarctica
+                                <span class="grant-role">Researcher</span>
+                            </div>
+                            <p class="grant-meta">
+                                <strong style="color: var(--sea-blue);">NCPOR / MoES</strong> — 44th Indian Scientific Expedition to Antarctica (44-ISEA), October 2024 to January 2025
+                            </p>
+                            <p class="grant-meta">IIT Bombay, Dept. of Civil Engineering &nbsp;·&nbsp; <a href="https://ncpor.res.in/recruitment" target="_blank" rel="noopener noreferrer" style="color: var(--sea-blue); text-decoration: underline;">NCPOR</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grant-item">
+                    <div class="grant-content">
+                        <div class="grant-year">2023–24</div>
+                        <div class="grant-body">
+                            <div class="grant-title">
+                                National Centre for Polar and Ocean Research (NCPOR), 43rd Indian Scientific Expedition to Antarctica (43-ISEA)
+                                <span class="grant-role">Researcher</span>
+                            </div>
+                            <p class="grant-meta">
+                                <strong style="color: var(--sea-blue);">NCPOR / MoES</strong> — October 2023 to January 2024
+                            </p>
+                            <p class="grant-meta">IIT Bombay, Dept. of Civil Engineering &nbsp;·&nbsp; <a href="https://ncpor.res.in/recruitment" target="_blank" rel="noopener noreferrer" style="color: var(--sea-blue); text-decoration: underline;">NCPOR</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grant-item">
+                    <div class="grant-content">
+                        <div class="grant-year">2023–24</div>
+                        <div class="grant-body">
+                            <div class="grant-title">
+                                UAV-Based Annual Geodetic Mass Balance Estimation — Panchinala-A Glacier, Western Himalayas
+                                <span class="grant-role">Researcher</span>
+                            </div>
+                            <p class="grant-meta">
+                                <strong style="color: var(--sea-blue);">ISRO / SAC</strong> — Himalayan Region Studies & Glacier Analysis
+                            </p>
+                            <p class="grant-meta">IIT Bombay, HydRoSense Lab</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grant-item">
+                    <div class="grant-content">
+                        <div class="grant-year">2022–23</div>
+                        <div class="grant-body">
+                            <div class="grant-title">
+                                Debris Cover Thickness Estimation through Improved Glacier Surface Temperature Using Remote Sensing — Panchinala Glaciers
+                                <span class="grant-role">Researcher</span>
+                            </div>
+                            <p class="grant-meta">
+                                <strong style="color: var(--sea-blue);">ISRO / SAC</strong> — Himalayan Region Studies & Glacier Analysis
+                            </p>
+                            <p class="grant-meta">IIT Bombay, HydRoSense Lab</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Travel Grants -->
+            <div class="grant-section">
+                <h2 class="grant-section-header">
+                    <i class="fas fa-plane text-sky-500 text-xs"></i>
+                    Travel Grants
+                </h2>
+                <div class="grant-item">
+                    <div class="grant-content">
+                        <div class="grant-year">2024</div>
+                        <div class="grant-body">
+                            <div class="grant-title">
+                                Travel Grant for ISF BRAINSTORM Capacity Building on Monitoring and Observing Changing Water Resources in Hindu-Kush Himalaya
+                            </div>
+                            <p class="grant-meta">
+                                <strong style="color: var(--sea-blue);">University of Leeds, ICIMOD, Tribhuvan University &amp; Kathmandu University</strong>
+                            </p>
+                            <p class="grant-meta">19 August 2024 – 25 August 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grant-item">
+                    <div class="grant-content">
+                        <div class="grant-year">2022</div>
+                        <div class="grant-body">
+                            <div class="grant-title">
+                                Travel Grant for Field Based Cryosphere Monitoring Training on Ponkar Glacier Using UAV, GNSS and GPR
+                            </div>
+                            <p class="grant-meta">
+                                <strong style="color: var(--sea-blue);">ICIMOD &amp; Kathmandu University</strong>
+                            </p>
+                            <p class="grant-meta">02 December 2022 – 14 December 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note for adding more -->
+            <!-- To add a new grant, copy a grant-item block above and update the year, title, funder, and status -->
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="wave-top"></div>
+    <footer class="gradient-primary text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-15">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-24 h-24 bg-teal-300 rounded-full opacity-25 animate-pulse delay-1000"></div>
+            <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-sky-200 rounded-full opacity-20 animate-pulse delay-500"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="flex flex-col items-center">
+                <h3 class="text-3xl font-bold mb-8 font-crimson text-white">Ajay Godara</h3>
+                <p class="text-lg text-teal-100 mb-8 max-w-2xl mx-auto font-medium">
+                    Exploring glacial landscapes through research, photography, and storytelling
+                </p>
+                <div class="flex space-x-8 mb-10">
+                    <a href="https://x.com/AjayGodara_IITB" target="_blank" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/ajay-godara-a76ab4aa/" target="_blank" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ajaysbsc" target="_blank" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-teal-100 hover:text-white transition-all duration-300 text-2xl transform hover:scale-125 hover:rotate-12"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent mb-6"></div>
+                <p class="text-teal-100 font-medium">&copy; 2025 Ajay Godara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function initResearchDropdown() {
+            const navs = document.querySelectorAll('.nav-research');
+            navs.forEach(nav => {
+                const trigger = nav.querySelector('.nav-research-trigger');
+                const menu = nav.querySelector('.nav-research-menu');
+                if (!trigger || !menu) return;
+                let openByClick = false;
+                const openMenu = () => { menu.classList.remove('hidden'); nav.classList.add('nav-open-click'); openByClick = true; };
+                const closeMenu = () => { menu.classList.add('hidden'); nav.classList.remove('nav-open-click'); openByClick = false; };
+                trigger.addEventListener('click', (event) => {
+                    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+                    const isSmallScreen = window.innerWidth < 1024;
+                    if (isCoarsePointer || isSmallScreen) {
+                        if (!openByClick) { event.preventDefault(); openMenu(); } else { closeMenu(); }
+                    }
+                });
+                document.addEventListener('click', (event) => { if (openByClick && !nav.contains(event.target)) closeMenu(); });
+                window.addEventListener('resize', () => { if (openByClick && window.innerWidth >= 1024 && !window.matchMedia('(pointer: coarse)').matches) closeMenu(); });
+            });
+        }
+        initResearchDropdown();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionFades = document.querySelectorAll('.section-fade');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            sectionFades.forEach(section => observer.observe(section));
+        });
+    </script>
+
+</body>
+</html>

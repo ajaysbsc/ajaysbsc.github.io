@@ -1,0 +1,123 @@
+[
+  {
+    "id": "godara2026uav_antarctica",
+    "title": "UAV-based Ultra High-Resolution Geodetic Mass Change Estimations near Schirmacher Oasis in East Antarctica: Insights from Sub-seasonal, Seasonal and Annual Timescales",
+    "authors": ["Godara, A.", "Navinkumar, P. J.", "Ghosh, T.", "Ramsankaran, R."],
+    "venue": "The Cryosphere (EGUsphere preprint)",
+    "year": 2026,
+    "type": "journal",
+    "status": "under-review",
+    "featured": true,
+    "topics": ["UAV", "geodetic mass change", "Antarctica", "Schirmacher Oasis", "ice sheet", "surface elevation change"],
+    "links": {
+      "paper": "https://egusphere.copernicus.org/preprints/2026/egusphere-2025-5601/",
+      "doi": "https://doi.org/10.5194/egusphere-2025-5601"
+    }
+  },
+  {
+    "id": "godara2025glacier",
+    "title": "Glacier and glacial lake dynamics from 1990 to 2024 and their impact on flood hazard in the central Nepal Himalaya",
+    "authors": ["Banerjee, A.", "Meadows, E. M.", "Yadav, N.", "Safarov, M.", "Godara, A.", "Kelly, L. K.", "Kang, S."],
+    "venue": "Journal of Mountain Science",
+    "year": 2025,
+    "volume": "22",
+    "pages": "1926–1943",
+    "type": "journal",
+    "status": "published",
+    "featured": true,
+    "topics": ["glacier dynamics", "glacial lakes", "flood hazard", "Nepal Himalaya", "remote sensing"],
+    "links": {
+      "paper": "https://link.springer.com/article/10.1007/s11629-024-9298-0",
+      "doi": "https://doi.org/10.1007/s11629-024-9298-0"
+    }
+  },
+  {
+    "id": "garg2023remote",
+    "title": "Remote sensing the evolution of debris-covered Panchi Nala-A glacier, India (1971–2021) from satellites and Unmanned Aerial Vehicles",
+    "authors": ["Garg, S.", "Navinkumar, P. J.", "Godara, A.", "Sahu, R.", "Singh, D. K.", "Ramsankaran, R."],
+    "venue": "Regional Environmental Change",
+    "year": 2023,
+    "volume": "23",
+    "articleNumber": "103",
+    "type": "journal",
+    "status": "published",
+    "featured": true,
+    "topics": ["debris-covered glacier", "remote sensing", "UAV", "Panchi Nala", "Western Himalaya"],
+    "links": {
+      "paper": "https://link.springer.com/article/10.1007/s10113-023-02096-1",
+      "doi": "https://doi.org/10.1007/s10113-023-02096-1"
+    }
+  },
+  {
+    "id": "godara2024agm",
+    "title": "Enhancing Debris Thickness Estimations on Glaciers through Improved Glacier Surface Temperature Estimates obtained using Remote Sensing data: An Illustration on the Panchinala Glaciers in Western Himalayas",
+    "authors": ["Godara, A.", "Singh, S. K.", "Bahuguna, I. M.", "Ramsankaran, R."],
+    "venue": "27th Alpine Glaciology Meeting (AGM)",
+    "year": 2024,
+    "location": "Grenoble, France",
+    "date": "14–15 March 2024",
+    "type": "conference",
+    "status": "presented",
+    "topics": ["debris thickness", "surface temperature", "remote sensing", "Western Himalaya"],
+    "links": {}
+  },
+  {
+    "id": "godara2024shanghai",
+    "title": "UAV based High Resolution Monitoring of Seasonal Geodetic Mass Balance and Ice Cliff Dynamics Near Schirmacher Oasis, East Antarctica: Insights from 43rd Indian Scientific Expedition to Antarctica",
+    "authors": ["Godara, A.", "Navinkumar, P. J.", "Mandal, S.", "Ghosh, T.", "Ramsankaran, R."],
+    "venue": "International Symposium on Geomatics, Remote Sensing, and Climate Change in the Arctic, Antarctica, and High Mountain Asia",
+    "year": 2024,
+    "location": "Shanghai, China",
+    "date": "25–27 September 2024",
+    "type": "conference",
+    "status": "presented",
+    "topics": ["UAV", "mass balance", "ice cliff", "Antarctica", "Schirmacher Oasis"],
+    "links": {}
+  },
+  {
+    "id": "godara2026egu",
+    "title": "Quantifying Ablation Dynamics in the Debris-Covered Zone of Panchinala-A Glacier Using High-Resolution UAV Photogrammetry",
+    "authors": ["Godara, A.", "Ramsankaran, R."],
+    "venue": "EGU General Assembly 2026",
+    "year": 2026,
+    "type": "conference",
+    "status": "presented",
+    "topics": ["ablation dynamics", "debris-covered glacier", "UAV photogrammetry", "Panchinala glacier"],
+    "links": {}
+  },
+  {
+    "id": "godara2025ncps",
+    "title": "Monitoring Geodetic Mass Balance through UAV based Ultra High-Resolution Topography Data Near Schirmacher Oasis, East Antarctica",
+    "authors": ["Godara, A.", "Ramsankaran, R."],
+    "venue": "National Conference on Polar Sciences 2025",
+    "year": 2025,
+    "type": "conference",
+    "status": "presented",
+    "topics": ["UAV", "geodetic mass balance", "topography", "Antarctica", "Schirmacher Oasis"],
+    "links": {}
+  },
+  {
+    "id": "mondal2023ncps",
+    "title": "Role of UAV Remote Sensing in Glacier Health Monitoring at Panchinala-A",
+    "authors": ["Mondal, S.", "Godara, A.", "Navinkumar, P. J.", "Ramsankaran, R."],
+    "venue": "National Conference on Polar Sciences 2023",
+    "year": 2023,
+    "type": "conference",
+    "status": "presented",
+    "topics": ["UAV", "remote sensing", "glacier health", "Panchinala glacier"],
+    "links": {}
+  },
+  {
+    "id": "navinkumar2024aogs",
+    "title": "UAV based Annual Geodetic Mass Balance Estimation – A Pilot Study in Panchinala-A Glacier, Western Himalayas, India",
+    "authors": ["Navinkumar, P. J.", "Godara, A.", "Mandal, S.", "Ramsankaran, R."],
+    "venue": "Asia Oceania Geoscience Society (AOGS)",
+    "year": 2024,
+    "location": "Pyeongchang, Gangwon-do, South Korea",
+    "date": "23–28 June 2024",
+    "type": "conference",
+    "status": "presented",
+    "topics": ["UAV", "geodetic mass balance", "Panchinala glacier", "Western Himalaya"],
+    "links": {}
+  }
+]

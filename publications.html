@@ -8,17 +8,336 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Lightbox for gallery -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Main CSS - Modern Architecture -->
+    <!-- Main CSS -->
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- Publications-specific styles -->
+    <style>
+      /* ── Featured Section ─────────────────────── */
+      .pub-featured-item {
+        position: relative;
+        padding: 1.25rem 1.5rem;
+        border-left: 3px solid var(--sea-blue);
+        background: linear-gradient(135deg, rgba(0,105,148,0.03) 0%, rgba(14,165,233,0.03) 100%);
+        border-radius: 0 0.5rem 0.5rem 0;
+        transition: background var(--transition-fast), box-shadow var(--transition-fast);
+      }
+      .pub-featured-item:hover {
+        background: linear-gradient(135deg, rgba(0,105,148,0.06) 0%, rgba(14,165,233,0.06) 100%);
+        box-shadow: 0 2px 12px rgba(0,105,148,0.08);
+      }
+      .pub-featured-item + .pub-featured-item {
+        margin-top: 0.75rem;
+      }
+      .pub-featured-content {
+        display: flex;
+        gap: 1.25rem;
+        align-items: flex-start;
+      }
+      .pub-featured-year {
+        flex-shrink: 0;
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: var(--sea-blue);
+        background: rgba(0,105,148,0.08);
+        padding: 0.2rem 0.6rem;
+        border-radius: 0.25rem;
+        margin-top: 0.15rem;
+      }
+      .pub-featured-body { flex: 1; min-width: 0; }
+      .pub-featured-title {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.45;
+        margin-bottom: 0.3rem;
+      }
+      .pub-featured-authors {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+        margin-bottom: 0.2rem;
+      }
+      .pub-featured-venue {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+      }
+      .pub-featured-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      /* ── Search & Filters Bar ─────────────────── */
+      .pub-toolbar {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .pub-search-wrap {
+        position: relative;
+      }
+      .pub-search-wrap i {
+        position: absolute;
+        left: 0.85rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+      #pub-search {
+        width: 100%;
+        padding: 0.6rem 0.85rem 0.6rem 2.25rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        font-size: 0.85rem;
+        font-family: var(--font-sans);
+        background: var(--background-primary);
+        transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      }
+      #pub-search:focus {
+        border-color: var(--sea-blue);
+        box-shadow: 0 0 0 3px rgba(0,105,148,0.1);
+        outline: none;
+      }
+      .pub-filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        align-items: center;
+      }
+      .pub-filter-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-right: 0.25rem;
+        white-space: nowrap;
+      }
+      .pub-filter-pill {
+        padding: 0.25rem 0.65rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        font-family: var(--font-sans);
+        border: 1px solid var(--border-color);
+        background: var(--background-primary);
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+      }
+      .pub-filter-pill:hover {
+        border-color: var(--sea-blue);
+        color: var(--sea-blue);
+      }
+      .pub-filter-pill.active {
+        background: var(--sea-blue);
+        color: white;
+        border-color: var(--sea-blue);
+      }
+      #pub-count {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* ── Archive: Group Header ────────────────── */
+      .pub-type-group + .pub-type-group {
+        margin-top: 1.5rem;
+      }
+      .pub-group-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0.6rem 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-bottom: 2px solid var(--border-color);
+        transition: border-color var(--transition-fast);
+      }
+      .pub-group-header:hover {
+        border-color: var(--sea-blue);
+      }
+      .pub-group-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+      .pub-chevron {
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        transition: transform 0.25s ease;
+      }
+      .pub-chevron-open {
+        transform: rotate(90deg);
+      }
+      .pub-group-count {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        background: rgba(0,105,148,0.06);
+        padding: 0.15rem 0.55rem;
+        border-radius: 9999px;
+      }
+      .pub-group-body {
+        overflow: hidden;
+        max-height: 5000px;
+        transition: max-height 0.4s ease;
+      }
+      .pub-group-collapsed {
+        max-height: 0 !important;
+      }
+
+      /* ── Archive: Year Label ──────────────────── */
+      .pub-year-block {
+        display: flex;
+        gap: 1rem;
+        padding-top: 0.75rem;
+      }
+      .pub-year-label {
+        flex-shrink: 0;
+        width: 3rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--sea-blue);
+        padding-top: 0.65rem;
+        text-align: right;
+      }
+      .pub-year-items {
+        flex: 1;
+        min-width: 0;
+        border-left: 1px solid var(--border-color);
+        padding-left: 1rem;
+      }
+
+      /* ── Archive: Citation Item ───────────────── */
+      .pub-citation {
+        padding: 0.55rem 0;
+        border-bottom: 1px solid rgba(226,232,240,0.5);
+        transition: background var(--transition-fast);
+      }
+      .pub-citation:last-child {
+        border-bottom: none;
+      }
+      .pub-citation:hover {
+        background: rgba(0,105,148,0.02);
+      }
+      .pub-citation-main {
+        line-height: 1.5;
+      }
+      .pub-citation-title {
+        font-weight: 600;
+        font-size: 0.88rem;
+        color: var(--text-primary);
+      }
+      .pub-citation-meta {
+        margin-top: 0.15rem;
+      }
+      .pub-citation-authors {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+      .pub-citation-venue {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-style: italic;
+      }
+
+      /* ── Status Badges ────────────────────────── */
+      .pub-status {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 0.1rem 0.45rem;
+        border-radius: 0.2rem;
+        margin-left: 0.4rem;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+      }
+      .pub-status-published  { background: #dcfce7; color: #166534; }
+      .pub-status-review     { background: #fef9c3; color: #854d0e; }
+      .pub-status-accepted   { background: #dbeafe; color: #1e40af; }
+      .pub-status-preprint   { background: #f3e8ff; color: #6b21a8; }
+      .pub-status-presented  { background: #e0f2fe; color: #0369a1; }
+
+      /* ── Action Links ─────────────────────────── */
+      .pub-action-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--sea-blue);
+        padding: 0.2rem 0.5rem;
+        border: 1px solid rgba(0,105,148,0.2);
+        border-radius: 0.25rem;
+        transition: all var(--transition-fast);
+        text-decoration: none;
+      }
+      .pub-action-link:hover {
+        background: var(--sea-blue);
+        color: white;
+        border-color: var(--sea-blue);
+      }
+      .pub-citation-links {
+        margin-top: 0.35rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+      }
+
+      /* ── Author Highlight ─────────────────────── */
+      .pub-author-highlight {
+        color: var(--sea-blue);
+        font-weight: 600;
+      }
+
+      /* ── No Results ───────────────────────────── */
+      #no-results {
+        display: none;
+        text-align: center;
+        padding: 2rem 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      /* ── Responsive tweaks ────────────────────── */
+      @media (max-width: 640px) {
+        .pub-featured-content { flex-direction: column; gap: 0.5rem; }
+        .pub-year-block { flex-direction: column; gap: 0; }
+        .pub-year-label { width: auto; text-align: left; padding-top: 0; padding-bottom: 0.25rem; }
+        .pub-year-items { border-left: none; padding-left: 0; }
+        .pub-filter-row { gap: 0.25rem; }
+      }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-montserrat overflow-x-hidden">
-        <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
+
+    <!-- ─── Navigation ──────────────────────────── -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-lg shadow-lg z-50 border-b border-blue-100">
         <div class="container mx-auto px-6">
             <div class="flex justify-end items-center h-20">
                 <div class="hidden md:flex space-x-10">
@@ -26,22 +345,22 @@
                     <a href="index.html#about" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">About Me</a>
                     <a href="education.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Education</a>
                     <div class="relative group nav-research">
-                        <a href="research.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link nav-research-trigger inline-flex items-center gap-2">
+                        <a href="research-focus.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link nav-research-trigger inline-flex items-center gap-2">
                             Research
                             <i class="fas fa-chevron-down text-sm"></i>
                         </a>
                         <div class="absolute left-0 top-full z-50 w-64 bg-white border border-blue-100 rounded-xl shadow-xl py-3 hidden group-hover:block group-focus-within:block nav-research-menu">
-                            <a href="research.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Research Hub</a>
                             <a href="research-focus.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Research Focus</a>
                             <a href="publications.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Publications &amp; Conferences</a>
-                            <a href="projects.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Projects</a>
                             <a href="field-survey.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Field Survey</a>
+                            <a href="projects.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Projects</a>
+                            <a href="grants.html" class="block px-5 py-2 text-sm text-gray-700 hover:bg-blue-50">Grants</a>
                         </div>
                     </div>
                     <a href="blog.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Blog</a>
                     <a href="gallery.html" class="text-primary-custom hover:text-sky-600 text-lg font-medium tracking-wide nav-link">Gallery</a>
                 </div>
-                                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
+                <button class="md:hidden text-primary-custom text-2xl" id="mobile-menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -53,11 +372,11 @@
                     <div>
                         <span class="block text-primary-custom text-lg font-medium">Research</span>
                         <div class="mt-2 ml-4 space-y-2">
-                            <a href="research.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Research Hub</a>
                             <a href="research-focus.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Research Focus</a>
                             <a href="publications.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Publications &amp; Conferences</a>
-                            <a href="projects.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Projects</a>
                             <a href="field-survey.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Field Survey</a>
+                            <a href="projects.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Projects</a>
+                            <a href="grants.html" class="block text-primary-custom hover:text-sky-600 text-base font-medium">Grants</a>
                         </div>
                     </div>
                     <a href="blog.html" class="block text-primary-custom hover:text-sky-600 text-lg font-medium">Blog</a>
@@ -67,6 +386,7 @@
         </div>
     </nav>
 
+    <!-- ─── Hero ────────────────────────────────── -->
     <section class="relative py-28 pt-36 gradient-primary">
         <div class="absolute inset-0 overflow-hidden">
             <img loading="lazy" src="images/banner.jpg" alt="Research Background" class="w-full h-full object-cover opacity-20">
@@ -82,99 +402,49 @@
 
     <div class="diagonal-divider bg-white"></div>
 
-    <section class="py-16 bg-white section-fade">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Selected Publications</h2>
+    <!-- ─── All Publications Archive ────────────── -->
+    <section id="all-publications" class="py-12 bg-white section-fade">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-2xl font-bold mb-6 font-playfair">All Publications</h2>
 
-            <div class="space-y-6 max-w-4xl mx-auto">
-                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500">
-                    <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-                        <div class="md:w-3/4">
-                            <h3 class="text-xl font-bold mb-2">Glacier and glacial lake dynamics from 1990 to 2024 and their impact on flood hazard in the central Nepal Himalaya</h3>
-                            <p class="text-sm text-gray-500 mb-3">Journal of Mountain Science (2025), Volume 22, pages 1926-1943</p>
-                            <div class="flex gap-2 items-center">
-                                <span class="text-sm text-gray-500 mr-2">Authors:</span>
-                                <span class="text-sm text-gray-700">Banerjee, A., Meadows, E. M., Yadav, N., Safarov, M., <span class="text-blue-600 font-medium">Godara, A.</span>, Kelly, L. K., Kang, S.</span>
-                            </div>
-                        </div>
-                        <div class="md:w-1/4 flex justify-center md:justify-end">
-                            <a href="https://link.springer.com/article/10.1007/s11629-024-9298-0" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow transition-colors">
-                                <span class="mr-2">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </span>
-                                View Paper
-                            </a>
-                        </div>
-                    </div>
-                </article>
+            <!-- Toolbar: search + filters -->
+            <div class="pub-toolbar">
+                <div class="pub-search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="pub-search" placeholder="Search by title, author, keyword…" autocomplete="off">
+                </div>
 
-                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500">
-                    <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-                        <div class="md:w-3/4">
-                            <h3 class="text-xl font-bold mb-2">Remote sensing the evolution of debris-covered Panchi Nala-A glacier, India (1971-2021) from satellites and Unmanned Aerial Vehicles</h3>
-                            <p class="text-sm text-gray-500 mb-3">Regional Environmental Change (2023), Volume 23, article number 103</p>
-                            <div class="flex gap-2 items-center">
-                                <span class="text-sm text-gray-500 mr-2">Authors:</span>
-                                <span class="text-sm text-gray-700">Garg, S., Navinkumar, P. J., <span class="text-blue-600 font-medium">Godara, A.</span>, Sahu, R., Singh, D. K., Ramsankaran, R.</span>
-                            </div>
-                        </div>
-                        <div class="md:w-1/4 flex justify-center md:justify-end">
-                            <a href="https://link.springer.com/article/10.1007/s10113-023-02096-1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow transition-colors">
-                                <span class="mr-2">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </span>
-                                View Paper
-                            </a>
-                        </div>
+                <div class="pub-filter-row">
+                    <span class="pub-filter-label">Type</span>
+                    <div id="type-filters" class="pub-filter-row">
+                        <!-- Rendered by JS -->
                     </div>
-                </article>
+                </div>
+
+                <div class="pub-filter-row">
+                    <span class="pub-filter-label">Year</span>
+                    <div id="year-filters" class="pub-filter-row">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <div id="pub-count" class="mt-1"></div>
             </div>
 
-            <div class="text-center mt-12">
-                <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg">
-                    View All Publications on Google Scholar <span class="ml-2">&rarr;</span>
-                </a>
+            <!-- Archive list -->
+            <div id="archive-publications">
+                <!-- Rendered by JS -->
+            </div>
+
+            <div id="no-results">
+                <i class="fas fa-search text-3xl text-gray-300 mb-3 block"></i>
+                No publications match your current filters.
             </div>
         </div>
     </section>
 
-    <section id="conferences" class="py-16 bg-gray-50 section-fade">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 font-playfair">Conference Presentations</h2>
-
-            <div class="space-y-6 max-w-4xl mx-auto">
-                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500">
-                    <h3 class="text-xl font-bold mb-2">Enhancing Debris Thickness Estimations on Glaciers through Improved Glacier Surface Temperature Estimates obtained using Remote Sensing data: An Illustration on the Panchinala Glaciers in Western Himalayas</h3>
-                    <p class="text-sm text-gray-500 mb-3"><span class="text-blue-600 font-medium">Ajay Godara</span>, Sushil Kumar Singh, I M Bahuguna, RAAJ Ramsankaran (2024)</p>
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-sm text-gray-600">
-                        <span>27th Alpine Glaciology Meeting (AGM)</span>
-                        <span>Grenoble, France | 14-15 March 2024</span>
-                    </div>
-                </article>
-
-                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500">
-                    <h3 class="text-xl font-bold mb-2">UAV based High Resolution Monitoring of Seasonal Geodetic Mass Balance and Ice Cliff Dynamics Near Schirmacher Oasis, East Antarctica: Insights from 43rd Indian Scientific Expedition to Antarctica</h3>
-                    <p class="text-sm text-gray-500 mb-3"><span class="text-blue-600 font-medium">Ajay Godara</span>, Navinkumar PJ, Sayantan Mandal, Tirthankar Ghosh, RAAJ Ramsankaran (2024)</p>
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-sm text-gray-600">
-                        <span>International Symposium on Geomatics, Remote Sensing, and Climate Change in the Arctic, Antarctica, and High Mountain Asia</span>
-                        <span>Shanghai, China | 25-27 September 2024</span>
-                    </div>
-                </article>
-
-                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-500">
-                    <h3 class="text-xl font-bold mb-2">UAV based Annual Geodetic Mass Balance Estimation - A Pilot Study in Panchinala-A Glacier, Western Himalayas, India</h3>
-                    <p class="text-sm text-gray-500 mb-3">Navinkumar Perumal Jayaraman, <span class="text-blue-600 font-medium">Ajay Godara</span>, Sayantan Mandal, RAAJ Ramsankaran (2024)</p>
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-sm text-gray-600">
-                        <span>Asia Oceania Geoscience Society (AOGS)</span>
-                        <span>Pyeongchang, Gangwon-do, South Korea | 23-28 June 2024</span>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
+    <!-- ─── Footer ──────────────────────────────── -->
     <div class="wave-top"></div>
-
     <footer class="gradient-primary text-white py-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent"></div>
         <div class="absolute top-0 left-0 w-full h-full opacity-15">
@@ -200,88 +470,173 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <!-- ─── Inline Publication Data ───────────── -->
     <script>
+      window.PUBLICATIONS_DATA = [
+        {
+          id: "godara2026uav_antarctica",
+          title: "UAV-based Ultra High-Resolution Geodetic Mass Change Estimations near Schirmacher Oasis in East Antarctica: Insights from Sub-seasonal, Seasonal and Annual Timescales",
+          authors: ["Godara, A.", "Navinkumar, P. J.", "Ghosh, T.", "Ramsankaran, R."],
+          venue: "The Cryosphere (EGUsphere preprint)",
+          year: 2026,
+          type: "journal",
+          status: "under-review",
+          featured: true,
+          topics: ["UAV", "geodetic mass change", "Antarctica", "Schirmacher Oasis", "ice sheet", "surface elevation change"],
+          links: {
+            paper: "https://egusphere.copernicus.org/preprints/2026/egusphere-2025-5601/",
+            doi: "https://doi.org/10.5194/egusphere-2025-5601"
+          }
+        },
+        {
+          id: "godara2025glacier",
+          title: "Glacier and glacial lake dynamics from 1990 to 2024 and their impact on flood hazard in the central Nepal Himalaya",
+          authors: ["Banerjee, A.", "Meadows, E. M.", "Yadav, N.", "Safarov, M.", "Godara, A.", "Kelly, L. K.", "Kang, S."],
+          venue: "Journal of Mountain Science",
+          year: 2025,
+          volume: "22",
+          pages: "1926\u20131943",
+          type: "journal",
+          status: "published",
+          featured: true,
+          topics: ["glacier dynamics", "glacial lakes", "flood hazard", "Nepal Himalaya", "remote sensing"],
+          links: {
+            paper: "https://link.springer.com/article/10.1007/s11629-024-9298-0",
+            doi: "https://doi.org/10.1007/s11629-024-9298-0"
+          }
+        },
+        {
+          id: "garg2023remote",
+          title: "Remote sensing the evolution of debris-covered Panchi Nala-A glacier, India (1971\u20132021) from satellites and Unmanned Aerial Vehicles",
+          authors: ["Garg, S.", "Navinkumar, P. J.", "Godara, A.", "Sahu, R.", "Singh, D. K.", "Ramsankaran, R."],
+          venue: "Regional Environmental Change",
+          year: 2023,
+          volume: "23",
+          articleNumber: "103",
+          type: "journal",
+          status: "published",
+          featured: true,
+          topics: ["debris-covered glacier", "remote sensing", "UAV", "Panchi Nala", "Western Himalaya"],
+          links: {
+            paper: "https://link.springer.com/article/10.1007/s10113-023-02096-1",
+            doi: "https://doi.org/10.1007/s10113-023-02096-1"
+          }
+        },
+        {
+          id: "godara2024agm",
+          title: "Enhancing Debris Thickness Estimations on Glaciers through Improved Glacier Surface Temperature Estimates obtained using Remote Sensing data: An Illustration on the Panchinala Glaciers in Western Himalayas",
+          authors: ["Godara, A.", "Singh, S. K.", "Bahuguna, I. M.", "Ramsankaran, R."],
+          venue: "27th Alpine Glaciology Meeting (AGM)",
+          year: 2024,
+          location: "Grenoble, France",
+          date: "14\u201315 March 2024",
+          type: "conference",
+          status: "presented",
+          topics: ["debris thickness", "surface temperature", "remote sensing", "Western Himalaya"],
+          links: {}
+        },
+        {
+          id: "godara2024shanghai",
+          title: "UAV based High Resolution Monitoring of Seasonal Geodetic Mass Balance and Ice Cliff Dynamics Near Schirmacher Oasis, East Antarctica: Insights from 43rd Indian Scientific Expedition to Antarctica",
+          authors: ["Godara, A.", "Navinkumar, P. J.", "Mandal, S.", "Ghosh, T.", "Ramsankaran, R."],
+          venue: "International Symposium on Geomatics, Remote Sensing, and Climate Change in the Arctic, Antarctica, and High Mountain Asia",
+          year: 2024,
+          location: "Shanghai, China",
+          date: "25\u201327 September 2024",
+          type: "conference",
+          status: "presented",
+          topics: ["UAV", "mass balance", "ice cliff", "Antarctica", "Schirmacher Oasis"],
+          links: {}
+        },
+        {
+          id: "godara2026egu",
+          title: "Quantifying Ablation Dynamics in the Debris-Covered Zone of Panchinala-A Glacier Using High-Resolution UAV Photogrammetry",
+          authors: ["Godara, A.", "Ramsankaran, R."],
+          venue: "EGU General Assembly 2026",
+          year: 2026,
+          type: "conference",
+          status: "presented",
+          topics: ["ablation dynamics", "debris-covered glacier", "UAV photogrammetry", "Panchinala glacier"],
+          links: {}
+        },
+        {
+          id: "godara2025ncps",
+          title: "Monitoring Geodetic Mass Balance through UAV based Ultra High-Resolution Topography Data Near Schirmacher Oasis, East Antarctica",
+          authors: ["Godara, A.", "Ramsankaran, R."],
+          venue: "National Conference on Polar Sciences 2025",
+          year: 2025,
+          type: "conference",
+          status: "presented",
+          topics: ["UAV", "geodetic mass balance", "topography", "Antarctica", "Schirmacher Oasis"],
+          links: {}
+        },
+        {
+          id: "mondal2023ncps",
+          title: "Role of UAV Remote Sensing in Glacier Health Monitoring at Panchinala-A",
+          authors: ["Mondal, S.", "Godara, A.", "Navinkumar, P. J.", "Ramsankaran, R."],
+          venue: "National Conference on Polar Sciences 2023",
+          year: 2023,
+          type: "conference",
+          status: "presented",
+          topics: ["UAV", "remote sensing", "glacier health", "Panchinala glacier"],
+          links: {}
+        },
+        {
+          id: "navinkumar2024aogs",
+          title: "UAV based Annual Geodetic Mass Balance Estimation \u2013 A Pilot Study in Panchinala-A Glacier, Western Himalayas, India",
+          authors: ["Navinkumar, P. J.", "Godara, A.", "Mandal, S.", "Ramsankaran, R."],
+          venue: "Asia Oceania Geoscience Society (AOGS)",
+          year: 2024,
+          location: "Pyeongchang, Gangwon-do, South Korea",
+          date: "23\u201328 June 2024",
+          type: "conference",
+          status: "presented",
+          topics: ["UAV", "geodetic mass balance", "Panchinala glacier", "Western Himalaya"],
+          links: {}
+        }
+      ];
+    </script>
+
+    <!-- ─── Scripts ─────────────────────────────── -->
+    <script src="js/publications.js"></script>
+    <script>
+        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
+        // Research dropdown (touch + mouse)
         function initResearchDropdown() {
             const navs = document.querySelectorAll('.nav-research');
-
             navs.forEach(nav => {
                 const trigger = nav.querySelector('.nav-research-trigger');
                 const menu = nav.querySelector('.nav-research-menu');
-
-                if (!trigger || !menu) {
-                    return;
-                }
-
+                if (!trigger || !menu) return;
                 let openByClick = false;
-
-                const openMenu = () => {
-                    menu.classList.remove('hidden');
-                    nav.classList.add('nav-open-click');
-                    openByClick = true;
-                };
-
-                const closeMenu = () => {
-                    menu.classList.add('hidden');
-                    nav.classList.remove('nav-open-click');
-                    openByClick = false;
-                };
-
+                const openMenu = () => { menu.classList.remove('hidden'); nav.classList.add('nav-open-click'); openByClick = true; };
+                const closeMenu = () => { menu.classList.add('hidden'); nav.classList.remove('nav-open-click'); openByClick = false; };
                 trigger.addEventListener('click', (event) => {
                     const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
                     const isSmallScreen = window.innerWidth < 1024;
-
                     if (isCoarsePointer || isSmallScreen) {
-                        if (!openByClick) {
-                            event.preventDefault();
-                            openMenu();
-                        } else {
-                            closeMenu();
-                        }
+                        if (!openByClick) { event.preventDefault(); openMenu(); } else { closeMenu(); }
                     }
                 });
-
-                document.addEventListener('click', (event) => {
-                    if (!openByClick) {
-                        return;
-                    }
-
-                    if (!nav.contains(event.target)) {
-                        closeMenu();
-                    }
-                });
-
-                window.addEventListener('resize', () => {
-                    if (openByClick && window.innerWidth >= 1024 && !window.matchMedia('(pointer: coarse)').matches) {
-                        closeMenu();
-                    }
-                });
+                document.addEventListener('click', (event) => { if (openByClick && !nav.contains(event.target)) closeMenu(); });
+                window.addEventListener('resize', () => { if (openByClick && window.innerWidth >= 1024 && !window.matchMedia('(pointer: coarse)').matches) closeMenu(); });
             });
         }
-
         initResearchDropdown();
 
+        // Scroll-triggered fade
         document.addEventListener('DOMContentLoaded', () => {
             const sectionFades = document.querySelectorAll('.section-fade');
-
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
             }, { threshold: 0.1 });
-
-            sectionFades.forEach(section => {
-                observer.observe(section);
-            });
+            sectionFades.forEach(section => observer.observe(section));
         });
     </script>
 
