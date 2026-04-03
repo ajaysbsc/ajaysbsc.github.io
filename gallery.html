@@ -12,7 +12,6 @@
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="js/gallery.js" as="script">
 
     <!-- Preconnect to External Domains -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -25,7 +24,7 @@
 
     <!-- Defer Non-Critical CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" media="print" onload="this.media='all'">
+    <!-- lightbox removed — using React gallery grid -->
 
     <!-- Font Loading with display:swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -36,7 +35,6 @@
     <!-- Noscript Fallback -->
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     </noscript>
 </head>
 <body class="bg-gray-50 text-slate-900 font-inter overflow-x-hidden">    <!-- Navigation -->
@@ -102,25 +100,18 @@
     </section>
 
     <!-- Diagonal Divider -->
-    <div class="diagonal-divider bg-white"></div>        <!-- Gallery Categories -->
-    <section class="py-16 bg-gradient-to-br from-white to-blue-50">
+    <div class="diagonal-divider bg-white"></div>        <!-- Gallery Categories (filter buttons rendered by React inside #gallery-grid) -->
+    <section class="py-16" style="background-color: #f0f7ff;">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-4 font-crimson text-slate-800">Expedition <span class="text-primary-custom">Categories</span></h2>
-            <p class="text-lg text-slate-600 text-center mb-12 max-w-2xl mx-auto">Explore our research expeditions across different regions and time periods</p>
-            <div id="gallery-controls" class="flex flex-col items-center gap-6 hidden">
-                <div id="gallery-filter-buttons" class="flex flex-wrap justify-center gap-4"></div>
-            </div>
+            <p class="text-lg text-slate-600 text-center mb-8 max-w-2xl mx-auto">Explore our research expeditions across different regions and time periods</p>
         </div>
     </section>
 
-    <!-- Gallery Grid -->
-    <section class="py-12 bg-gradient-to-br from-white to-blue-50">
+    <!-- Gallery Grid (React-powered) -->
+    <section class="py-12" style="background-color: #f0f7ff;">
         <div class="container mx-auto px-4">
-            <div id="gallery-empty-state" class="bg-white border border-blue-100 rounded-xl p-10 text-center shadow-sm hidden">
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">Gallery updates coming soon</h3>
-                <p class="text-gray-600 max-w-2xl mx-auto">Add new expedition photos to the gallery folders and regenerate the content manifest to see them here automatically.</p>
-            </div>
-            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            <div id="gallery-grid"></div>
         </div>
     </section>
 
@@ -149,12 +140,11 @@
         </div>
     </footer>
 
-        <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
-    <script type="module">
-        import { initGalleryPage } from './js/gallery.js';
-        initGalleryPage();
-    </script>
+        <!-- React + Framer Motion (CDN) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@11/dist/framer-motion.js"></script>
+    <script src="js/gallery-react.js"></script>
     <script>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
