@@ -8,35 +8,43 @@
       "images": [
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00054.jpg",
-          "filename": "DSC00054.jpg"
+          "filename": "DSC00054.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC00054.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00105.jpg",
-          "filename": "DSC00105.jpg"
+          "filename": "DSC00105.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC00105.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00518.jpg",
-          "filename": "DSC00518.jpg"
+          "filename": "DSC00518.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC00518.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC00573.jpg",
-          "filename": "DSC00573.jpg"
+          "filename": "DSC00573.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC00573.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC06242.jpg",
-          "filename": "DSC06242.jpg"
+          "filename": "DSC06242.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC06242.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC07691.jpg",
-          "filename": "DSC07691.jpg"
+          "filename": "DSC07691.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC07691.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC07918.jpg",
-          "filename": "DSC07918.jpg"
+          "filename": "DSC07918.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC07918.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 43rd 2023/DSC08759.jpg",
-          "filename": "DSC08759.jpg"
+          "filename": "DSC08759.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 43rd 2023/DSC08759.jpg"
         }
       ]
     },
@@ -48,59 +56,73 @@
       "images": [
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/_DSC5136.jpg",
-          "filename": "_DSC5136.jpg"
+          "filename": "_DSC5136.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/_DSC5136.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/_DSC5343.jpg",
-          "filename": "_DSC5343.jpg"
+          "filename": "_DSC5343.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/_DSC5343.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/_DSC6570.jpg",
-          "filename": "_DSC6570.jpg"
+          "filename": "_DSC6570.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/_DSC6570.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/_DSC6650.jpg",
-          "filename": "_DSC6650.jpg"
+          "filename": "_DSC6650.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/_DSC6650.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/_DSC8148-HDR.jpg",
-          "filename": "_DSC8148-HDR.jpg"
+          "filename": "_DSC8148-HDR.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/_DSC8148-HDR.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/_DSC8620.jpg",
-          "filename": "_DSC8620.jpg"
+          "filename": "_DSC8620.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/_DSC8620.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSC00240.jpg",
-          "filename": "DSC00240.jpg"
+          "filename": "DSC00240.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSC00240.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSC00355.jpg",
-          "filename": "DSC00355.jpg"
+          "filename": "DSC00355.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSC00355.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSC03426.jpg",
-          "filename": "DSC03426.jpg"
+          "filename": "DSC03426.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSC03426.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSC03792.jpg",
-          "filename": "DSC03792.jpg"
+          "filename": "DSC03792.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSC03792.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSC09290.jpg",
-          "filename": "DSC09290.jpg"
+          "filename": "DSC09290.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSC09290.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSC09675.jpg",
-          "filename": "DSC09675.jpg"
+          "filename": "DSC09675.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSC09675.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSCF3110.jpg",
-          "filename": "DSCF3110.jpg"
+          "filename": "DSCF3110.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSCF3110.jpg"
         },
         {
           "src": "images/gallery/fulls/Anatarctica 44th 2024/DSCF3796-Enhanced-NR.jpg",
-          "filename": "DSCF3796-Enhanced-NR.jpg"
+          "filename": "DSCF3796-Enhanced-NR.jpg",
+          "thumb": "images/gallery/thumbs/Anatarctica 44th 2024/DSCF3796-Enhanced-NR.jpg"
         }
       ]
     },
@@ -112,27 +134,33 @@
       "images": [
         {
           "src": "images/gallery/fulls/Drang Drung 2026/DSC00128.jpg",
-          "filename": "DSC00128.jpg"
+          "filename": "DSC00128.jpg",
+          "thumb": "images/gallery/thumbs/Drang Drung 2026/DSC00128.jpg"
         },
         {
           "src": "images/gallery/fulls/Drang Drung 2026/DSC00446.jpg",
-          "filename": "DSC00446.jpg"
+          "filename": "DSC00446.jpg",
+          "thumb": "images/gallery/thumbs/Drang Drung 2026/DSC00446.jpg"
         },
         {
           "src": "images/gallery/fulls/Drang Drung 2026/DSC00559.jpg",
-          "filename": "DSC00559.jpg"
+          "filename": "DSC00559.jpg",
+          "thumb": "images/gallery/thumbs/Drang Drung 2026/DSC00559.jpg"
         },
         {
           "src": "images/gallery/fulls/Drang Drung 2026/DSC00650.jpg",
-          "filename": "DSC00650.jpg"
+          "filename": "DSC00650.jpg",
+          "thumb": "images/gallery/thumbs/Drang Drung 2026/DSC00650.jpg"
         },
         {
           "src": "images/gallery/fulls/Drang Drung 2026/DSC00691.jpg",
-          "filename": "DSC00691.jpg"
+          "filename": "DSC00691.jpg",
+          "thumb": "images/gallery/thumbs/Drang Drung 2026/DSC00691.jpg"
         },
         {
           "src": "images/gallery/fulls/Drang Drung 2026/DSC00760.jpg",
-          "filename": "DSC00760.jpg"
+          "filename": "DSC00760.jpg",
+          "thumb": "images/gallery/thumbs/Drang Drung 2026/DSC00760.jpg"
         }
       ]
     },
@@ -144,43 +172,53 @@
       "images": [
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01145.jpg",
-          "filename": "DSC01145.jpg"
+          "filename": "DSC01145.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01145.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01158.jpg",
-          "filename": "DSC01158.jpg"
+          "filename": "DSC01158.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01158.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01212.jpg",
-          "filename": "DSC01212.jpg"
+          "filename": "DSC01212.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01212.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01217.jpg",
-          "filename": "DSC01217.jpg"
+          "filename": "DSC01217.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01217.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01267.jpg",
-          "filename": "DSC01267.jpg"
+          "filename": "DSC01267.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01267.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01330.jpg",
-          "filename": "DSC01330.jpg"
+          "filename": "DSC01330.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01330.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01399.jpg",
-          "filename": "DSC01399.jpg"
+          "filename": "DSC01399.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01399.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01420.jpg",
-          "filename": "DSC01420.jpg"
+          "filename": "DSC01420.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01420.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01516.jpg",
-          "filename": "DSC01516.jpg"
+          "filename": "DSC01516.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01516.jpg"
         },
         {
           "src": "images/gallery/fulls/Leh 2026/DSC01926.jpg",
-          "filename": "DSC01926.jpg"
+          "filename": "DSC01926.jpg",
+          "thumb": "images/gallery/thumbs/Leh 2026/DSC01926.jpg"
         }
       ]
     },
@@ -192,31 +230,38 @@
       "images": [
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221206_074208.jpg",
-          "filename": "IMG_20221206_074208.jpg"
+          "filename": "IMG_20221206_074208.jpg",
+          "thumb": "images/gallery/thumbs/Nepal Dec 2022/IMG_20221206_074208.jpg"
         },
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221206_102905.jpg",
-          "filename": "IMG_20221206_102905.jpg"
+          "filename": "IMG_20221206_102905.jpg",
+          "thumb": "images/gallery/thumbs/Nepal Dec 2022/IMG_20221206_102905.jpg"
         },
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221206_160804.jpg",
-          "filename": "IMG_20221206_160804.jpg"
+          "filename": "IMG_20221206_160804.jpg",
+          "thumb": "images/gallery/thumbs/Nepal Dec 2022/IMG_20221206_160804.jpg"
         },
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221207_070408.jpg",
-          "filename": "IMG_20221207_070408.jpg"
+          "filename": "IMG_20221207_070408.jpg",
+          "thumb": "images/gallery/thumbs/Nepal Dec 2022/IMG_20221207_070408.jpg"
         },
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221208_122357.jpg",
-          "filename": "IMG_20221208_122357.jpg"
+          "filename": "IMG_20221208_122357.jpg",
+          "thumb": "images/gallery/thumbs/Nepal Dec 2022/IMG_20221208_122357.jpg"
         },
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221211_111634.jpg",
-          "filename": "IMG_20221211_111634.jpg"
+          "filename": "IMG_20221211_111634.jpg",
+          "thumb": "images/gallery/thumbs/Nepal Dec 2022/IMG_20221211_111634.jpg"
         },
         {
           "src": "images/gallery/fulls/Nepal Dec 2022/IMG_20221213_110055.jpg",
-          "filename": "IMG_20221213_110055.jpg"
+          "filename": "IMG_20221213_110055.jpg",
+          "thumb": "images/gallery/thumbs/Nepal Dec 2022/IMG_20221213_110055.jpg"
         }
       ]
     },
@@ -228,31 +273,38 @@
       "images": [
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_1228.JPG",
-          "filename": "IMG_1228.JPG"
+          "filename": "IMG_1228.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2021/IMG_1228.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_1230.JPG",
-          "filename": "IMG_1230.JPG"
+          "filename": "IMG_1230.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2021/IMG_1230.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_1243.JPG",
-          "filename": "IMG_1243.JPG"
+          "filename": "IMG_1243.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2021/IMG_1243.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_1294.JPG",
-          "filename": "IMG_1294.JPG"
+          "filename": "IMG_1294.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2021/IMG_1294.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_1364.JPG",
-          "filename": "IMG_1364.JPG"
+          "filename": "IMG_1364.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2021/IMG_1364.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_3225.jpg",
-          "filename": "IMG_3225.jpg"
+          "filename": "IMG_3225.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2021/IMG_3225.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2021/IMG_3232_1.jpg",
-          "filename": "IMG_3232_1.jpg"
+          "filename": "IMG_3232_1.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2021/IMG_3232_1.jpg"
         }
       ]
     },
@@ -264,19 +316,23 @@
       "images": [
         {
           "src": "images/gallery/fulls/Panchinala 2022/_MG_3916.jpg",
-          "filename": "_MG_3916.jpg"
+          "filename": "_MG_3916.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2022/_MG_3916.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2022/_MG_4331.jpg",
-          "filename": "_MG_4331.jpg"
+          "filename": "_MG_4331.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2022/_MG_4331.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2022/IMG_2539.jpg",
-          "filename": "IMG_2539.jpg"
+          "filename": "IMG_2539.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2022/IMG_2539.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2022/IMG_3258.jpg",
-          "filename": "IMG_3258.jpg"
+          "filename": "IMG_3258.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2022/IMG_3258.jpg"
         }
       ]
     },
@@ -288,27 +344,33 @@
       "images": [
         {
           "src": "images/gallery/fulls/Panchinala 2023/20230709130240__MG_7085~2.JPG",
-          "filename": "20230709130240__MG_7085~2.JPG"
+          "filename": "20230709130240__MG_7085~2.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2023/20230709130240__MG_7085~2.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2023/20230709131512__MG_7133~2.JPG",
-          "filename": "20230709131512__MG_7133~2.JPG"
+          "filename": "20230709131512__MG_7133~2.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2023/20230709131512__MG_7133~2.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2023/20230709131517__MG_7134~2.JPG",
-          "filename": "20230709131517__MG_7134~2.JPG"
+          "filename": "20230709131517__MG_7134~2.JPG",
+          "thumb": "images/gallery/thumbs/Panchinala 2023/20230709131517__MG_7134~2.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2023/IMG_20230704_152837.jpg",
-          "filename": "IMG_20230704_152837.jpg"
+          "filename": "IMG_20230704_152837.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2023/IMG_20230704_152837.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2023/IMG_20230710_193245~2.jpg",
-          "filename": "IMG_20230710_193245~2.jpg"
+          "filename": "IMG_20230710_193245~2.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2023/IMG_20230710_193245~2.jpg"
         },
         {
           "src": "images/gallery/fulls/Panchinala 2023/IMG_20230711_170211.jpg",
-          "filename": "IMG_20230711_170211.jpg"
+          "filename": "IMG_20230711_170211.jpg",
+          "thumb": "images/gallery/thumbs/Panchinala 2023/IMG_20230711_170211.jpg"
         }
       ]
     }

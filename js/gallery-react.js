@@ -68,11 +68,12 @@
         transition: hoverTransition,
         viewport: { once: true, margin: "-60px" },
       },
-      // Image
+      // Image — grid uses the thumbnail; full-resolution src is kept for lightbox use
       h("img", {
-        src: image.src,
+        src: image.thumb || image.src,
         alt: image.caption,
         loading: "lazy",
+        decoding: "async",
         className:
           "w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.12]",
       }),
@@ -184,6 +185,7 @@
           (gallery.images || []).forEach(function (img) {
             items.push({
               src: img.src,
+              thumb: img.thumb,
               caption: gallery.name,
               tall: false,
               wide: false,

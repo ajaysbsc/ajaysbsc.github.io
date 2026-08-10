@@ -8,6 +8,7 @@ const projectRoot = path.resolve(__dirname, '..');
 
 const BLOG_DIR = path.join(projectRoot, 'blog-posts');
 const GALLERY_DIR = path.join(projectRoot, 'images', 'gallery', 'fulls');
+const THUMB_DIR = path.join(projectRoot, 'images', 'gallery', 'thumbs');
 const DATA_DIR = path.join(projectRoot, 'data');
 
 const BLOG_METADATA_REGEX = /<!--\s*BLOG_METADATA\s*(\{[\s\S]*?\})\s*-->/;
@@ -67,6 +68,17 @@ async function buildBlogData() {
   return sortByDateDesc(posts);
 }
 
+async function readThumbNames(galleryName) {
+  try {
+    return new Set(await fs.readdir(path.join(THUMB_DIR, galleryName)));
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return new Set();
+    }
+    throw error;
+  }
+}
+
 async function buildGalleryData() {
   try {
     const dirEntries = await fs.readdir(GALLERY_DIR, { withFileTypes: true });
@@ -77,13 +89,24 @@ async function buildGalleryData() {
     for (const gallery of galleries) {
       const dirPath = path.join(GALLERY_DIR, gallery.name);
       const files = await fs.readdir(dirPath);
+      const thumbs = await readThumbNames(gallery.name);
 
       const images = files
         .filter((file) => /\.(jpe?g|png|webp|gif)$/i.test(file))
-        .map((file) => ({
-          src: path.posix.join('images/gallery/fulls', gallery.name, file),
-          filename: file,
-        }))
+        .map((file) => {
+          const thumbName = `${file.replace(/\.[^.]+$/, '')}.jpg`;
+          const image = {
+            src: path.posix.join('images/gallery/fulls', gallery.name, file),
+            filename: file,
+          };
+
+          // Grids load `thumb`; the full-resolution `src` stays for lightbox use.
+          if (thumbs.has(thumbName)) {
+            image.thumb = path.posix.join('images/gallery/thumbs', gallery.name, thumbName);
+          }
+
+          return image;
+        })
         .sort((a, b) => a.filename.localeCompare(b.filename, undefined, { numeric: true }));
 
       records.push({
